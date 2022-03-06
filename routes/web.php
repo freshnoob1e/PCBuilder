@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/forum', function () {
+    return view('forum');
+})->name('forum');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/post/{post}', function ($post) {
+    return view('posts.show', [
+        'post' => $post
+    ]);
+})->name('post');
