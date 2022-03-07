@@ -64,11 +64,11 @@ class User extends Authenticatable
     }
 
     public function chatrooms() {
-        return $this->hasMany(Chatroom::class);
+        return $this->belongsToMany(Chatroom::class);
     }
 
     public function roles() {
-        return $this->hasMany(Role::class);
+        return $this->belongsToMany(Role::class);
     }
 
     public function post_reviews() {
