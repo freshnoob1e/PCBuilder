@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +32,19 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/post/{post}', [PostContro
 
 Route::middleware(['auth:sanctum', 'verified'])->post('/post/{post}/comment', [PostCommentController::class, 'store'])
         ->name('comment-store');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin/dashboard', function() {
+    return view('admin.dashboard');
+})->name('admin-dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin/users', [UserController::class, 'index'])
+    ->name('admin-users-index');
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin/user/{user}', [UserController::class, 'edit'])
+    ->name('admin-users-edit');
+Route::middleware(['auth:sanctum', 'verified'])->patch('/admin/user/{user}', [UserController::class, 'update'])
+    ->name('admin-users-update');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin/roles', [RoleController::class, 'index'])
+    ->name('admin-roles-index');
+Route::middleware(['auth:sanctum', 'verified'])->delete('/admin/{user}/roles', [RoleController::class, 'destroy'])
+    ->name('admin-users-role-destroy');

@@ -33,6 +33,7 @@
                             </div>
                         </div>
                     </div>
+                    {{-- Write comment --}}
                     <div class="py-3">
                         <div class="flex mx-3 items-start">
                             <div class="w-1/12"><img src="{{asset('storage/images/avatar/placeholder/1-1.png')}}" class="w-10 h-10 rounded-full overflow-hidden"></div>
@@ -43,6 +44,7 @@
                             </form>
                         </div>
                     </div>
+                    {{-- Show post's comments --}}
                     <div class="py-3 space-y-4">
                         @if (!$post->comments->first())
                         <div class="text-center mx-auto text-gray-600">
