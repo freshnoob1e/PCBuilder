@@ -45,7 +45,7 @@
                                         {{$role->description}}
                                     </td>
                                     <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
-                                        0
+                                        {{$role->users->count()}}
                                     </td>
                                 </tr>
                                 @php

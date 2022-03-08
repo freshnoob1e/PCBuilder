@@ -6,15 +6,38 @@
     </x-slot>
 
     <div class="py-12">
+        <div class="max-w-5xl space-x-5 flex mx-auto items-start mb-6">
+            <div class="w-8/12 flex flex-col space-y-6 mx-auto">
+                <a href="{{route('forum')}}" class="underline">< Back to forum</a>
+            </div>
+        </div>
         <div class="max-w-5xl space-x-5 flex mx-auto items-start">
             <div class="w-8/12 flex flex-col space-y-6 mx-auto">
                 <div class="bg-white border shadow rounded-xl pt-3 overflow-hidden">
                     <div class="flex mx-3 relative">
-                        <div><img src="{{asset('storage/images/avatar/placeholder/1-1.png')}}" class="overflow-hidden w-16 h-16 rounded-full"></div>
+                        @if(!is_null($post->user->profile_photo_path))
+                        <div><img src="/storage/{{$post->user->profile_photo_path}}" class="overflow-hidden w-16 h-16 rounded-full"></div>
+                        @else
+                        <div><img src="{{$post->user->profile_photo_url}}" class="overflow-hidden w-16 h-16 rounded-full"></div>
+                        @endif
                         <div class="text-xl ml-4">
                             <div class="font-semibold">{{$post->user->name}}</div>
                             <div class="text-neutral-500">{{$post->created_at->diffForHumans()}}</div>
                         </div>
+                        @if(Auth::user()->isAdmin || Auth::user()->isMod || Auth::user()->id == $post->user->id)
+                        <form action="{{route('post-destroy', $post->id)}}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button class="absolute right-0 hover:bg-neutral-100 transition duration-150" type="submit">
+                                <img src="{{ asset('storage/images/svg/delete.svg') }}" class="h-4 w-4 my-auto object-fill">
+                            </button>
+                        </form>
+                        @endif
+                        @if(Auth::user()->id == $post->user->id)
+                        <a class="absolute right-0 mr-8 hover:bg-neutral-100 transition duration-150" href="{{route('post-edit', $post->id)}}">
+                            <img src="{{ asset('storage/images/svg/edit.svg') }}" class="h-4 w-4 my-auto object-fill">
+                        </a>
+                        @endif
                     </div>
                     <div class="ml-24">
                         {{$post->content}}
@@ -36,10 +59,14 @@
                     {{-- Write comment --}}
                     <div class="py-3">
                         <div class="flex mx-3 items-start">
-                            <div class="w-1/12"><img src="{{asset('storage/images/avatar/placeholder/1-1.png')}}" class="w-10 h-10 rounded-full overflow-hidden"></div>
+                            @if(!is_null($post->user->profile_photo_path))
+                            <div class="my-auto"><img src="/storage/{{$post->user->profile_photo_path}}" class="overflow-hidden w-16 h-16 rounded-full"></div>
+                            @else
+                            <div class="my-auto"><img src="{{$post->user->profile_photo_url}}" class="overflow-hidden w-16 h-16 rounded-full"></div>
+                            @endif
                             <form class="mx-2 space-y-1 bg-gray-100 rounded-2xl p-1 w-11/12 overflow-hidden" action="{{route('comment-store', $post->id)}}" method="POST">
-                                @csrf
-                                <input type="text" class="w-full bg-gray-100 border-0 focus:ring-0" placeholder="Write a comment..."
+                            @csrf
+                                <input type="text" class="w-full bg-gray-100 border-0 focus:ring-0 my-auto" placeholder="Write a comment..."
                                         id="text" name="text">
                             </form>
                         </div>
@@ -53,7 +80,11 @@
                         @else
                         @foreach ($post->comments as $comment)
                         <div class="flex mx-3 items-start">
-                            <div class="w-1/12"><img src="{{asset('storage/images/avatar/placeholder/1-1.png')}}" class="w-10 h-10 rounded-full overflow-hidden"></div>
+                            @if(!is_null($comment->user->profile_photo_path))
+                            <div><img src="/storage/{{$comment->user->profile_photo_path}}" class="overflow-hidden w-16 h-16 rounded-full"></div>
+                            @else
+                            <div><img src="{{$comment->user->profile_photo_url}}" class="overflow-hidden w-16 h-16 rounded-full"></div>
+                            @endif
                             <div class="mx-2 space-y-1 bg-gray-100 rounded-2xl px-3 py-1 w-11/12 overflow-hidden">
                                 <div>
                                     <span class="font-semibold text-lg text-gray-800">{{$comment->user->name}}</span>

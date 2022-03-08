@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class RoleController extends Controller
 {
     public function index(){
-        $roles = Role::latest()->get();
+        $roles = Role::latest()->with('users')->get();
         return view('admin.roles.index', [
             'roles' => $roles
         ]);

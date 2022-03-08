@@ -59,6 +59,26 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function getIsAdminAttribute(){
+        $roles = $this->roles;
+        foreach($roles as $role){
+            if($role->name == 'Admin'){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function getIsModAttribute(){
+        $roles = $this->roles;
+        foreach($roles as $role){
+            if($role->name == 'Mod'){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function messages() {
         return $this->hasMany(Message::class);
     }

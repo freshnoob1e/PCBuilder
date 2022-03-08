@@ -23,12 +23,16 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/forum', [PostController::class, 'index'])
         ->name('forum');
-
 Route::middleware(['auth:sanctum', 'verified'])->post('/post', [PostController::class, 'store'])
         ->name('post-store');
-
+Route::middleware(['auth:sanctum', 'verified'])->get('/post/{post}/edit', [PostController::class, 'edit'])
+        ->name('post-edit');
+Route::middleware(['auth:sanctum', 'verified'])->patch('/post/{post}', [PostController::class, 'update'])
+        ->name('post-update');
 Route::middleware(['auth:sanctum', 'verified'])->get('/post/{post}', [PostController::class, 'show'])
         ->name('post');
+Route::middleware(['auth:sanctum', 'verified'])->delete('/post/{post}', [PostController::class, 'destroy'])
+        ->name('post-destroy');
 
 Route::middleware(['auth:sanctum', 'verified'])->post('/post/{post}/comment', [PostCommentController::class, 'store'])
         ->name('comment-store');

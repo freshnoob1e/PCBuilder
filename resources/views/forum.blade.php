@@ -11,7 +11,11 @@
                 {{-- Add post --}}
                 <div class="bg-white border shadow rounded-xl py-3 overflow-hidden">
                     <div class="flex mx-3 relative items-start">
-                        <div class="w-16 h-16"><img src="{{asset('storage/images/avatar/placeholder/1-1.png')}}" class="overflow-hidden rounded-full"></div>
+                        @if(!is_null(Auth::user()->profile_photo_path))
+                        <div><img src="/storage/{{Auth::user()->profile_photo_path}}" class="overflow-hidden w-16 h-16 rounded-full"></div>
+                        @else
+                        <div><img src="{{Auth::user()->profile_photo_url}}" class="overflow-hidden w-16 h-16 rounded-full"></div>
+                        @endif
                         <div class="text-xl ml-4 w-full">
                             <div class="font-semibold">{{auth()->user()->name}}</div>
                             <form action="{{route('post-store')}}" method="POST" class="w-full">
@@ -32,19 +36,36 @@
                         </div>
                     </div>
                 </div>
-
                 {{-- All posts --}}
                 @foreach ($posts as $post)
                     <div class="bg-white border shadow rounded-xl pt-3 overflow-hidden">
                         <div class="flex mx-3 relative">
-                            <div><img src="{{asset('storage/images/avatar/placeholder/1-1.png')}}" class="overflow-hidden w-16 h-16 rounded-full"></div>
+                            @if(!is_null($post->user->profile_photo_path))
+                            <div><img src="/storage/{{$post->user->profile_photo_path}}" class="overflow-hidden w-16 h-16 rounded-full"></div>
+                            @else
+                            <div><img src="{{$post->user->profile_photo_url}}" class="overflow-hidden w-16 h-16 rounded-full"></div>
+                            @endif
                             <div class="text-xl ml-4">
                                 <div class="font-semibold">{{$post->user->name}}</div>
                                 <div class="text-neutral-500">{{$post->created_at->diffForHumans()}}</div>
                             </div>
-                            <button class="absolute right-0" onclick="window.location='{{route('post', $post->id)}}'">
-                                <img src="{{ asset('storage/images/svg/open_in_new.svg') }}" class="h-4 w-4 my-auto">
-                            </button>
+                            <a class="absolute right-0 hover:bg-neutral-100 transition duration-150" href="{{route('post', $post->id)}}">
+                                <img src="{{ asset('storage/images/svg/open_in_new.svg') }}" class="h-4 w-4 my-auto object-fill">
+                            </a>
+                            @if(Auth::user()->isAdmin || Auth::user()->isMod || Auth::user()->id == $post->user->id)
+                            <form action="{{route('post-destroy', $post->id)}}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button class="absolute right-0 mr-8 hover:bg-neutral-100 transition duration-150" type="submit">
+                                    <img src="{{ asset('storage/images/svg/delete.svg') }}" class="h-4 w-4 my-auto object-fill">
+                                </button>
+                            </form>
+                            @endif
+                            @if(Auth::user()->id == $post->user->id)
+                            <a class="absolute right-0 mr-16 hover:bg-neutral-100 transition duration-150" href="{{route('post-edit', $post->id)}}">
+                                <img src="{{ asset('storage/images/svg/edit.svg') }}" class="h-4 w-4 my-auto object-fill">
+                            </a>
+                            @endif
                         </div>
                         <div class="ml-24">
                             {{$post->content}}
