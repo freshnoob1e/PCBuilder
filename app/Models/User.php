@@ -116,4 +116,8 @@ class User extends Authenticatable
     public function part_reviews() {
         return $this->hasMany(PartReview::class);
     }
+
+    public function post_likes() {
+        return $this->belongsToMany(Post::class);
+    }
 }

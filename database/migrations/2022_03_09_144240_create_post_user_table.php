@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Part;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,12 +15,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('part_reviews', function (Blueprint $table) {
+        Schema::create('post_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Part::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Post::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
-            $table->string('text');
-            $table->integer('rating');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('part_reviews');
+        Schema::dropIfExists('post_user');
     }
 };

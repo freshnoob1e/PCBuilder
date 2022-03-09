@@ -26,4 +26,8 @@ class Post extends Model
     public function reviews() {
         return $this->hasMany(PostReview::class);
     }
+
+    public function user_likes() {
+        return $this->belongsToMany(User::class);
+    }
 }
