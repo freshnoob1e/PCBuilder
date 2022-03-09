@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignIdFor(Brand::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
             $table->string('name');
-            $table->string('description');
+            $table->text('description');
             $table->string('image');
             $table->timestamps();
         });

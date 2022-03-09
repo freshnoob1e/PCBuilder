@@ -15,6 +15,9 @@
                     <x-jet-nav-link href="{{ route('forum') }}" :active="request()->routeIs('forum')">
                         {{ __('Forum') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('chat-index') }}" :active="request()->routeIs('chat-index')">
+                        {{ __('Chatrooms') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('admin-dashboard') }}" :active="request()->routeIs('admin-dashboard')">
                         {{ __('Admin') }}
                     </x-jet-nav-link>
@@ -143,6 +146,12 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('forum') }}" :active="request()->routeIs('forum')">
                 {{ __('Forum') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('chat-index') }}" :active="request()->routeIs('chat-index')">
+                {{ __('Chatrooms') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('admin-dashboard') }}" :active="request()->routeIs('admin-dashboard')">
+                {{ __('Admin') }}
             </x-jet-responsive-nav-link>
         </div>
 

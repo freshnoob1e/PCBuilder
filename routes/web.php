@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ChatroomController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
@@ -40,6 +42,15 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/post/{post}/comment', [P
     ->name('comment-store');
 Route::middleware(['auth:sanctum', 'verified'])->delete('/post/{post}/comment/{comment}', [PostCommentController::class, 'destroy'])
     ->name('comment-destroy');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/chats', [ChatroomController::class, 'index'])
+    ->name('chat-index');
+Route::middleware(['auth:sanctum', 'verified'])->get('/chat/{chatroom}', [ChatroomController::class, 'show'])
+    ->name('chat-show');
+Route::middleware(['auth:sanctum', 'verified'])->post('/chat/{user}', [ChatroomController::class, 'startChat'])
+    ->name('chat-start');
+Route::middleware(['auth:sanctum', 'verified'])->post('/chat/message/{chatroom}', [MessageController::class, 'store'])
+    ->name('message-store');
 
 Route::middleware(['auth:sanctum', 'verified', 'role:Admin'])->get('/admin/dashboard', function() {
     return view('admin.dashboard');

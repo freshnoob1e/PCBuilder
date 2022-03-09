@@ -19,6 +19,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Chatroom::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->text('text');
             $table->timestamps();
         });
     }

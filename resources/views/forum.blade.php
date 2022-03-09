@@ -46,7 +46,19 @@
                             <div><img src="{{$post->user->profile_photo_url}}" class="overflow-hidden w-16 h-16 rounded-full"></div>
                             @endif
                             <div class="text-xl ml-4">
-                                <div class="font-semibold">{{$post->user->name}}</div>
+                                <div class="font-semibold flex space-x-2">
+                                    <span class="my-auto">{{$post->user->name}}</span>
+                                    @if($post->user->id != Auth::user()->id)
+                                    <span class="my-auto">
+                                        <form action="{{route('chat-start', $post->user->id)}}" method="POST">
+                                            @csrf
+                                            <button type="submit">
+                                                <img src="{{ asset('storage/images/svg/chat.svg') }}" class="h-4 w-4 my-auto object-fill">
+                                            </button>
+                                        </form>
+                                    </span>
+                                    @endif
+                                </div>
                                 <div class="text-neutral-500">{{$post->created_at->diffForHumans()}}</div>
                             </div>
                             <a class="absolute right-0 hover:bg-neutral-100 transition duration-150" href="{{route('post', $post->id)}}">

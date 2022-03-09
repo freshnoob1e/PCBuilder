@@ -19,7 +19,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Part::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
-            $table->string('text');
+            $table->text('text');
             $table->integer('rating');
             $table->timestamps();
         });

@@ -10,7 +10,7 @@ class PostCommentController extends Controller
 {
     public function store(Post $post, Request $req){
         $req->validate([
-            'text' => ['required', 'string']
+            'text' => ['required', 'string', 'max:65000']
         ]);
         $user_id = auth()->user()->id;
         $post_id = $post->id;
