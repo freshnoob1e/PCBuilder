@@ -31,12 +31,12 @@ class CreateBrandForm extends Component
         $destPath = '/images/brands/'.$fileName;
         Storage::put($destPath, $image);
 
-        Brand::create([
+        $newBrand = Brand::create([
             'name' => $this->brandName,
             'image' => $destPath
         ]);
 
-        return redirect()->route('admin-brands-index');
+        return redirect()->route('admin-brands-show', $newBrand->id);
     }
 
     public function render()
