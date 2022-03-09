@@ -33,6 +33,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/post/{post}', [PostContro
     ->name('post');
 Route::middleware(['auth:sanctum', 'verified'])->delete('/post/{post}', [PostController::class, 'destroy'])
     ->name('post-destroy');
+Route::middleware(['auth:sanctum', 'verified'])->patch('/post/like/{post}', [PostController::class, 'like'])
+    ->name('post-like');
 
 Route::middleware(['auth:sanctum', 'verified'])->post('/post/{post}/comment', [PostCommentController::class, 'store'])
     ->name('comment-store');

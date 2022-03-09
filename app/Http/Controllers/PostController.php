@@ -4,11 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class PostController extends Controller
 {
     public function index(){
-        $posts = Post::latest()->with(['user'])->get();
+        $user_id = Auth::user()->id;
+        $posts = Post::latest()->with(['user', 'user_likes'])->get();
+
+        foreach ($posts as $post) {
+            $post->liked = false;
+            foreach ($post->user_likes as $likeUser) {
+                if($likeUser->id == $user_id){
+                    $post->liked = true;
+                    break;
+                }
+            }
+        }
+
         return view('forum', [
             'posts' => $posts
         ]);
@@ -52,10 +66,10 @@ class PostController extends Controller
     }
 
     public function show(Post $post){
-        $post = $post->load(['user', 'comments.user', 'reviews.rating']);
+        $post = $post->load(['user', 'comments.user', 'user_likes']);
         $user = auth()->user();
         $isPostOwner = false;
-        if($user->id == $post->id){
+        if($user->id == $post->user->id){
             $isPostOwner = true;
         }
         $roles = $user->roles;
@@ -68,11 +82,19 @@ class PostController extends Controller
                 $isMod = true;
             }
         }
+        $postLiked = false;
+        foreach($post->user_likes as $likeUser){
+            if($likeUser->id == $user->id){
+                $postLiked = true;
+                break;
+            }
+        }
         return view('posts.show', [
             'post' => $post,
             'isPostOwner' => $isPostOwner,
             'isAdmin' => $isAdmin,
-            'isMod' => $isMod
+            'isMod' => $isMod,
+            'postLiked' => $postLiked
         ]);
     }
 
@@ -86,5 +108,11 @@ class PostController extends Controller
         }
         $post->delete();
         return redirect()->route('forum');
+    }
+
+    public function like(Post $post){
+        $user_id = Auth::user()->id;
+        $post->user_likes()->toggle($user_id);
+        return Redirect::back();
     }
 }

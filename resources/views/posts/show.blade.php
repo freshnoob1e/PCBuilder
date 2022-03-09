@@ -43,12 +43,22 @@
                         {{$post->content}}
                     </div>
                     <div class="mt-2 grid grid-cols-2 w-full border-b-gray-100 border-b">
-                        <div class="text-center font-semibold text-neutral-500 border-r cursor-pointer hover:bg-neutral-50 hover:text-neutral-800 transition">
-                            <div class="flex mx-auto justify-center space-x-2">
-                                <img src="{{ asset('storage/images/svg/like.svg') }}" class="h-4 w-4 my-auto">
-                                <div class="my-auto">Like</div>
-                            </div>
-                        </div>
+                        <form action="{{route('post-like', $post->id)}}" method="POST"
+                            class="text-center font-semibold text-neutral-500 border-r cursor-pointer hover:bg-neutral-50 hover:text-neutral-800 transition">
+                        @csrf
+                        @method('patch')
+                        <button type="submit" class="flex mx-auto justify-center space-x-2">
+                            <img src="{{ asset('storage/images/svg/like.svg') }}" class="h-4 w-4 my-auto">
+                            @if($postLiked)
+                            <div class="my-auto">Unlike</div>
+                            @else
+                            <div class="my-auto">Like</div>
+                            @endif
+                            @if($post->user_likes->count() > 0)
+                            <div class="my-auto">({{$post->user_likes->count()}} Likes)</div>
+                            @endif
+                        </button>
+                    </form>
                         <div class="text-center font-semibold text-neutral-500 border-l cursor-pointer hover:bg-neutral-50 hover:text-neutral-800 transition">
                             <div class="flex mx-auto justify-center space-x-2">
                                 <img src="{{ asset('storage/images/svg/comment.svg') }}" class="h-4 w-4 my-auto">
