@@ -8,20 +8,20 @@ use Illuminate\Http\Request;
 class BrandController extends Controller
 {
     public function index(){
-        $brands = Brand::latest();
-        return view('brands.index', [
+        $brands = Brand::latest()->with('parts')->get();
+        return view('admin.brands.index', [
             'brands' => $brands
         ]);
     }
 
     public function show(Brand $brand){
-        return view('brands.show', [
+        return view('admin.brands.show', [
             'brand' => $brand
         ]);
     }
 
     public function create(){
-        return view('brands.create');
+        return view('admin.brands.create');
     }
 
     public function store(Request $req){
@@ -38,7 +38,7 @@ class BrandController extends Controller
             'name' => $req->name,
             'image' => $fileURL
         ]);
-        return redirect()->route('brands-show', $newBrand->id);
+        return redirect()->route('admin-brands-show', $newBrand->id);
     }
 
     public function edit(Brand $brand){
@@ -68,11 +68,11 @@ class BrandController extends Controller
             ]);
         }
 
-        return redirect()->route('brands-show', $brand->id);
+        return redirect()->route('admin-brands-show', $brand->id);
     }
 
     public function destroy(Brand $brand){
         $brand->delete();
-        return redirect()->route('brands-index');
+        return redirect()->route('admin-brands-index');
     }
 }

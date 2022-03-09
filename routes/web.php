@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ChatroomController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\PartController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
@@ -19,51 +22,108 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// All
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/forum', [PostController::class, 'index'])
-    ->name('forum');
-Route::middleware(['auth:sanctum', 'verified'])->post('/post', [PostController::class, 'store'])
-    ->name('post-store');
-Route::middleware(['auth:sanctum', 'verified'])->get('/post/{post}/edit', [PostController::class, 'edit'])
-    ->name('post-edit');
-Route::middleware(['auth:sanctum', 'verified'])->patch('/post/{post}', [PostController::class, 'update'])
-    ->name('post-update');
-Route::middleware(['auth:sanctum', 'verified'])->get('/post/{post}', [PostController::class, 'show'])
-    ->name('post');
-Route::middleware(['auth:sanctum', 'verified'])->delete('/post/{post}', [PostController::class, 'destroy'])
-    ->name('post-destroy');
-Route::middleware(['auth:sanctum', 'verified'])->patch('/post/like/{post}', [PostController::class, 'like'])
-    ->name('post-like');
+// Authenticated only
+Route::middleware(['auth:sanctum', 'verified'])->group(function() {
+    Route::controller(PostController::class)->group(function() {
+        Route::get('/forum', 'index')
+            ->name('forum');
+        Route::post('/post', 'store')
+            ->name('post-store');
+        Route::get('/post/{post}/edit', 'edit')
+            ->name('post-edit');
+        Route::patch('/post/{post}', 'update')
+            ->name('post-update');
+        Route::get('/post/{post}', 'show')
+            ->name('post');
+        Route::delete('/post/{post}', 'destroy')
+            ->name('post-destroy');
+        Route::patch('/post/like/{post}', 'like')
+            ->name('post-like');
+    });
 
-Route::middleware(['auth:sanctum', 'verified'])->post('/post/{post}/comment', [PostCommentController::class, 'store'])
-    ->name('comment-store');
-Route::middleware(['auth:sanctum', 'verified'])->delete('/post/{post}/comment/{comment}', [PostCommentController::class, 'destroy'])
-    ->name('comment-destroy');
+    Route::controller(PostCommentController::class)->group(function() {
+        Route::post('/post/{post}/comment', 'store')
+            ->name('comment-store');
+        Route::delete('/post/{post}/comment/{comment}', 'destroy')
+            ->name('comment-destroy');
+    });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/chats', [ChatroomController::class, 'index'])
-    ->name('chat-index');
-Route::middleware(['auth:sanctum', 'verified'])->get('/chat/{chatroom}', [ChatroomController::class, 'show'])
-    ->name('chat-show');
-Route::middleware(['auth:sanctum', 'verified'])->post('/chat/{user}', [ChatroomController::class, 'startChat'])
-    ->name('chat-start');
-Route::middleware(['auth:sanctum', 'verified'])->post('/chat/message/{chatroom}', [MessageController::class, 'store'])
-    ->name('message-store');
+    Route::controller(ChatroomController::class)->group(function() {
+        Route::get('/chats', 'index')
+            ->name('chat-index');
+        Route::get('/chat/{chatroom}', 'show')
+            ->name('chat-show');
+        Route::post('/chat/{user}', 'startChat')
+            ->name('chat-start');
+    });
 
-Route::middleware(['auth:sanctum', 'verified', 'role:Admin'])->get('/admin/dashboard', function() {
-    return view('admin.dashboard');
-})->name('admin-dashboard');
+    Route::post('/chat/message/{chatroom}', [MessageController::class, 'store'])
+        ->name('message-store');
+});
 
-Route::middleware(['auth:sanctum', 'verified', 'role:Admin'])->get('/admin/users', [UserController::class, 'index'])
-    ->name('admin-users-index');
-Route::middleware(['auth:sanctum', 'verified', 'role:Admin'])->get('/admin/user/{user}', [UserController::class, 'edit'])
-    ->name('admin-users-edit');
-Route::middleware(['auth:sanctum', 'verified', 'role:Admin'])->patch('/admin/user/{user}', [UserController::class, 'update'])
-    ->name('admin-users-update');
+// Admin only
+Route::middleware(['auth:sanctum', 'verified', 'role:Admin'])->group(function(){
+    Route::get('/admin/dashboard', function() {
+        return view('admin.dashboard');
+    })->name('admin-dashboard');
 
-Route::middleware(['auth:sanctum', 'verified', 'role:Admin'])->get('/admin/roles', [RoleController::class, 'index'])
-    ->name('admin-roles-index');
-Route::middleware(['auth:sanctum', 'verified', 'role:Admin'])->delete('/admin/{user}/roles', [RoleController::class, 'destroy'])
-    ->name('admin-users-role-destroy');
+    Route::controller(UserController::class)->group(function() {
+        Route::get('/admin/users', 'index')
+            ->name('admin-users-index');
+        Route::get('/admin/user/{user}', 'edit')
+            ->name('admin-users-edit');
+        Route::patch('/admin/user/{user}', 'update')
+            ->name('admin-users-update');
+    });
+
+    Route::controller(RoleController::class)->group(function() {
+        Route::get('/admin/roles', 'index')
+            ->name('admin-roles-index');
+        Route::delete('/admin/{user}/roles', 'destroy')
+            ->name('admin-users-role-destroy');
+    });
+
+    Route::controller(PartController::class)->group(function() {
+        Route::get('/admin/parts', 'index')
+            ->name('admin-parts-index');
+    });
+
+    Route::controller(BrandController::class)->group(function() {
+        Route::get('/admin/brands', 'index')
+            ->name('admin-brands-index');
+        Route::get('/admin/brand/create', 'create')
+            ->name('admin-brands-create');
+        Route::get('/admin/brand/edit/{brand}', 'edit')
+            ->name('admin-brands-edit');
+        Route::get('/admin/brand/{brand}', 'show')
+            ->name('admin-brands-show');
+        Route::post('/admin/brand', 'store')
+            ->name('admin-brands-store');
+        Route::patch('/admin/brand/{brand}', 'update')
+            ->name('admin-brands-update');
+        Route::delete('/admin/brand/{brand}', 'destroy')
+            ->name('admin-brands-destroy');
+    });
+
+    Route::controller(CategoryController::class)->group(function() {
+        Route::get('/admin/categories', 'index')
+            ->name('admin-categories-index');
+        Route::get('/admin/category/create', 'create')
+            ->name('admin-categories-create');
+        Route::get('/admin/category/edit/{category}', 'edit')
+            ->name('admin-categories-edit');
+        Route::get('/admin/category/{category}', 'show')
+            ->name('admin-categories-show');
+        Route::post('/admin/category', 'store')
+            ->name('admin-categories-store');
+        Route::patch('/admin/category/{category}', 'update')
+            ->name('admin-categories-update');
+        Route::delete('/admin/category/{category}', 'destroy')
+            ->name('admin-categories-destroy');
+    });
+});

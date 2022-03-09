@@ -12,7 +12,7 @@ class PartController extends Controller
 {
     public function index(){
         $parts = Part::latest()->with(['category', 'brand'])->get();
-        return view('parts.index', [
+        return view('admin.parts.index', [
             'parts' => $parts
         ]);
     }
@@ -20,7 +20,7 @@ class PartController extends Controller
     public function show(Part $part){
         $partSpec = $part->spec;
         $specs = json_decode($partSpec->properties);
-        return view('parts.show', [
+        return view('admin.parts.show', [
             'part' => $part->load(['category', 'brand', 'reviews']),
             'specs' => $specs
         ]);

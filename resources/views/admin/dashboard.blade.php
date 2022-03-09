@@ -11,7 +11,16 @@
                 Manage Users
             </a>
             <a class="bg-indigo-500 text-white font-semibold px-2 py-1 rounded-full" href="{{route('admin-roles-index')}}">
-                Roles list
+                Roles List
+            </a>
+            <a class="bg-indigo-500 text-white font-semibold px-2 py-1 rounded-full" href="{{route('admin-parts-index')}}">
+                Parts List
+            </a>
+            <a class="bg-indigo-500 text-white font-semibold px-2 py-1 rounded-full" href="{{route('admin-brands-index')}}">
+                Brands List
+            </a>
+            <a class="bg-indigo-500 text-white font-semibold px-2 py-1 rounded-full" href="{{route('admin-categories-index')}}">
+                Categories List
             </a>
         </div>
     </div>
