@@ -52,16 +52,37 @@ class PostController extends Controller
     }
 
     public function show(Post $post){
-        $post = $post->load(['user', 'comments', 'reviews.rating']);
+        $post = $post->load(['user', 'comments.user', 'reviews.rating']);
+        $user = auth()->user();
+        $isPostOwner = false;
+        if($user->id == $post->id){
+            $isPostOwner = true;
+        }
+        $roles = $user->roles;
+        $isAdmin = false;
+        $isMod = false;
+        foreach($roles as $role){
+            if($role->name == 'Admin'){
+                $isAdmin = true;
+            } else if($role->name == 'Mod'){
+                $isMod = true;
+            }
+        }
         return view('posts.show', [
-            'post' => $post
+            'post' => $post,
+            'isPostOwner' => $isPostOwner,
+            'isAdmin' => $isAdmin,
+            'isMod' => $isMod
         ]);
     }
 
     public function destroy(Post $post){
         $post = $post->load('user');
-        if(auth()->user()->id != $post->user->id){
-            abort(401);
+        $user = auth()->user();
+        if(!$user->isAdmin && !$user->isMod){
+            if($user->id != $post->user->id){
+                abort(401);
+            }
         }
         $post->delete();
         return redirect()->route('forum');

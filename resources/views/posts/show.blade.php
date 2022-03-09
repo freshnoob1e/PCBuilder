@@ -24,7 +24,7 @@
                             <div class="font-semibold">{{$post->user->name}}</div>
                             <div class="text-neutral-500">{{$post->created_at->diffForHumans()}}</div>
                         </div>
-                        @if(Auth::user()->isAdmin || Auth::user()->isMod || Auth::user()->id == $post->user->id)
+                        @if($isAdmin || $isMod || $isPostOwner)
                         <form action="{{route('post-destroy', $post->id)}}" method="POST">
                             @csrf
                             @method('delete')
@@ -33,7 +33,7 @@
                             </button>
                         </form>
                         @endif
-                        @if(Auth::user()->id == $post->user->id)
+                        @if($isPostOwner)
                         <a class="absolute right-0 mr-8 hover:bg-neutral-100 transition duration-150" href="{{route('post-edit', $post->id)}}">
                             <img src="{{ asset('storage/images/svg/edit.svg') }}" class="h-4 w-4 my-auto object-fill">
                         </a>
@@ -86,9 +86,18 @@
                             <div><img src="{{$comment->user->profile_photo_url}}" class="overflow-hidden w-16 h-16 rounded-full"></div>
                             @endif
                             <div class="mx-2 space-y-1 bg-gray-100 rounded-2xl px-3 py-1 w-11/12 overflow-hidden">
-                                <div>
+                                <div class="relative">
                                     <span class="font-semibold text-lg text-gray-800">{{$comment->user->name}}</span>
                                     <span class="ml-1 text-xs text-gray-500">{{$comment->created_at->diffForHumans()}}</span>
+                                    @if($isAdmin || $isMod || $isPostOwner || Auth::user()->id == $comment->user->id)
+                                    <form action="{{route('comment-destroy', [$post->id, $comment->id])}}" method="POST" class="absolute right-0 top-0 my-1">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="hover:bg-neutral-200 transition duration-150" type="submit">
+                                            <img src="{{ asset('storage/images/svg/delete.svg') }}" class="h-4 w-4 my-auto object-fill">
+                                        </button>
+                                    </form>
+                                    @endif
                                 </div>
                                 <div class="text-gray-700">{{$comment->text}}</div>
                             </div>

@@ -976,6 +976,10 @@ select {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -1045,14 +1049,14 @@ select {
 .mb-4 {
   margin-bottom: 1rem;
 }
+.mr-8 {
+  margin-right: 2rem;
+}
 .ml-24 {
   margin-left: 6rem;
 }
 .-mt-px {
   margin-top: -1px;
-}
-.mr-8 {
-  margin-right: 2rem;
 }
 .mr-16 {
   margin-right: 4rem;
@@ -1482,6 +1486,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(34 197 94 / var(--tw-bg-opacity));
 }
+.bg-red-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(127 29 29 / var(--tw-bg-opacity));
+}
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }
@@ -1889,13 +1897,17 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
+.hover\:bg-neutral-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+}
 .hover\:bg-neutral-50:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(250 250 250 / var(--tw-bg-opacity));
 }
-.hover\:bg-neutral-100:hover {
+.hover\:bg-neutral-200:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+  background-color: rgb(229 229 229 / var(--tw-bg-opacity));
 }
 .hover\:text-gray-500:hover {
   --tw-text-opacity: 1;

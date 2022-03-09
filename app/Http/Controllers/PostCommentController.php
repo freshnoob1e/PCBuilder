@@ -23,4 +23,16 @@ class PostCommentController extends Controller
 
         return redirect()->route('post', $post_id);
     }
+
+    public function destroy(Post $post, $comment){
+        $post = $post->load('user');
+        $user = auth()->user();
+        if(!$user->isAdmin && !$user->isMod){
+            if($user->id != $post->user->id){
+                abort(401);
+            }
+        }
+        $post->comments()->find($comment)->delete();
+        return redirect()->route('post', $post->id);
+    }
 }
