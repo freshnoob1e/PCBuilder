@@ -56,7 +56,7 @@
                                 <tr class="border-b border-gray-300 bg-gray-50">
                                 @endif
                                     <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
-                                        ye
+                                        <img src="{{asset('storage/'.$part->image)}}" class="w-48 h-48 object-cover">
                                     </td>
                                     <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
                                         <a href="{{ route('admin-parts-show', $part->id) }}" class="underline">{{$part->name}}</a>
@@ -82,11 +82,11 @@
                                             <li>
                                                 {{-- {{$i.'. '}} --}}
                                                 @if ($spec->datatype == 'string' || $spec->datatype == 'number')
-                                                    {{$spec->name}}: {{$spec->content}}
+                                                    {{ucfirst($spec->name)}}: {{$spec->content}}
                                                 @elseif ($spec->content)
-                                                    {{$spec->name}}: True
+                                                    {{ucfirst($spec->name)}}: True
                                                 @else
-                                                    {{$spec->name}}: False
+                                                    {{ucfirst($spec->name)}}: False
                                                 @endif
                                             </li>
                                         @endforeach

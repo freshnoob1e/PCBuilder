@@ -17,7 +17,7 @@
                     <div class="w-full flex justify-between">
                         <span class="text-xl font-semibold">Add Part</span>
                     </div>
-                    <livewire:create-part-form :categories="$categories" :brands="$brands" />
+                    <livewire:create-part-form :categories="$categories" :brands="$brands">
                 </div>
             </div>
         </div>
