@@ -65,7 +65,7 @@
                                             @endphp
                                             <li>
                                                 {{$i.'. '}}
-                                                {{$spec->name}} ({{$spec->datatype}})
+                                                {{ucfirst($spec->name)}} ({{ucfirst($spec->datatype)}})
                                             </li>
                                         @endforeach
                                         </ul>

@@ -41,39 +41,19 @@
                         </div>
                         <div class="my-3 py-3 border-t">
                             <div class="font-semibold text-xl">Specs</div>
+                            @foreach ($category->specs as $spec)
                             <div class="mt-4">
                                 <div class="text-lg">First spec</div>
                                 <div class="flex w-full">
                                     <input type="text" class="border-neutral-200 rounded-xl focus:ring-purple-500 w-1/2"
-                                             value="{{$category->specs[0]->name}}" disabled>
+                                             value="{{ucfirst($spec->name)}}" disabled>
                                     <select class="border-neutral-200 rounded-xl focus:ring-purple-500 w-1/3"
-                                            value="{{$category->specs[0]->datatype}}" disabled>
-                                        <option value="{{$category->specs[0]->datatype}}">{{ucfirst($category->specs[0]->datatype)}}</option>
+                                            value="{{$spec->datatype}}" disabled>
+                                        <option value="{{$spec->datatype}}">{{ucfirst($spec->datatype)}}</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="mt-4">
-                                <div class="text-lg">Second spec</div>
-                                <div class="flex w-full">
-                                    <input type="text" class="border-neutral-200 rounded-xl focus:ring-purple-500 w-1/2"
-                                             value="{{$category->specs[1]->name}}" disabled>
-                                    <select class="border-neutral-200 rounded-xl focus:ring-purple-500 w-1/3"
-                                            value="{{$category->specs[1]->datatype}}" disabled>
-                                        <option value="{{$category->specs[1]->datatype}}">{{ucfirst($category->specs[1]->datatype)}}</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <div class="text-lg">Third spec</div>
-                                <div class="flex w-full">
-                                    <input type="text" class="border-neutral-200 rounded-xl focus:ring-purple-500 w-1/2"
-                                             value="{{$category->specs[2]->name}}" disabled>
-                                    <select class="border-neutral-200 rounded-xl focus:ring-purple-500 w-1/3"
-                                            value="{{$category->specs[2]->datatype}}" disabled>
-                                        <option value="{{$category->specs[2]->datatype}}">{{ucfirst($category->specs[2]->datatype)}}</option>
-                                    </select>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
