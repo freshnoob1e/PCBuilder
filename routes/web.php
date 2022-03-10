@@ -91,6 +91,18 @@ Route::middleware(['auth:sanctum', 'verified', 'role:Admin'])->group(function(){
     Route::controller(PartController::class)->group(function() {
         Route::get('/admin/parts', 'index')
             ->name('admin-parts-index');
+        Route::get('/admin/part/create', 'create')
+            ->name('admin-parts-create');
+        Route::get('/admin/part/edit/{part}', 'edit')
+            ->name('admin-parts-edit');
+        Route::get('/admin/part/{part}', 'show')
+            ->name('admin-parts-show');
+        Route::post('/admin/part', 'store')
+            ->name('admin-parts-store');
+        Route::patch('/admin/part/{part}', 'update')
+            ->name('admin-parts-update');
+        Route::delete('/admin/part/{part}', 'destroy')
+            ->name('admin-parts-destroy');
     });
 
     Route::controller(BrandController::class)->group(function() {

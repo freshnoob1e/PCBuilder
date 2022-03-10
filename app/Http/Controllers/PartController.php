@@ -11,7 +11,10 @@ use Illuminate\Http\Request;
 class PartController extends Controller
 {
     public function index(){
-        $parts = Part::latest()->with(['category', 'brand'])->get();
+        $parts = Part::latest()->with(['category', 'brand', 'spec'])->get();
+        foreach ($parts as $part) {
+            $part->spec = json_decode($part->spec);
+        }
         return view('admin.parts.index', [
             'parts' => $parts
         ]);
@@ -29,7 +32,7 @@ class PartController extends Controller
     public function create(){
         $categories = Category::latest()->get();
         $brands = Brand::latest()->get();
-        return view('parts.create', [
+        return view('admin.parts.create', [
             'categories' => $categories,
             'brands' => $brands
         ]);

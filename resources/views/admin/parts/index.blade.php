@@ -14,12 +14,22 @@
         <div class="max-w-5xl space-x-5 flex mx-auto items-start">
             <div class="w-10/12 flex flex-col space-y-6 mx-auto">
                 <div class="bg-white border shadow rounded-xl p-3 overflow-hidden">
-                    <div class="text-xl font-semibold">Parts</div>
+                    <div class="w-full flex justify-between">
+                        <span class="text-xl font-semibold">Parts</span>
+                        <a href="{{route('admin-parts-create')}}"
+                            class="rounded-lg bg-indigo-500 font-semibold text-white px-3 py-1">Add</a>
+                    </div>
                     <div class="border rounded-lg mt-4">
                         <table class="w-full">
                             <thead class="border-b border-b-gray-400">
                                 <th>
-                                    Part name
+                                    Part Image
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Description
                                 </th>
                                 <th>
                                     Category
@@ -28,7 +38,10 @@
                                     Brand
                                 </th>
                                 <th>
-                                    Description
+                                    Specs
+                                </th>
+                                <th>
+                                    Action
                                 </th>
                             </thead>
                             <tbody>
@@ -43,16 +56,42 @@
                                 <tr class="border-b border-gray-300 bg-gray-50">
                                 @endif
                                     <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
-                                        {{$part->name}}
-                                    </td>
-                                    <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
-                                        {{$part->category->name}}
-                                    </td>
-                                    <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
-                                        {{$part->brand->name}}
+                                        <a href="{{ route('admin-parts-show', $part->id) }}" class="underline">{{$part->name}}</a>
                                     </td>
                                     <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
                                         {{$part->description}}
+                                    </td>
+                                    <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
+                                        <ul>
+                                        @php
+                                            $i=0;
+                                        @endphp
+                                        @foreach ($part->specs as $spec)
+                                            @php
+                                            $i++
+                                            @endphp
+                                            <li>
+                                                {{$i.'. '}}
+                                                {{$spec->name}} ({{$spec->datatype}})
+                                            </li>
+                                        @endforeach
+                                        </ul>
+                                    </td>
+                                    <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
+                                        {{$part->parts->count()}}
+                                    </td>
+                                    <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
+                                        <div class="space-y-2 my-1">
+                                            <a href="{{route('admin-parts-edit', $part->id)}}" class="rounded-lg bg-indigo-500 font-semibold text-white px-3 py-1">Edit</a>
+                                            <form action="{{ route('admin-parts-destroy', $part->id) }}" method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <button href="{{route('admin-parts-edit', $part->id)}}" class="rounded-lg bg-rose-600 font-semibold text-white px-3 py-1"
+                                                        type="submit">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                                 @php
@@ -61,7 +100,7 @@
                                 @endforeach
                                 @else
                                 <tr>
-                                    <td colspan="4" class="text-center font-semibold text-xl">
+                                    <td colspan="7" class="text-center font-semibold text-xl">
                                         No parts available...
                                     </td>
                                 </tr>
