@@ -79,24 +79,30 @@
         </div>
     </div>
     @if($specs)
+    @php
+        $i=1;
+    @endphp
     @foreach ($specs as $spec)
     <div class="flex-col flex my-1">
-        <label for="partDesc" class="font-lg font-semibold">{{$spec->name}}</label>
+        <label for="partSpec{{$i}}" class="font-lg font-semibold">{{ucfirst($spec->name)}}</label>
         @if($spec->datatype == 'string')
-        <input type="text" id="partDesc" name="partDesc" class="border-neutral-200 rounded-xl focus:ring-purple-500"
-                placeholder="Enter {{$spec->name}}..." wire:model="partDesc">
+        <input type="text" id="partSpec{{$i}}" name="partSpec{{$i}}" class="border-neutral-200 rounded-xl focus:ring-purple-500"
+                placeholder="Enter {{$spec->name}}..." wire:model="partSpecs.{{$i-1}}.content">
         @elseif ($spec->datatype == 'number')
-        <input type="number" id="partDesc" name="partDesc" class="border-neutral-200 rounded-xl focus:ring-purple-500"
-                placeholder="Enter {{$spec->name}}..." wire:model="partDesc">
+        <input type="number" id="partSpec{{$i}}" name="partSpec{{$i}}" class="border-neutral-200 rounded-xl focus:ring-purple-500"
+                placeholder="Enter {{$spec->name}}..." wire:model="partSpecs.{{$i-1}}.content">
         @else
-        <input type="checkbox" id="partDesc" name="partDesc" class="border-neutral-200 rounded-xl focus:ring-purple-500"
-                placeholder="Enter {{$spec->name}}..." wire:model="partDesc">
+        <input type="checkbox" id="partSpec{{$i}}" name="partSpec{{$i}}" class="border-neutral-200 rounded-xl focus:ring-purple-500"
+                placeholder="Enter {{$spec->name}}..." wire:model="partSpecs.{{$i-1}}.content">
         @endif
-        @error('partDesc')
+        @error('partSpecs.'.str($i-1).'.content')
         <div class="text-red-500">
             {{$message}}
         </div>
         @enderror
+        @php
+            $i++;
+        @endphp
     </div>
     @endforeach
     @else

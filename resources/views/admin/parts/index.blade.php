@@ -19,7 +19,7 @@
                         <a href="{{route('admin-parts-create')}}"
                             class="rounded-lg bg-indigo-500 font-semibold text-white px-3 py-1">Add</a>
                     </div>
-                    <div class="border rounded-lg mt-4">
+                    <div class="border rounded-lg mt-4 overflow-hidden">
                         <table class="w-full">
                             <thead class="border-b border-b-gray-400">
                                 <th>
@@ -56,29 +56,41 @@
                                 <tr class="border-b border-gray-300 bg-gray-50">
                                 @endif
                                     <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
+                                        ye
+                                    </td>
+                                    <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
                                         <a href="{{ route('admin-parts-show', $part->id) }}" class="underline">{{$part->name}}</a>
                                     </td>
                                     <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
                                         {{$part->description}}
                                     </td>
                                     <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
+                                        {{$part->category->name}}
+                                    </td>
+                                    <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
+                                        {{$part->brand->name}}
+                                    </td>
+                                    <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
                                         <ul>
                                         @php
                                             $i=0;
                                         @endphp
-                                        @foreach ($part->specs as $spec)
+                                        @foreach ($part->spec as $spec)
                                             @php
                                             $i++
                                             @endphp
                                             <li>
-                                                {{$i.'. '}}
-                                                {{$spec->name}} ({{$spec->datatype}})
+                                                {{-- {{$i.'. '}} --}}
+                                                @if ($spec->datatype == 'string' || $spec->datatype == 'number')
+                                                    {{$spec->name}}: {{$spec->content}}
+                                                @elseif ($spec->content)
+                                                    {{$spec->name}}: True
+                                                @else
+                                                    {{$spec->name}}: False
+                                                @endif
                                             </li>
                                         @endforeach
                                         </ul>
-                                    </td>
-                                    <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
-                                        {{$part->parts->count()}}
                                     </td>
                                     <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
                                         <div class="space-y-2 my-1">

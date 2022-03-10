@@ -13,7 +13,7 @@ class PartController extends Controller
     public function index(){
         $parts = Part::latest()->with(['category', 'brand', 'spec'])->get();
         foreach ($parts as $part) {
-            $part->spec = json_decode($part->spec);
+            $part->spec = json_decode($part->spec->properties);
         }
         return view('admin.parts.index', [
             'parts' => $parts
