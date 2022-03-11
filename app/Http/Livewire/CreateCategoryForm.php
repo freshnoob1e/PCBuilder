@@ -66,7 +66,6 @@ class CreateCategoryForm extends Component
 
     public function save(){
         $this->validate();
-        dd($this->catSpec);
 
         $newCat = Category::create([
             'name' => $this->catName,

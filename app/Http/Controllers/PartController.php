@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Part;
 use App\Models\PartSpec;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PartController extends Controller
 {
@@ -95,17 +96,18 @@ class PartController extends Controller
     }
 
     public function edit(Part $part){
+        $part = $part->load(['category.specs', 'brand', 'spec']);
         $partSpec = $part->spec;
         $specs = json_decode($partSpec->properties);
 
         $categories = Category::latest()->get();
         $brands = Brand::latest()->get();
 
-        return view('parts.edit', [
+        return view('admin.parts.edit', [
             'categories' => $categories,
             'brands' => $brands,
-            'specs' => $specs,
-            'part' => $part->load(['category', 'brand']),
+            'currentSpecs' => $specs,
+            'part' => $part,
         ]);
     }
 
@@ -169,7 +171,10 @@ class PartController extends Controller
     }
 
     public function destroy(Part $part){
+        if(Storage::exists($part->image)){
+            Storage::delete($part->image);
+        }
         $part->delete();
-        return redirect()->route('parts-index');
+        return redirect()->route('admin.parts-index');
     }
 }
