@@ -69,9 +69,6 @@ class EditCategoryForm extends Component
 
     public function save(){
         $this->validate();
-        dd($this->catSpec);
-
-        return;
 
         $this->category->update([
             'name' => $this->catName,
