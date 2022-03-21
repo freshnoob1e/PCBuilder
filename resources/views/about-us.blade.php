@@ -18,6 +18,5 @@
         {{-- aaaaaaaaaaaaa --}}
         <div class="text-center mx-auto font-bold text-9xl">About Us</div>
 
-        hheloeo
     </body>
 </html>
