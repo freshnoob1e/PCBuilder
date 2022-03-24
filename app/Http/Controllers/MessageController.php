@@ -2,35 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Chatroom;
-use App\Models\Message;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
+use SimpleXMLElement;
 
 class MessageController extends Controller
 {
-    public function store(Request $req){
+    public function store(Request $req, $sender_id, $target_id)
+    {
+        $req->validate([
+            'text' => ['required', 'string', 'max:2500'],
+        ]);
+        $messageDtoArr = [
+            'text' => $req->text,
+        ];
+        $messageDtoXml = new SimpleXMLElement('<message/>');
+        arrayToXml($messageDtoArr, $messageDtoXml);
 
-        // $user = Auth::user();
-        // $isMember = false;
-        // foreach($chatroom->users as $roomUser){
-        //     if($roomUser->id == $user->id){
-        //         $isMember = true;
-        //         break;
-        //     }
-        // }
-        // if(!$isMember){
-        //     abort(401);
-        // }
-        // $req->validate([
-        //     'text' => ['required', 'string', 'max:2500']
-        // ]);
+        $resposne = Http::post(env('CHAT_APP_URL') . 'message/' . $sender_id . '/' . $target_id, ['body' => $messageDtoXml])->body();
 
-        // Message::create([
-        //     'user_id' => $user->id,
-        //     'chatroom_id' => $chatroom->id,
-        //     'text' => $req->text
-        // ]);
-        // return redirect()->route('chat-show', $chatroom->id);
+        return redirect()->route('chat-show', $target_id);
     }
 }

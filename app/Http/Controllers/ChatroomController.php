@@ -34,7 +34,7 @@ class ChatroomController extends Controller
         $chatroomDtoXml = new SimpleXMLElement('<chatroom/>');
         arrayToXml($chatroomDtoArr, $chatroomDtoXml);
 
-        $chatroom = Http::post(env('CHAT_APP_URL') . 'chatroom', ['body' => $chatroomDtoXml])->body();
+        $response = Http::post(env('CHAT_APP_URL') . 'chatroom', ['body' => $chatroomDtoXml])->body();
 
         return redirect()->route('chat-show', $user->id);
     }
@@ -55,20 +55,4 @@ class ChatroomController extends Controller
             'chatroom' => $decodedChatroom,
         ]);
     }
-
-    // public function store(Request $req){
-    //     $user1 = Auth::user()->id;
-    //     $req->validate([
-    //         'user_id' => ['required', 'exists:users,id']
-    //     ]);
-    //     $user2 = $req->user_id;
-
-    //     $chatroom = Chatroom::create();
-    //     $chatroom->users()->toggle([$user1, $user2]);
-    //     return redirect()->route('chatrooms-show', $chatroom->id);
-    // }
-
-    // public function destroy(Chatroom $chatroom){
-    //     $chatroom->delete();
-    // }
 }

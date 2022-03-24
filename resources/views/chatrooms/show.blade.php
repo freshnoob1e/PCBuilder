@@ -19,6 +19,9 @@
                         @foreach ($chatroom['users'] as $user)
                         @if ($user['uid'] != Auth::user()->id)
                             {{$user['name']}}
+                            @php
+                                $target_id = $user['uid']
+                            @endphp
                         @endif
                         @endforeach
                     </div>
@@ -42,7 +45,7 @@
                             @endif
                         </div>
                         <div class="bg-gray-50 h-[10%] px-2 py-1 flex items-end">
-                            <form action="{{route('message-store', $chatroom['id'])}}" method="POST" class="w-full relative">
+                            <form action="{{route('message-store', [Auth::user()->id, $target_id])}}" method="POST" class="w-full relative">
                                 @csrf
                                 <input type="text" class="w-full border-neutral-200 rounded-lg shadow" placeholder="Write your message here..."
                                         id="text" name="text">
