@@ -23,6 +23,8 @@ class EditPartForm extends Component
     public $partDesc;
     public $partCat;
     public $partBrand;
+    public $partPrice;
+    public $partReq;
     public $partSpecs;
     // Cat sec
     public $specs;
@@ -35,6 +37,8 @@ class EditPartForm extends Component
         $this->partName = $this->part->name;
         $this->partDesc = $this->part->description;
         $this->partCat = $this->part->category->id;
+        $this->partPrice = $this->part->price;
+        $this->partReq = $this->part->required;
         $this->partBrand = $this->part->brand->id;
 
         if ($this->categories->first()) {
@@ -61,6 +65,8 @@ class EditPartForm extends Component
             'partDesc' => ['required', 'string', 'max:256'],
             'partCat' => ['required', 'exists:categories,id'],
             'partBrand' => ['required', 'exists:brands,id'],
+            'partPrice' => ['required', 'numeric'],
+            'partReq' => ['required', 'boolean'],
         ];
 
         $i = 0;
@@ -87,6 +93,10 @@ class EditPartForm extends Component
             'partDesc.required' => 'The part description field is required.',
             'partDesc.string' => 'The part description must be string.',
             'partDesc.max' => 'The part description cannot exceed 256 characters.',
+            'partPrice.required' => 'The part price field is required.',
+            'partPrice.numeric' => 'The part price field must be numbers.',
+            'partReq.required' => 'This field is required.',
+            'partPrice.boolean' => 'This field must be True or False.',
         ];
 
         $i = 0;
@@ -173,6 +183,8 @@ class EditPartForm extends Component
                 'name' => $this->partName,
                 'description' => $this->partDesc,
                 'image' => $destPath,
+                'price' => $this->partPrice,
+                'required' => $this->partReq,
             ]);
         } else {
             $this->part->update([
@@ -180,6 +192,8 @@ class EditPartForm extends Component
                 'brand_id' => $this->partBrand,
                 'name' => $this->partName,
                 'description' => $this->partDesc,
+                'price' => $this->partPrice,
+                'required' => $this->partReq,
             ]);
         }
 

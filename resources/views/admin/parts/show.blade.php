@@ -43,6 +43,21 @@
                             <input type="text" id="partDesc" name="partDesc" class="border-neutral-200 rounded-xl focus:ring-purple-500"
                                     placeholder="The part description..." value="{{ $part->description }}" disabled>
                         </div>
+                        <div class="flex-col flex my-1">
+                            <label for="partPrice" class="font-lg font-semibold">Part Price</label>
+                            <input type="text" id="partPrice" name="partPrice" class="border-neutral-200 rounded-xl focus:ring-purple-500"
+                                    placeholder="The part description..." value="{{ 'RM'.$part->price }}" disabled>
+                        </div>
+                        <div class="flex-col flex my-1">
+                            <label for="partReq" class="font-lg font-semibold">Required?</label>
+                            @if($part->required)
+                            <input type="checkbox" id="partReq" name="partReq" class="border-neutral-200 rounded-xl focus:ring-purple-500"
+                                    placeholder="The part description..." checked disabled>
+                            @else
+                            <input type="checkbox" id="partReq" name="partReq" class="border-neutral-200 rounded-xl focus:ring-purple-500"
+                                    placeholder="The part description..." disabled>
+                            @endif
+                        </div>
                         <div class="flex-col flex mt-1 mb-4">
                             <div class="flex w-full justify-between">
                                 <div class="flex flex-col w-[45%]">

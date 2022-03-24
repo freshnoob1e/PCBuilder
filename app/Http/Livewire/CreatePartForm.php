@@ -23,6 +23,8 @@ class CreatePartForm extends Component
     public $partDesc;
     public $partCat;
     public $partBrand;
+    public $partPrice;
+    public $partReq;
     public $partSpecs;
     // Cat sec
     public $specs;
@@ -58,6 +60,8 @@ class CreatePartForm extends Component
             'partDesc' => ['required', 'string', 'max:256'],
             'partCat' => ['required', 'exists:categories,id'],
             'partBrand' => ['required', 'exists:brands,id'],
+            'partPrice' => ['required', 'numeric'],
+            'partReq' => ['required', 'boolean'],
         ];
 
         $i = 0;
@@ -84,6 +88,10 @@ class CreatePartForm extends Component
             'partDesc.required' => 'The part description field is required.',
             'partDesc.string' => 'The part description must be string.',
             'partDesc.max' => 'The part description cannot exceed 256 characters.',
+            'partPrice.required' => 'The part price field is required.',
+            'partPrice.numeric' => 'The part price field must be numbers.',
+            'partReq.required' => 'This field is required.',
+            'partPrice.boolean' => 'This field must be True or False.',
         ];
 
         $i = 0;
@@ -145,6 +153,8 @@ class CreatePartForm extends Component
             'name' => $this->partName,
             'description' => $this->partDesc,
             'image' => $destPath,
+            'price' => $this->partPrice,
+            'required' => $this->partReq,
         ]);
 
         PartSpec::create([

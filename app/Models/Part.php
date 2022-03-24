@@ -14,22 +14,28 @@ class Part extends Model
         'brand_id',
         'name',
         'description',
-        'image'
+        'image',
+        'price',
+        'required',
     ];
 
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
 
-    public function brand() {
+    public function brand()
+    {
         return $this->belongsTo(Brand::class);
     }
 
-    public function spec() {
+    public function spec()
+    {
         return $this->hasOne(PartSpec::class);
     }
 
-    public function reviews() {
+    public function reviews()
+    {
         return $this->hasMany(PartReview::class);
     }
 }
