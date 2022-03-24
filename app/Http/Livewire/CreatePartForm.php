@@ -6,9 +6,9 @@ use App\Models\Category;
 use App\Models\Part;
 use App\Models\PartSpec;
 use Illuminate\Support\Facades\Storage;
+use Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Image;
 
 class CreatePartForm extends Component
 {
@@ -30,8 +30,9 @@ class CreatePartForm extends Component
     public $brandDisabled;
     public $catDisabled;
 
-    public function mount(){
-        if($this->categories->first()){
+    public function mount()
+    {
+        if ($this->categories->first()) {
             $this->partCat = $this->categories->first()->id;
             $this->catDisabled = false;
             $this->getSpecs();
@@ -40,7 +41,7 @@ class CreatePartForm extends Component
             $this->catDisabled = true;
         }
 
-        if($this->brands->first()){
+        if ($this->brands->first()) {
             $this->partBrand = $this->brands->first()->id;
             $this->brandDisabled = false;
         } else {
@@ -49,7 +50,8 @@ class CreatePartForm extends Component
         }
     }
 
-    protected function rules(){
+    protected function rules()
+    {
         $partDetailRules = [
             'partImage' => ['required', 'image', 'max:2048'],
             'partName' => ['required', 'string', 'max:128', 'unique:brands,name'],
@@ -59,13 +61,13 @@ class CreatePartForm extends Component
         ];
 
         $i = 0;
-        foreach($this->specs as $spec){
-            if($spec->datatype == 'string'){
-                $partDetailRules['partSpecs.'.str($i).'.content'] = ['required', 'string'];
-            } else if($spec->datatype == 'number'){
-                $partDetailRules['partSpecs.'.str($i).'.content'] = ['required', 'numeric'];
+        foreach ($this->specs as $spec) {
+            if ($spec->datatype == 'string') {
+                $partDetailRules['partSpecs.' . str($i) . '.content'] = ['required', 'string'];
+            } else if ($spec->datatype == 'number') {
+                $partDetailRules['partSpecs.' . str($i) . '.content'] = ['required', 'numeric'];
             } else {
-                $partDetailRules['partSpecs.'.str($i).'.content'] = ['required', 'boolean'];
+                $partDetailRules['partSpecs.' . str($i) . '.content'] = ['required', 'boolean'];
             }
             $i++;
         }
@@ -73,60 +75,68 @@ class CreatePartForm extends Component
         return $partDetailRules;
     }
 
-    protected function messages(){
+    protected function messages()
+    {
         $partDetailErrorMessage = [
             'partImage.required' => 'Image field is required',
             'partImage.image' => 'Must be an image',
             'partImage.image' => 'File size cannot exceed 2MB',
             'partDesc.required' => 'The part description field is required.',
             'partDesc.string' => 'The part description must be string.',
-            'partDesc.max' => 'The part description cannot exceed 256 characters.'
+            'partDesc.max' => 'The part description cannot exceed 256 characters.',
         ];
 
         $i = 0;
-        foreach($this->specs as $spec){
-            $partDetailErrorMessage['partSpecs.'.str($i).'.content.required'] = ucfirst($spec->name).' field is required.';
-            $partDetailErrorMessage['partSpecs.'.str($i).'.content.string'] = ucfirst($spec->name).' must be characters.';
-            $partDetailErrorMessage['partSpecs.'.str($i).'.content.numeric'] = ucfirst($spec->name).' must be numbers.';
-            $partDetailErrorMessage['partSpecs.'.str($i).'.content.boolean'] = ucfirst($spec->name).' must be True or False.';
+        foreach ($this->specs as $spec) {
+            $partDetailErrorMessage['partSpecs.' . str($i) . '.content.required'] = ucfirst($spec->name) . ' field is required.';
+            $partDetailErrorMessage['partSpecs.' . str($i) . '.content.string'] = ucfirst($spec->name) . ' must be characters.';
+            $partDetailErrorMessage['partSpecs.' . str($i) . '.content.numeric'] = ucfirst($spec->name) . ' must be numbers.';
+            $partDetailErrorMessage['partSpecs.' . str($i) . '.content.boolean'] = ucfirst($spec->name) . ' must be True or False.';
             $i++;
         }
 
         return $partDetailErrorMessage;
     }
 
-    public function updatedPartCat(){
+    public function updatedPartCat()
+    {
         $this->validateOnly('partCat');
         $this->getSpecs();
     }
 
-    private function getSpecs(){
+    private function getSpecs()
+    {
         $cat = Category::find($this->partCat)->load('specs');
         $this->specs = $cat->specs;
         $this->initSpecData();
     }
 
-    private function initSpecData(){
+    private function initSpecData()
+    {
         $this->partSpecs = [];
-        foreach($this->specs as $spec){
-            if($spec->datatype == 'string')
-                array_push($this->partSpecs, ['name'=>$spec->name, 'content'=>'', 'datatype'=>$spec->datatype]);
-            else if($spec->datatype == 'number')
-                array_push($this->partSpecs, ['name'=>$spec->name, 'content'=>1, 'datatype'=>$spec->datatype]);
-            else
-                array_push($this->partSpecs, ['name'=>$spec->name, 'content'=>false, 'datatype'=>$spec->datatype]);
+        foreach ($this->specs as $spec) {
+            if ($spec->datatype == 'string') {
+                array_push($this->partSpecs, ['name' => $spec->name, 'content' => '', 'datatype' => $spec->datatype, 'measurement' => $spec->measurement]);
+            } else if ($spec->datatype == 'number') {
+                array_push($this->partSpecs, ['name' => $spec->name, 'content' => 1, 'datatype' => $spec->datatype, 'measurement' => $spec->measurement]);
+            } else {
+                array_push($this->partSpecs, ['name' => $spec->name, 'content' => false, 'datatype' => $spec->datatype, 'measurement' => $spec->measurement]);
+            }
+
         }
     }
 
-    public function updatedPartImage(){
+    public function updatedPartImage()
+    {
         $this->validateOnly('partImage');
     }
 
-    public function save(){
+    public function save()
+    {
         $this->validate();
         $image = Image::make($this->partImage)->resize(256, 256)->encode('webp');
-        $fileName = time().'_'.$this->partName.'.webp';
-        $destPath = '/images/parts/'.$fileName;
+        $fileName = time() . '_' . $this->partName . '.webp';
+        $destPath = '/images/parts/' . $fileName;
         Storage::put($destPath, $image);
 
         $newPart = Part::create([
@@ -134,12 +144,12 @@ class CreatePartForm extends Component
             'brand_id' => $this->partBrand,
             'name' => $this->partName,
             'description' => $this->partDesc,
-            'image' => $destPath
+            'image' => $destPath,
         ]);
 
         PartSpec::create([
             'part_id' => $newPart->id,
-            'properties' => json_encode($this->partSpecs)
+            'properties' => json_encode($this->partSpecs),
         ]);
 
         // return redirect()->route('admin-parts-show', $newPart->id);

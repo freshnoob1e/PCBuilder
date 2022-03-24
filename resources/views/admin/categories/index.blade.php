@@ -65,7 +65,11 @@
                                             @endphp
                                             <li>
                                                 {{$i.'. '}}
+                                                @if ($spec->datatype == 'number')
+                                                {{ucfirst($spec->name)}} ({{ucfirst($spec->measurement)}})
+                                                @else
                                                 {{ucfirst($spec->name)}} ({{ucfirst($spec->datatype)}})
+                                                @endif
                                             </li>
                                         @endforeach
                                         </ul>

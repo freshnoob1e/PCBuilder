@@ -51,6 +51,10 @@
                                             value="{{$spec->datatype}}" disabled>
                                         <option value="{{$spec->datatype}}">{{ucfirst($spec->datatype)}}</option>
                                     </select>
+                                    @if($spec->datatype == "number")
+                                    <input type="text" class="border-neutral-200 rounded-xl focus:ring-purple-500 w-1/2"
+                                             value="{{ucfirst($spec->measurement)}}" disabled>
+                                    @endif
                                 </div>
                             </div>
                             @endforeach

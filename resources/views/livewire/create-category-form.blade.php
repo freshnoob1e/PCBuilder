@@ -35,6 +35,13 @@
                 <option value="number">Number</option>
                 <option value="bool">Bool</option>
             </select>
+            @if($catSpec[$i]['datatype'] == "number")
+            <input type="text" id="spec{{$i+1}}" name="spec{{$i+1}}Measurement" class="border-neutral-200 rounded-xl focus:ring-purple-500 w-1/2"
+                    placeholder="Measurment(i.e. cm/hz/hour)..." wire:model='catSpec.{{$i}}.measurement'>
+            @else
+            <input type="hidden" id="spec{{$i+1}}" name="spec{{$i+1}}Measurement" class="border-neutral-200 rounded-xl focus:ring-purple-500 w-1/2"
+                    placeholder="Measurment(i.e. cm/hz/hour)..." wire:model='catSpec.{{$i}}.measurement'>
+            @endif
         </div>
         @error('catSpec.'.str($i).'.name')
         <div class="text-red-500">
@@ -42,6 +49,11 @@
         </div>
         @enderror
         @error('catSpec.'.str($i).'.datatype')
+        <div class="text-red-500">
+            {{$message}}
+        </div>
+        @enderror
+        @error('catSpec.'.str($i).'.measurement')
         <div class="text-red-500">
             {{$message}}
         </div>

@@ -81,8 +81,10 @@
                                             @endphp
                                             <li>
                                                 {{-- {{$i.'. '}} --}}
-                                                @if ($spec->datatype == 'string' || $spec->datatype == 'number')
+                                                @if ($spec->datatype == 'string' || !property_exists($spec, 'measurement'))
                                                     {{ucfirst($spec->name)}}: {{$spec->content}}
+                                                @elseif ($spec->datatype == 'number')
+                                                {{ucfirst($spec->name)}}: {{$spec->content}} {{$spec->measurement}}
                                                 @elseif ($spec->content)
                                                     {{ucfirst($spec->name)}}: True
                                                 @else

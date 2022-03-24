@@ -69,8 +69,14 @@
                         @endphp
                         @foreach ($specs as $spec)
                         <div class="flex-col flex my-1">
-                            <label for="partSpec{{$i}}" class="font-lg font-semibold">{{ucfirst($spec->name)}}</label>
-                            @if($spec->datatype == 'string')
+                            <label for="partSpec{{$i}}" class="font-lg font-semibold">
+                                @if ($spec->datatype == 'number' || !property_exists($spec, 'measurement'))
+                                {{ucfirst($spec->name).' ('.ucfirst($spec->measurement).')'}}
+                                @else
+                                {{ucfirst($spec->name)}}
+                                @endif
+                            </label>
+                            @if ($spec->datatype == 'string')
                             <input type="text" id="partSpec{{$i}}" name="partSpec{{$i}}" class="border-neutral-200 rounded-xl focus:ring-purple-500"
                                     placeholder="Enter {{$spec->name}}..." value="{{ $spec->content }}" disabled>
                             @elseif ($spec->datatype == 'number')

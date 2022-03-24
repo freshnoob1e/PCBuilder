@@ -84,7 +84,13 @@
     @endphp
     @foreach ($specs as $spec)
     <div class="flex-col flex my-1">
-        <label for="partSpec{{$i}}" class="font-lg font-semibold">{{ucfirst($spec->name)}}</label>
+        <label for="partSpec{{$i}}" class="font-lg font-semibold">
+            @if ($spec->datatype == 'number')
+            {{ucfirst($spec->name).' ('.ucfirst($spec->measurement).')'}}
+            @else
+            {{ucfirst($spec->name)}}
+            @endif
+        </label>
         @if($spec->datatype == 'string')
         <input type="text" id="partSpec{{$i}}" name="partSpec{{$i}}" class="border-neutral-200 rounded-xl focus:ring-purple-500"
                 placeholder="Enter {{$spec->name}}..." wire:model="partSpecs.{{$i-1}}.content">
