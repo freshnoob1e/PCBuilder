@@ -65,7 +65,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
 
     Route::controller(ChatroomController::class)->group(function() {
         Route::get('/chats', 'index')->name('chat-index');
-        Route::get('/chat/{chatroom}', 'show')->name('chat-show');
+        Route::get('/chat/{user}', 'show')->name('chat-show');
         Route::post('/chat/{user}', 'startChat')->name('chat-start');
     });
 

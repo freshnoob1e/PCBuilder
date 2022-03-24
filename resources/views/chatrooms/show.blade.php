@@ -16,31 +16,33 @@
                 <div class="bg-white border shadow rounded-xl p-3 overflow-hidden">
                     <div class="text-xl font-semibold">
                         Chatting with:
-                        @foreach ($chatroom->users as $user)
-                        @if ($user->id != Auth::user()->id)
-                            {{$user->name}}
+                        @foreach ($chatroom['users'] as $user)
+                        @if ($user['uid'] != Auth::user()->id)
+                            {{$user['name']}}
                         @endif
                         @endforeach
                     </div>
 
                     <div class="mt-6 border border-gray-300 rounded-xl h-[70vh] overflow-hidden shadow">
                         <div class="bg-gray-50 h-[90%] flex flex-col-reverse overflow-auto">
-                            @foreach($chatroom->messages as $message)
-                            @if($message->user->id == Auth::user()->id)
+                            @if (array_key_exists('messages', $chatroom))
+                            @foreach($chatroom['messages'] as $message)
+                            @if($message['user']['uid'] == Auth::user()->id)
                             <div class="bg-indigo-300 border place-self-end text-lg p-2 mx-4 my-2 rounded-xl max-w-[60%] shadow overflow-x-hidden">
                             @else
                             <div class="bg-gray-100 border place-self-start text-lg p-2 mx-4 my-2 rounded-xl max-w-[60%] shadow overflow-x-hidden">
                             @endif
                                 <div>
-                                    <span class="text-lg font-semibold">{{$message->user->name}}</span>
-                                    <span class="text-xs text-neutral-600">{{$message->created_at->diffForHumans()}}</span>
+                                    <span class="text-lg font-semibold">{{$message['user']['name']}}</span>
+                                    <span class="text-xs text-neutral-600">{{$message['time_ago']}}</span>
                                 </div>
-                                <div class="text-md">{{$message->text}}</div>
+                                <div class="text-md">{{$message['text']}}</div>
                             </div>
                             @endforeach
+                            @endif
                         </div>
                         <div class="bg-gray-50 h-[10%] px-2 py-1 flex items-end">
-                            <form action="{{route('message-store', $chatroom->id)}}" method="POST" class="w-full relative">
+                            <form action="{{route('message-store', $chatroom['id'])}}" method="POST" class="w-full relative">
                                 @csrf
                                 <input type="text" class="w-full border-neutral-200 rounded-lg shadow" placeholder="Write your message here..."
                                         id="text" name="text">

@@ -2,66 +2,73 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Chatroom;
 use App\Models\User;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
+use SimpleXMLElement;
 
 class ChatroomController extends Controller
 {
-    public function index(){
-        $chatrooms = Auth::user()->chatrooms;
-        return view('chatrooms.index', ['chatrooms' => $chatrooms->load(['users', 'messages.user'])]);
+    public function index()
+    {
+        $user = Auth::user();
+        $chatroomsJson = Http::get(env('CHAT_APP_URL') . 'chatroom/all/' . $user->id)->body();
+        $chatrooms = json_decode($chatroomsJson, true);
+        for ($x = 0; $x < count($chatrooms); $x++) {
+            $time_ago = Carbon::createFromFormat('m/d/Y G:i:s', date('m/d/Y G:i:s', strtotime($chatrooms[$x]['messages'][0]['date_created'])))->diffForHumans();
+            $chatrooms[$x]['messages'][0]['time_ago'] = $time_ago;
+        }
+        return view('chatrooms.index', ['chatrooms' => $chatrooms]);
     }
 
-    public function startChat(User $user){
+    public function startChat(User $user)
+    {
         $authUser = Auth::user();
-        // Check if already has chatroom
-        $existingRooms = $authUser->chatrooms->load('users');
-        foreach($existingRooms as $existingRoom){
-            foreach($existingRoom->users as $otherUser){
-                if($otherUser->id == $user->id){
-                    return redirect()->route('chat-show', $existingRoom->id);
-                }
-            }
-        }
-        // Else create new chatroom with user
-        $newChatroom = Chatroom::create();
-        $newChatroom->users()->attach([$user->id, $authUser->id]);
-        return redirect()->route('chat-show', $newChatroom->id);
+        $chatroomDtoArr = [
+            'uid_main' => strval($authUser->id),
+            'name_main' => strval($authUser->name),
+            'uid_target' => strval($user->id),
+            'name_target' => strval($user->name),
+        ];
+        $chatroomDtoXml = new SimpleXMLElement('<chatroom/>');
+        arrayToXml($chatroomDtoArr, $chatroomDtoXml);
+
+        $chatroom = Http::post(env('CHAT_APP_URL') . 'chatroom', ['body' => $chatroomDtoXml])->body();
+
+        return redirect()->route('chat-show', $user->id);
     }
 
-    public function show(Chatroom $chatroom){
+    public function show(User $user)
+    {
         $authUser = Auth::user();
-        $chatroom = $chatroom->load(['users', 'messages.user']);
-        $isMember = false;
-        foreach($chatroom->users as $user){
-            if($user->id == $authUser->id){
-                $isMember = true;
-                break;
+        $chatroom = Http::get(env('CHAT_APP_URL') . 'chatroom/' . $authUser->id . '/' . $user->id)->body();
+        $decodedChatroom = json_decode($chatroom, true);
+        if (array_key_exists('messages', $decodedChatroom)) {
+            for ($i = 0; $i < count($decodedChatroom['messages']); $i++) {
+                $time_ago = Carbon::createFromFormat('m/d/Y G:i:s', date('m/d/Y G:i:s', strtotime($decodedChatroom['messages'][$i]['date_created'])))->diffForHumans();
+                $decodedChatroom['messages'][$i]['time_ago'] = $time_ago;
             }
         }
-        if(!$isMember){
-            abort(401);
-        }
+
         return view('chatrooms.show', [
-            'chatroom' => $chatroom
+            'chatroom' => $decodedChatroom,
         ]);
     }
 
-    public function store(Request $req){
-        $user1 = Auth::user()->id;
-        $req->validate([
-            'user_id' => ['required', 'exists:users,id']
-        ]);
-        $user2 = $req->user_id;
+    // public function store(Request $req){
+    //     $user1 = Auth::user()->id;
+    //     $req->validate([
+    //         'user_id' => ['required', 'exists:users,id']
+    //     ]);
+    //     $user2 = $req->user_id;
 
-        $chatroom = Chatroom::create();
-        $chatroom->users()->toggle([$user1, $user2]);
-        return redirect()->route('chatrooms-show', $chatroom->id);
-    }
+    //     $chatroom = Chatroom::create();
+    //     $chatroom->users()->toggle([$user1, $user2]);
+    //     return redirect()->route('chatrooms-show', $chatroom->id);
+    // }
 
-    public function destroy(Chatroom $chatroom){
-        $chatroom->delete();
-    }
+    // public function destroy(Chatroom $chatroom){
+    //     $chatroom->delete();
+    // }
 }
