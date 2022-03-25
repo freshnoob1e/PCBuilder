@@ -149,11 +149,11 @@ class EditPartForm extends Component
         $this->partSpecs = [];
         foreach ($this->specs as $spec) {
             if ($spec->datatype == 'string') {
-                array_push($this->partSpecs, ['name' => $spec->name, 'content' => '', 'datatype' => $spec->datatype, 'measurement' => $spec->measurement]);
+                array_push($this->partSpecs, ['name' => $spec->name, 'content' => '', 'datatype' => $spec->datatype, 'measurement' => $spec->measurement, 'compare_logic' => $spec->compare_logic]);
             } else if ($spec->datatype == 'number') {
-                array_push($this->partSpecs, ['name' => $spec->name, 'content' => 1, 'datatype' => $spec->datatype, 'measurement' => $spec->measurement]);
+                array_push($this->partSpecs, ['name' => $spec->name, 'content' => 1, 'datatype' => $spec->datatype, 'measurement' => $spec->measurement, 'compare_logic' => $spec->compare_logic]);
             } else {
-                array_push($this->partSpecs, ['name' => $spec->name, 'content' => false, 'datatype' => $spec->datatype, 'measurement' => $spec->measurement]);
+                array_push($this->partSpecs, ['name' => $spec->name, 'content' => false, 'datatype' => $spec->datatype, 'measurement' => $spec->measurement, 'compare_logic' => $spec->compare_logic]);
             }
 
         }

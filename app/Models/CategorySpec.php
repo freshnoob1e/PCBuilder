@@ -14,6 +14,7 @@ class CategorySpec extends Model
         'name',
         'datatype',
         'measurement',
+        'compare_logic',
     ];
 
     public function category()

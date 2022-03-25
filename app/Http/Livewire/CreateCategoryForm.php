@@ -24,6 +24,7 @@ class CreateCategoryForm extends Component
             'catSpec.*.name' => ['required', 'max:64'],
             'catSpec.*.datatype' => ['required', 'in:string,number,bool'],
             'catSpec.*.measurement' => ['nullable', 'string', 'max:32'],
+            'catSpec.*.comparison' => ['nullable', 'string', 'in:<,>'],
         ];
 
         return $partDetailRules;
@@ -47,6 +48,8 @@ class CreateCategoryForm extends Component
             $partDetailErrorMessage['catSpec.' . str($i) . '.datatype.in'] = 'Spec ' . str($i + 1) . ' datatype is invalid.';
             $partDetailErrorMessage['catSpec.' . str($i) . '.measurement.max'] = 'Spec ' . str($i + 1) . ' measurement must not be greater than 32 characters.';
             $partDetailErrorMessage['catSpec.' . str($i) . '.measurement.required'] = 'Spec ' . str($i + 1) . ' measurement field is required.';
+            $partDetailErrorMessage['catSpec.' . str($i) . '.comparison.in'] = 'Spec ' . str($i + 1) . ' compare logic must be > or <.';
+            $partDetailErrorMessage['catSpec.' . str($i) . '.comparison.required'] = 'Spec ' . str($i + 1) . ' compare logic is required.';
         }
 
         return $partDetailErrorMessage;
@@ -56,20 +59,20 @@ class CreateCategoryForm extends Component
     {
         $this->specNum = 1;
         $this->catSpec = [];
-        array_push($this->catSpec, ['name' => '', 'datatype' => 'string', 'measurement' => '']);
+        array_push($this->catSpec, ['name' => '', 'datatype' => 'string', 'measurement' => '', 'comparison' => '>']);
     }
 
     public function addSpec()
     {
         $this->specNum++;
-        array_push($this->catSpec, ['name' => '', 'datatype' => 'string']);
+        array_push($this->catSpec, ['name' => '', 'datatype' => 'string', 'measurement' => '', 'comparison' => '>']);
     }
 
     public function removeAllSpecs()
     {
         $this->specNum = 1;
         $this->catSpec = [];
-        array_push($this->catSpec, ['name' => '', 'datatype' => 'string']);
+        array_push($this->catSpec, ['name' => '', 'datatype' => 'string', 'measurement' => '', 'comparison' => '>']);
     }
 
     public function save()
@@ -80,6 +83,7 @@ class CreateCategoryForm extends Component
             if ($this->catSpec[$i]['datatype'] == 'number') {
                 $this->validate([
                     'catSpec.' . $i . '.measurement' => ['required', 'string', 'max:32'],
+                    'catSpec.' . $i . '.comparison' => ['required', 'string', 'in:<,>'],
                 ]);
             }
         }
@@ -97,6 +101,7 @@ class CreateCategoryForm extends Component
                     'name' => $spec['name'],
                     'datatype' => $spec['datatype'],
                     'measurement' => $spec['measurement'],
+                    'compare_logic' => $spec['comparison'],
                 ]);
             } else {
                 CategorySpec::create([
