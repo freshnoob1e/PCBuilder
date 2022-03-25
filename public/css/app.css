@@ -433,6 +433,11 @@ input::placeholder,textarea::placeholder {
   min-height: 1.5em;
 }
 
+::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 select {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
   background-position: right 0.5rem center;
@@ -981,17 +986,27 @@ select {
   margin-top: auto;
   margin-bottom: auto;
 }
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
 .mx-3 {
   margin-left: 0.75rem;
   margin-right: 0.75rem;
 }
+<<<<<<< Updated upstream
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+=======
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+>>>>>>> Stashed changes
 }
-.my-3 {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .mx-4 {
   margin-left: 1rem;
@@ -1000,6 +1015,10 @@ select {
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .my-4 {
   margin-top: 1rem;
@@ -1074,6 +1093,12 @@ select {
 .mb-4 {
   margin-bottom: 1rem;
 }
+<<<<<<< Updated upstream
+=======
+.-mt-px {
+  margin-top: -1px;
+}
+>>>>>>> Stashed changes
 .mr-8 {
   margin-right: 2rem;
 }
@@ -1082,9 +1107,12 @@ select {
 }
 .mr-4 {
   margin-right: 1rem;
+<<<<<<< Updated upstream
 }
 .-mt-px {
   margin-top: -1px;
+=======
+>>>>>>> Stashed changes
 }
 .mr-16 {
   margin-right: 4rem;
@@ -1137,6 +1165,15 @@ select {
 .h-48 {
   height: 12rem;
 }
+<<<<<<< Updated upstream
+=======
+.h-32 {
+  height: 8rem;
+}
+.h-14 {
+  height: 3.5rem;
+}
+>>>>>>> Stashed changes
 .h-\[70vh\] {
   height: 70vh;
 }
@@ -1146,6 +1183,7 @@ select {
 .h-\[10\%\] {
   height: 10%;
 }
+<<<<<<< Updated upstream
 .h-32 {
   height: 8rem;
 }
@@ -1155,6 +1193,11 @@ select {
 .h-14 {
   height: 3.5rem;
 }
+=======
+.h-24 {
+  height: 6rem;
+}
+>>>>>>> Stashed changes
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1209,6 +1252,7 @@ select {
 .w-1\/3 {
   width: 33.333333%;
 }
+<<<<<<< Updated upstream
 .w-\[45\%\] {
   width: 45%;
 }
@@ -1217,18 +1261,33 @@ select {
 }
 .w-11\/12 {
   width: 91.666667%;
-}
-.w-2\/3 {
-  width: 66.666667%;
-}
-.w-4\/12 {
-  width: 33.333333%;
-}
+=======
 .w-\[25\%\] {
   width: 25%;
 }
 .w-\[75\%\] {
   width: 75%;
+}
+.w-\[45\%\] {
+  width: 45%;
+>>>>>>> Stashed changes
+}
+.w-2\/3 {
+  width: 66.666667%;
+}
+<<<<<<< Updated upstream
+.w-4\/12 {
+  width: 33.333333%;
+}
+.w-\[25\%\] {
+  width: 25%;
+=======
+.w-8\/12 {
+  width: 66.666667%;
+>>>>>>> Stashed changes
+}
+.w-4\/12 {
+  width: 33.333333%;
 }
 .w-24 {
   width: 6rem;
@@ -1248,14 +1307,14 @@ select {
 .max-w-5xl {
   max-width: 64rem;
 }
+.max-w-6xl {
+  max-width: 72rem;
+}
 .max-w-\[60\%\] {
   max-width: 60%;
 }
 .max-w-4xl {
   max-width: 56rem;
-}
-.max-w-6xl {
-  max-width: 72rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1391,16 +1450,27 @@ select {
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
+<<<<<<< Updated upstream
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
+=======
+>>>>>>> Stashed changes
 .space-x-12 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(3rem * var(--tw-space-x-reverse));
   margin-left: calc(3rem * calc(1 - var(--tw-space-x-reverse)));
 }
+<<<<<<< Updated upstream
+=======
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+>>>>>>> Stashed changes
 .place-self-start {
   place-self: start;
 }
@@ -1575,6 +1645,7 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
+<<<<<<< Updated upstream
 .bg-rose-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(225 29 72 / var(--tw-bg-opacity));
@@ -1584,8 +1655,15 @@ select {
   background-color: rgb(250 250 250 / var(--tw-bg-opacity));
 }
 .bg-indigo-300 {
+=======
+.bg-neutral-50 {
+>>>>>>> Stashed changes
   --tw-bg-opacity: 1;
-  background-color: rgb(165 180 252 / var(--tw-bg-opacity));
+  background-color: rgb(250 250 250 / var(--tw-bg-opacity));
+}
+.bg-rose-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(225 29 72 / var(--tw-bg-opacity));
 }
 .bg-sky-100 {
   --tw-bg-opacity: 1;
@@ -1603,6 +1681,17 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(34 197 94 / var(--tw-bg-opacity));
 }
+<<<<<<< Updated upstream
+=======
+.bg-indigo-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(165 180 252 / var(--tw-bg-opacity));
+}
+.bg-sky-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(224 242 254 / var(--tw-bg-opacity));
+}
+>>>>>>> Stashed changes
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }
@@ -1729,11 +1818,17 @@ select {
 .pb-1 {
   padding-bottom: 0.25rem;
 }
+<<<<<<< Updated upstream
 .pt-3 {
   padding-top: 0.75rem;
 }
+=======
+>>>>>>> Stashed changes
 .pt-8 {
   padding-top: 2rem;
+}
+.pt-3 {
+  padding-top: 0.75rem;
 }
 .text-left {
   text-align: left;
@@ -1876,6 +1971,7 @@ select {
   --tw-text-opacity: 1;
   color: rgb(34 197 94 / var(--tw-text-opacity));
 }
+<<<<<<< Updated upstream
 .text-neutral-500 {
   --tw-text-opacity: 1;
   color: rgb(115 115 115 / var(--tw-text-opacity));
@@ -1884,6 +1980,8 @@ select {
   --tw-text-opacity: 1;
   color: rgb(82 82 82 / var(--tw-text-opacity));
 }
+=======
+>>>>>>> Stashed changes
 .text-gray-200 {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
@@ -1891,6 +1989,14 @@ select {
 .text-gray-300 {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
+}
+.text-neutral-600 {
+  --tw-text-opacity: 1;
+  color: rgb(82 82 82 / var(--tw-text-opacity));
+}
+.text-neutral-500 {
+  --tw-text-opacity: 1;
+  color: rgb(115 115 115 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;

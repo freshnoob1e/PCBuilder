@@ -65,15 +65,17 @@ class CreatePartForm extends Component
         ];
 
         $i = 0;
-        foreach ($this->specs as $spec) {
-            if ($spec->datatype == 'string') {
-                $partDetailRules['partSpecs.' . str($i) . '.content'] = ['required', 'string'];
-            } else if ($spec->datatype == 'number') {
-                $partDetailRules['partSpecs.' . str($i) . '.content'] = ['required', 'numeric'];
-            } else {
-                $partDetailRules['partSpecs.' . str($i) . '.content'] = ['required', 'boolean'];
+        if ($this->specs) {
+            foreach ($this->specs as $spec) {
+                if ($spec->datatype == 'string') {
+                    $partDetailRules['partSpecs.' . str($i) . '.content'] = ['required', 'string'];
+                } else if ($spec->datatype == 'number') {
+                    $partDetailRules['partSpecs.' . str($i) . '.content'] = ['required', 'numeric'];
+                } else {
+                    $partDetailRules['partSpecs.' . str($i) . '.content'] = ['required', 'boolean'];
+                }
+                $i++;
             }
-            $i++;
         }
 
         return $partDetailRules;
