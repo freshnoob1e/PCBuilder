@@ -38,6 +38,8 @@
             @if($catSpec[$i]['datatype'] == "number")
             <input type="text" id="spec{{$i+1}}" name="spec{{$i+1}}Measurement" class="border-neutral-200 rounded-xl focus:ring-purple-500 w-1/2"
                     placeholder="Measurment(i.e. cm/hz/hour)..." wire:model='catSpec.{{$i}}.measurement'>
+            <input type="text" id="spec{{$i+1}}" name="spec{{$i+1}}Measurement" class="border-neutral-200 rounded-xl focus:ring-purple-500 w-1/2"
+                    placeholder="Measurment(i.e. cm/hz/hour)..." wire:model='catSpec.{{$i}}.measurement'>
             @else
             <input type="hidden" id="spec{{$i+1}}" name="spec{{$i+1}}Measurement" class="border-neutral-200 rounded-xl focus:ring-purple-500 w-1/2"
                     placeholder="Measurment(i.e. cm/hz/hour)..." wire:model='catSpec.{{$i}}.measurement'>
