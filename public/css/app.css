@@ -997,6 +997,10 @@ select {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
@@ -1004,6 +1008,18 @@ select {
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+}
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.my-7 {
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -1230,9 +1246,6 @@ select {
 .w-11\/12 {
   width: 91.666667%;
 }
-.w-24 {
-  width: 6rem;
-}
 .min-w-0 {
   min-width: 0px;
 }
@@ -1314,6 +1327,9 @@ select {
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 .flex-row {
   flex-direction: row;
 }
@@ -1361,6 +1377,12 @@ select {
 }
 .gap-8 {
   gap: 2rem;
+}
+.gap-5 {
+  gap: 1.25rem;
+}
+.gap-10 {
+  gap: 2.5rem;
 }
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -1417,9 +1439,23 @@ select {
   border-right-width: calc(1px * var(--tw-divide-x-reverse));
   border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
 }
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
+.divide-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-x-reverse: 0;
+  border-right-width: calc(2px * var(--tw-divide-x-reverse));
+  border-left-width: calc(2px * calc(1 - var(--tw-divide-x-reverse)));
+}
 .divide-gray-300 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-divide-opacity));
+}
+.divide-slate-600 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(71 85 105 / var(--tw-divide-opacity));
 }
 .place-self-start {
   place-self: start;
@@ -1722,6 +1758,10 @@ select {
   padding-top: 0px;
   padding-bottom: 0px;
 }
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -1760,6 +1800,18 @@ select {
 }
 .pt-8 {
   padding-top: 2rem;
+}
+.pt-7 {
+  padding-top: 1.75rem;
+}
+.pt-10 {
+  padding-top: 2.5rem;
+}
+.pt-12 {
+  padding-top: 3rem;
+}
+.pt-14 {
+  padding-top: 3.5rem;
 }
 .text-left {
   text-align: left;
@@ -2224,11 +2276,6 @@ select {
   opacity: 0.25;
 }
 @media (prefers-color-scheme: dark) {
-
-  .dark\:bg-gray-800 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(31 41 55 / var(--tw-bg-opacity));
-  }
 
   .dark\:bg-gray-900 {
     --tw-bg-opacity: 1;
