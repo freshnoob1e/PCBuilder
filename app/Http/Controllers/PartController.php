@@ -189,12 +189,7 @@ class PartController extends Controller
 
     public function manageCompat(Part $part)
     {
-        $allParts = Part::where('id', '!=', $part->id)->get();
-        $notCompatibleList = json_decode($part->not_compatible_parts);
-
         return view('admin.parts.manage_compatibility', [
-            'allParts' => $allParts,
-            'notCompatParts' => $notCompatibleList,
             'part' => $part,
         ]);
     }

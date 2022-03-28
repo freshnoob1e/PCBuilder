@@ -3,7 +3,12 @@
     @csrf
     <div class="flex-col flex my-1 relative">
         <label for="brandImage" class="font-lg font-semibold">Brand Image</label>
-        <input type="file" id="brandImage" name="brandImage" wire:model="brandImage">
+        <div class="flex">
+            <input type="file" id="brandImage" name="brandImage" wire:model="brandImage">
+            <div wire:loading wire:target='brandImage' class="flex">
+                Uploading image, please wait...
+            </div>
+        </div>
         @error('brandImage')
         <div class="text-red-500">
             {{$message}}
@@ -29,7 +34,8 @@
 
     <div class="w-full mt-4">
         <button class="w-full my-auto bg-indigo-500 text-xl font-semibold text-white rounded-xl py-2
-                        hover:bg-indigo-400 transition duration-150 shadow-lg">
+                        hover:bg-indigo-400 transition duration-150 shadow-lg" wire:loading.attr="disabled"
+                        wire:loading.class="cursor-wait bg-indigo-800" wire:loading.class.remove='bg-indigo-500 hover:bg-indigo-400'>
             Add
         </button>
     </div>

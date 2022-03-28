@@ -3,7 +3,12 @@
     @csrf
     <div class="flex-col flex my-1 relative">
         <label for="partImage" class="font-lg font-semibold">Part Image</label>
-        <input type="file" id="partImage" name="partImage" wire:model="partImage">
+        <div class="flex">
+            <input type="file" id="partImage" name="partImage" wire:model="partImage">
+            <div wire:loading wire:target='partImage' class="flex">
+                Uploading image, please wait...
+            </div>
+        </div>
         @error('partImage')
         <div class="text-red-500">
             {{$message}}
@@ -138,7 +143,8 @@
 
     <div class="w-full mt-4">
         <button class="w-full my-auto bg-indigo-500 text-xl font-semibold text-white rounded-xl py-2
-                        hover:bg-indigo-400 transition duration-150 shadow-lg">
+                        hover:bg-indigo-400 transition duration-150 shadow-lg" wire:loading.attr="disabled"
+                        wire:loading.class="cursor-wait bg-indigo-800" wire:loading.class.remove='bg-indigo-500 hover:bg-indigo-400'>
             Add
         </button>
     </div>

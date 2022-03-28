@@ -24,7 +24,7 @@ class CreatePartForm extends Component
     public $partCat;
     public $partBrand;
     public $partPrice;
-    public $partReq;
+    public $partReq = false;
     public $partSpecs;
     // Cat sec
     public $specs;
@@ -157,6 +157,7 @@ class CreatePartForm extends Component
             'image' => $destPath,
             'price' => $this->partPrice,
             'required' => $this->partReq,
+            'not_compatible_parts' => json_encode([]),
         ]);
 
         PartSpec::create([

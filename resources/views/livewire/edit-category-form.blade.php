@@ -16,7 +16,7 @@
             class="border-neutral-200 rounded-xl focus:ring-purple-500" placeholder="The category description..."
             wire:model='catDesc'">
         @error('catDesc')
-    <div class="    text-red-500">
+    <div class="     text-red-500">
             {{ $message }}
         </div>
     @enderror
@@ -92,7 +92,8 @@
         <button
             class="w-full my-auto bg-indigo-500 text-xl font-semibold text-white rounded-xl py-2
                         hover:bg-indigo-400 transition duration-150 shadow-lg"
-            type="submit">
+            type="submit" wire:loading.attr="disabled" wire:loading.class="cursor-wait bg-indigo-800"
+            wire:loading.class.remove='bg-indigo-500 hover:bg-indigo-400'>
             Save Changes
         </button>
     </div>

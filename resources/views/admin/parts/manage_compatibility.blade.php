@@ -18,7 +18,7 @@
                     <div class="w-full flex justify-between">
                         <span class="text-xl font-semibold">Manage Parts Compatibility</span>
                     </div>
-                    <livewire:manage-compatibility :allParts="$allParts" :notCompatParts="$notCompatParts">
+                    <livewire:manage-compatibility :managePart='$part'>
                 </div>
             </div>
         </div>
