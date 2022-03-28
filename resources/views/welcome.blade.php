@@ -14,7 +14,8 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     </head>
-    <body class="antialiased">
+
+    <body class="antialiased dark:bg-gray-900">
         <div class="absolute top-0 h-14 w-full bg-white z-10 px-8 flex justify-center">
             <ul class="flex space-x-12 my-auto font-semibold text-xl justify-between">
                 <li>
@@ -43,7 +44,9 @@
                 </li>
             </ul>
         </div>
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+        <hr class="my-10 bg-black border-none">
+
+        <div class="relative flex items-top justify-center bg-gray-100 dark:bg-gray-900 py-4 sm:pt-0 mx-auto">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block z-20">
                     @auth
@@ -58,9 +61,47 @@
                     @endauth
                 </div>
             @endif
-
-            <div class="text-7xl font-semibold text-white">home page</div>
+        </div>
+        <div class="text-white z-30 mt-10 text-center first-letter: text-7xl">Build your custom pc!</div>
+            <div class ="w-full h-full sm:items-center">
+                <img src ={{asset('Images/custompc.png') }} draggable="false" alt="Hero Image" class="img-fluid w-full h-full ">
             @livewireScripts
         </div>
+
+    <hr class="my-16 bg-black border-none">
+
+    <div class="mx-48 sm:my-2 md:my-5 lg:my-10 overflow-x-hidden" >
+        <center>
+
+        <div class="ml-auto flex text-3xl text-center w-full h-full align-center mx-48 overflow-x-hidden">
+            <div class="text-center my-20 w-1/2 text-white">
+                <p>Choose your customized build! Anywhere from GT to RTX Series!</p>
+            </div>
+            <div class="w-1/2">
+                <img src ={{{ asset('Images/custom1.jpg') }}} >
+            </div>
+
+        </div>
+        </center>
+    </div>
+
+    <hr class="my-16 bg-black border-none">
+
+    <div class="mx-48 sm:my-2 md:my-5 lg:my-10 overflow-x-hidden" >
+        <center>
+
+        <div class="ml-auto flex text-3xl text-center w-full h-full align-center mx-48 overflow-x-hidden">
+            <div class="w-1/2">
+                <img src ={{{ asset('Images/contact us.png') }}} >
+            </div>
+            <div class="text-center my-20 w-1/2 text-white">
+                <p>Any Inqueries? Contact us now!</p>
+            </div>
+
+        </div>
+        </center>
+    </div>
+
     </body>
 </html>
+
