@@ -16,6 +16,7 @@ class Part extends Model
         'description',
         'image',
         'price',
+        'not_compatible_parts',
         'required',
     ];
 
