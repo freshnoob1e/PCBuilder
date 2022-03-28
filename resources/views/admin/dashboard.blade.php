@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-12 bg-slate-400">
         <div class="max-w-5xl space-x-5 flex mx-auto items-start">
             <a class="bg-indigo-500 text-white font-semibold px-2 py-1 rounded-full" href="{{route('admin-users-index')}}">
                 Manage Users
