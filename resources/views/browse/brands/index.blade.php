@@ -22,7 +22,7 @@
             <div class="border rounded-xl my-4">
                 <div class="font-semibold text-xl">Part {{$i}}</div>
                 <div class="flex">
-                    Image: <img src="{{asset('storage/'.$brand->image)}}">
+                    Image: <img src="{{asset('storage'.$brand->image)}}">
                 </div>
                 <div>
                     Name: {{$brand->name}}

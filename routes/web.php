@@ -44,6 +44,9 @@ Route::controller(BrowseController::class)->group(function () {
     Route::get('/components', 'components_index')->name('browse-components');
     Route::get('/brands', 'brands_index')->name('browse-brands');
     Route::get('/categories', 'categories_index')->name('browse-categories');
+    Route::get('/component/{part}', 'component_show')->name('show-component');
+    Route::get('/brand/{brand}', 'brand_show')->name('show-brand');
+    Route::get('/category/{category}', 'category_show')->name('show-category');
 });
 
 // Authenticated only

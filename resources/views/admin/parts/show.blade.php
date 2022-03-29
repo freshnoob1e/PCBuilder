@@ -31,7 +31,7 @@
                         </div>
                         <div class="flex-col flex my-1 relative">
                             <label for="partImage" class="font-lg font-semibold">Part Image</label>
-                            <img src="{{ asset('storage/'.$part->image) }}" class="w-48 h-48">
+                            <img src="{{ asset('storage'.$part->image) }}" class="w-48 h-48">
                         </div>
                         <div class="flex-col flex my-1">
                             <label for="partName" class="font-lg font-semibold">Part Name</label>

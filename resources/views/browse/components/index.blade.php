@@ -22,7 +22,7 @@
             <div class="border rounded-xl my-4">
                 <div class="font-semibold text-2xl">Part {{$i}}</div>
                 <div class="flex">
-                    Image: <img src="{{ asset('storage/'.$part->image) }}">
+                    Image: <img src="{{ asset('storage'.$part->image) }}">
                 </div>
                 <div class="font-bold">
                     Name: {{$part->name}}
@@ -40,7 +40,7 @@
                 <div class="flex">
                     Brand:
                     <div class="border m-2 p-2 rounded-xl">
-                        <div class="flex"><img src="{{asset('storage/'.$part->brand->image)}}" class="w-24 h-24 object-cover"></div> <!-- Brand Img -->
+                        <div class="flex"><img src="{{asset('storage'.$part->brand->image)}}" class="w-24 h-24 object-cover"></div> <!-- Brand Img -->
                         <div class="font-mono font-semibold">{{$part->brand->name}}</div> <!-- Brand Name -->
                     </div>
                 </div>

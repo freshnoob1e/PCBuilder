@@ -57,7 +57,7 @@
                                             <tr class="border-b border-gray-300 bg-gray-50">
                                         @endif
                                         <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
-                                            <img src="{{ asset('storage/' . $part->image) }}"
+                                            <img src="{{ asset('storage' . $part->image) }}"
                                                 class="w-48 h-48 object-cover">
                                         </td>
                                         <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
