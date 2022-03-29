@@ -40,6 +40,8 @@ Route::get('/aboutus', function () {
     return view('about-us');
 })->name('about-us');
 
+Route::get('/compare/{part}', [PartController::class, 'comparePart'])->name('compare-component');
+
 Route::controller(BrowseController::class)->group(function () {
     Route::get('/components', 'components_index')->name('browse-components');
     Route::get('/brands', 'brands_index')->name('browse-brands');

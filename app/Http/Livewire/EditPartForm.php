@@ -123,18 +123,24 @@ class EditPartForm extends Component
             $this->specs = $this->part->category->specs;
             $this->partSpecs = [];
             foreach ($this->specs as $spec) {
+                $hasSpec = false;
                 foreach ($this->currentSpecs as $currentSpec) {
                     if (is_array($currentSpec)) {
                         if ($spec->name == $currentSpec['name']) {
                             array_push($this->partSpecs, ['name' => $currentSpec['name'], 'content' => $currentSpec['content'], 'datatype' => $currentSpec['datatype'], 'measurement' => $currentSpec['measurement']]);
+                            $hasSpec = true;
                             break;
                         }
                     } else {
                         if ($spec->name == $currentSpec->name) {
                             array_push($this->partSpecs, ['name' => $currentSpec->name, 'content' => $currentSpec->content, 'datatype' => $currentSpec->datatype, 'measurement' => $currentSpec->measurement]);
+                            $hasSpec = true;
                             break;
                         }
                     }
+                }
+                if (!$hasSpec) {
+                    array_push($this->partSpecs, ['name' => $spec->name, 'content' => '', 'datatype' => $spec->datatype, 'measurement' => $spec->measurement]);
                 }
             }
         } else {
@@ -155,7 +161,6 @@ class EditPartForm extends Component
             } else {
                 array_push($this->partSpecs, ['name' => $spec->name, 'content' => false, 'datatype' => $spec->datatype, 'measurement' => $spec->measurement, 'compare_logic' => $spec->compare_logic]);
             }
-
         }
     }
 

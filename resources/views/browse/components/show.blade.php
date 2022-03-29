@@ -30,10 +30,10 @@
             </div>
 
             <div class="mt-8 flex justify-center w-full mx-auto">
-                <div
-                    class="rounded-xl bg-indigo-500 hover:bg-indigo-400 transition duration-150 px-3 py-1 text-lg text-white font-semibold cursor-pointer">
+                <a href="{{ route('compare-component', $part->id) }}"
+                    class="rounded-xl bg-indigo-500 hover:bg-indigo-400 transition duration-150 px-3 py-1 text-xl text-white font-semibold cursor-pointer">
                     Compare other
-                </div>
+                </a>
             </div>
 
             <div class="mt-8 mx-8">

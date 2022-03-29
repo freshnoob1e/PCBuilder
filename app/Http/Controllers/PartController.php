@@ -193,4 +193,11 @@ class PartController extends Controller
             'part' => $part,
         ]);
     }
+
+    public function comparePart(Part $part)
+    {
+        return view('part-comparer', [
+            'part' => $part->load(['brand', 'spec', 'reviews', 'category']),
+        ]);
+    }
 }

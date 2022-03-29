@@ -44,7 +44,7 @@
     <div class="flex-col flex my-1">
         <label for="partPrice" class="font-lg font-semibold">Price (RM)</label>
         <input type="number" id="partPrice" name="partPrice" class="border-neutral-200 rounded-xl focus:ring-purple-500"
-        placeholder="Price of the part..." wire:model="partPrice">
+        placeholder="Price of the part..." wire:model="partPrice" step=".01">
         @error('partPrice')
         <div class="text-red-500">
             {{$message}}
@@ -120,7 +120,7 @@
                 placeholder="Enter {{$spec->name}}..." wire:model="partSpecs.{{$i-1}}.content">
         @elseif ($spec->datatype == 'number')
         <input type="number" id="partSpec{{$i}}" name="partSpec{{$i}}" class="border-neutral-200 rounded-xl focus:ring-purple-500"
-                placeholder="Enter {{$spec->name}}..." wire:model="partSpecs.{{$i-1}}.content">
+                placeholder="Enter {{$spec->name}}..." wire:model="partSpecs.{{$i-1}}.content" step=".01">
         @else
         <input type="checkbox" id="partSpec{{$i}}" name="partSpec{{$i}}" class="border-neutral-200 rounded-xl focus:ring-purple-500"
                 placeholder="Enter {{$spec->name}}..." wire:model="partSpecs.{{$i-1}}.content">
