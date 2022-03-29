@@ -20,15 +20,15 @@
                     </div>
                     <div class="border rounded-lg mt-4">
                         <table class="w-full">
-                            <thead class="border-b border-b-gray-400">
+                            <thead class="border-b border-b-gray-400 bg-slate-400">
                                 <th>
-                                    Brand image
+                                    Brand Logo
                                 </th>
                                 <th>
-                                    Brand name
+                                    Brand Name
                                 </th>
                                 <th>
-                                    Number of items
+                                    Number of Items
                                 </th>
                                 <th>
                                     Action

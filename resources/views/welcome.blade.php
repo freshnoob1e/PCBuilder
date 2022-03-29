@@ -19,5 +19,41 @@
         <div class="bg-red-900 w-full">
             heh
         </div>
+
+    <hr class="my-16 bg-black border-none">
+
+    <div class="mx-48 sm:my-2 md:my-5 lg:my-10 overflow-x-hidden" >
+        <center>
+
+        <div class="ml-auto flex text-3xl text-center w-full h-full align-center mx-48 overflow-x-hidden">
+            <div class="text-center my-20 w-1/2 text-white">
+                <p>Choose your customized build! Anywhere from GT to RTX Series!</p>
+            </div>
+            <div class="w-1/2">
+                <img src ={{{ asset('Images/custom1.jpg') }}} >
+            </div>
+
+        </div>
+        </center>
+    </div>
+
+    <hr class="my-16 bg-black border-none">
+
+    <div class="mx-48 sm:my-2 md:my-5 lg:my-10 overflow-x-hidden" >
+        <center>
+
+        <div class="ml-auto flex text-3xl text-center w-full h-full align-center mx-48 overflow-x-hidden">
+            <div class="w-1/2">
+                <img src ={{{ asset('Images/contact us.png') }}} >
+            </div>
+            <div class="text-center my-20 w-1/2 text-white">
+                <p>Any Inqueries? Contact us now!</p>
+            </div>
+
+        </div>
+        </center>
+    </div>
+
     </body>
 </html>
+

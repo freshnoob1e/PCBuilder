@@ -21,9 +21,9 @@
                             class="rounded-lg bg-indigo-500 font-semibold text-white px-3 py-1">Add</a>
                     </div>
                     <div class="border rounded-lg mt-4 overflow-hidden">
-                        <table class="w-full">
-                            <thead class="border-b border-b-gray-400">
-                                <th>
+                        <table class="table-fixed">
+                            <thead class="border-b border-b-gray-400 bg-slate-400">
+                                <th class="w-1/4">
                                     Part Image
                                 </th>
                                 <th>
