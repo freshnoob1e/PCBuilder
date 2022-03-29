@@ -11,6 +11,7 @@ class CreateCategoryForm extends Component
     // Category data
     public $catName;
     public $catDesc;
+    public $catReq;
     // Category specs
     public $catSpec;
 
@@ -21,6 +22,7 @@ class CreateCategoryForm extends Component
         $partDetailRules = [
             'catName' => ['required', 'string', 'unique:categories,name'],
             'catDesc' => ['required', 'string', 'max:256'],
+            'catReq' => ['required', 'boolean'],
             'catSpec.*.name' => ['required', 'max:64'],
             'catSpec.*.datatype' => ['required', 'in:string,number,bool'],
             'catSpec.*.measurement' => ['nullable', 'string', 'max:32'],
@@ -39,6 +41,8 @@ class CreateCategoryForm extends Component
             'catDesc.required' => 'The category description field is required.',
             'catDesc.string' => 'The category description must be string.',
             'catDesc.max' => 'The category description cannot exceed 256 characters.',
+            'catReq.required' => 'This field is required',
+            'catReq.boolean' => 'This field must be True or False only',
         ];
 
         for ($i = 0; $i < $this->specNum; $i++) {
@@ -91,6 +95,7 @@ class CreateCategoryForm extends Component
         $newCat = Category::create([
             'name' => $this->catName,
             'description' => $this->catDesc,
+            'required' => $this->catReq,
         ]);
         $newCatId = $newCat->id;
 

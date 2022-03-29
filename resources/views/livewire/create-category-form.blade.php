@@ -16,10 +16,20 @@
             class="border-neutral-200 rounded-xl focus:ring-purple-500" placeholder="The category description..."
             wire:model='catDesc'">
         @error('catDesc')
-    <div class="  text-red-500">
+        <div class="   text-red-500">
             {{ $message }}
         </div>
-    @enderror
+        @enderror
+    </div>
+    <div class="flex-col flex my-1">
+        <label for="requried" class="font-lg font-semibold">Category Required in PC Builder?</label>
+        <input type="checkbox" id="requried" name="requried" class="border-neutral-600 rounded-xl focus:ring-purple-500"
+            wire:model='catReq'>
+        @error('catReq')
+        <div class="   text-red-500">
+            {{ $message }}
+        </div>
+        @enderror
     </div>
 
     {{-- Specs --}}

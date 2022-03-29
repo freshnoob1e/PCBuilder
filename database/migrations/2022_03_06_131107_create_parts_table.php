@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->double('price');
-            $table->boolean('required');
             $table->string('image');
             $table->json('not_compatible_parts')->default(json_encode([]));
             $table->timestamps();

@@ -44,6 +44,14 @@
                                 placeholder="The category description..." value="{{ $category->description }}"
                                 disabled>
                         </div>
+                        <div class="flex-col flex my-1">
+                            <label for="requried" class="font-lg font-semibold">Category Required in PC Builder?</label>
+                            @if($category->required)
+                            <input type="checkbox" id="requried" name="requried" class="border-neutral-600 rounded-xl focus:ring-purple-500" disabled checked>
+                            @else
+                            <input type="checkbox" id="requried" name="requried" class="border-neutral-600 rounded-xl focus:ring-purple-500" disabled>
+                            @endif
+                        </div>
                         <div class="my-3 py-3 border-t">
                             <div class="font-semibold text-xl">Specs</div>
                             @foreach ($category->specs as $spec)

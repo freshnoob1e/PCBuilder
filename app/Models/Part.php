@@ -17,7 +17,6 @@ class Part extends Model
         'image',
         'price',
         'not_compatible_parts',
-        'required',
     ];
 
     public function category()

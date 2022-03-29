@@ -10,6 +10,7 @@ class EditCategoryForm extends Component
     // Category data
     public $catName;
     public $catDesc;
+    public $catReq;
     // Category specs
     public $catSpec;
     public $delSpec;
@@ -25,6 +26,7 @@ class EditCategoryForm extends Component
         $partDetailRules = [
             'catName' => ['required', 'string', 'unique:categories,name,' . $this->category->id],
             'catDesc' => ['required', 'string', 'max:256'],
+            'catReq' => ['required', 'boolean'],
             'catSpec.*.name' => ['required', 'max:64'],
             'catSpec.*.datatype' => ['required', 'in:string,number,bool'],
             'catSpec.*.measurement' => ['nullable', 'string', 'max:32'],
@@ -42,6 +44,8 @@ class EditCategoryForm extends Component
             'catDesc.required' => 'The category description field is required.',
             'catDesc.string' => 'The category description must be string.',
             'catDesc.max' => 'The category description cannot exceed 256 characters.',
+            'catReq.required' => 'This field is required',
+            'catReq.boolean' => 'This field must be True or False only',
         ];
 
         for ($i = 0; $i < $this->specNum; $i++) {
@@ -63,6 +67,7 @@ class EditCategoryForm extends Component
         $this->specNum = $this->category->specs->count();
         $this->catName = $this->category->name;
         $this->catDesc = $this->category->description;
+        $this->catReq = $this->category->required;
         $this->delSpec = [];
         $this->catSpec = [];
         foreach ($this->category->specs as $spec) {
@@ -98,6 +103,8 @@ class EditCategoryForm extends Component
         $this->category->update([
             'name' => $this->catName,
             'description' => $this->catDesc,
+            'required' => $this->catReq,
+
         ]);
 
         foreach ($this->catSpec as $spec) {

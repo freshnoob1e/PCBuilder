@@ -24,7 +24,6 @@ class EditPartForm extends Component
     public $partCat;
     public $partBrand;
     public $partPrice;
-    public $partReq;
     public $partSpecs;
     // Cat sec
     public $specs;
@@ -38,7 +37,6 @@ class EditPartForm extends Component
         $this->partDesc = $this->part->description;
         $this->partCat = $this->part->category->id;
         $this->partPrice = $this->part->price;
-        $this->partReq = $this->part->required;
         $this->partBrand = $this->part->brand->id;
 
         if ($this->categories->first()) {
@@ -66,7 +64,6 @@ class EditPartForm extends Component
             'partCat' => ['required', 'exists:categories,id'],
             'partBrand' => ['required', 'exists:brands,id'],
             'partPrice' => ['required', 'numeric'],
-            'partReq' => ['required', 'boolean'],
         ];
 
         $i = 0;
@@ -189,7 +186,6 @@ class EditPartForm extends Component
                 'description' => $this->partDesc,
                 'image' => $destPath,
                 'price' => $this->partPrice,
-                'required' => $this->partReq,
             ]);
         } else {
             $this->part->update([
@@ -198,7 +194,6 @@ class EditPartForm extends Component
                 'name' => $this->partName,
                 'description' => $this->partDesc,
                 'price' => $this->partPrice,
-                'required' => $this->partReq,
             ]);
         }
 

@@ -51,15 +51,6 @@
         </div>
         @enderror
     </div>
-    <div class="flex-col flex my-1">
-        <label for="partReq" class="font-lg font-semibold">Required in pc builder?</label>
-        <input type="checkbox" id="partReq" name="partReq" class="border-neutral-200 rounded-xl focus:ring-purple-500" wire:model="partReq">
-        @error('partReq')
-        <div class="text-red-500">
-            {{$message}}
-        </div>
-        @enderror
-    </div>
     <div class="flex-col flex mt-1 mb-4">
         <div class="flex w-full justify-between">
             <div class="flex flex-col w-[45%]">
