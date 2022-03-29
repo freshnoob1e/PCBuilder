@@ -14,72 +14,34 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     </head>
-    <body class="antialiased bg-gray-500">
-        <div class="absolute top-0 h-14 w-full bg-white z-10 px-8 flex justify-center space-y-9 ">
-            <ul class="flex space-x-12 my-auto font-semibold text-xl justify-between">
-                <li>
-                    <a href="{{route('pc-builder')}}">PC BUILDER</a>
-                </li>
-                <li>
-                    <a href="{{route('browse-components')}}">BROWSE COMPONENTS</a>
-                </li>
-                <li>
-                    <a href="{{route('browse-brands')}}">BROWSE BRANDS</a>
-                </li>
-                <li>
-                    <a href="{{route('browse-categories')}}">BROWSE CATEGORIES</a>
-                </li>
-                <li>
-                    <a href="{{route('pc-builder-guide')}}">PC BUILDER GUIDE</a>
-                </li>
-                <li>
-                    <a href="{{route('terms.show')}}">TNC</a>
-                </li>
-                <li>
-                    <a href="{{route('policy.show')}}">PRIVACY</a>
-                </li>
-                <li>
-                    <a href="{{route('about-us')}}">ABOUT</a>
-                </li>
-            </ul>
+    <body class="antialiased">
+        @include('components.navbar')
+        <div class="text-white text-center font-semibold text-xl pt-1 my-1 bg-slate-500">
+            <h1>
+                These are the components that are essential for building your custom PC!
+                Here are all the categories showing our number of parts that are available for viewing!
+            </h1>
         </div>
-        <div class="text-white text-center font-semibold text-xl pt-14 my-1"><h1>These are the components that are essential for building your custom PC! Here are all the categories showing our number of parts that are available for viewing!</h1></div>
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block z-20">
-                    @auth
-                    <a href="{{ route('forum') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Forum</a>
-                        <a href="{{ route('profile.show') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Profile</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
+        <div class="mx-auto text-center text-3xl font-semibold mb-3 mt-6">
+            ALL CATEGORIES
+        </div>
+        <div class="relative flex items-start justify-center min-h-screen py-4 max-w-7xl mx-auto">
+            <div class="w-full grid grid-cols-3 gap-5">
+                @foreach ($categories as $cat)
+                <div class="border rounded-xl shadow-lg p-3">
+                    <div class="flex justify-center items-start mx-auto">
+                        <a href="{{ route('show-category', $cat->id) }}">
+                            <div class="text-2xl font-semibold text-center transition duration-150 hover:shadow hover:border-b-2 hover:border-b-indigo-400">
+                                {{$cat->name}}
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        {{ $cat->description }}
+                    </div>
                 </div>
-            @endif
-
-
-        <div class="max-w-4xl mx-auto pt-5 my-4 bg-gray-800 text-white grid grid-cols-1 gap-8 divide-y divide-gray-300">
-            @php $i=1 @endphp
-            @if ($categories->first())
-            @foreach ($categories as $cat)
-            <div class="border rounded-xl my-4 border-hidden">
-                <div class="font-semibold text-xl">Category {{$i}}</div>
-                <div>
-                    Name: {{$cat->name}}
-                </div>
-                <div>
-                    Description: {{$cat->description}}
-                </div>
-                <div>
-                    # of Parts: {{$cat->parts->count()}}
-                </div>
+                @endforeach
             </div>
-            @php $i++ @endphp
-            @endforeach
-            @endif
         </div>
     </body>
 </html>

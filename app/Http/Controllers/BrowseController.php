@@ -11,6 +11,16 @@ class BrowseController extends Controller
     public function components_index()
     {
         $parts = Part::latest()->with(['category', 'brand', 'reviews'])->get();
+        foreach ($parts as $part) {
+            if (!$part->reviews->first()) {
+                continue;
+            }
+            $ratings = [];
+            foreach ($part->reviews as $review) {
+                array_push($ratings, $review->rating);
+            }
+            $part->avgRating = round(collect($ratings)->avg());
+        }
         return view('browse.components.index', [
             'parts' => $parts,
         ]);

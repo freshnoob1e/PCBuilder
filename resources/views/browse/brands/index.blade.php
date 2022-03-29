@@ -1,86 +1,48 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Laravel</title>
 
-        <!-- Styles -->
-        @livewireStyles
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    </head>
-    <body class="antialiased bg-gray-500">
-        <div class="absolute top-0 h-14 w-full bg-white z-10 px-2 flex justify-center space-y-9 ">
-            <ul class="flex space-x-12 my-auto font-semibold text-xl justify-between">
-                <li>
-                    <a href="{{route('pc-builder')}}">PC BUILDER</a>
-                </li>
-                <li>
-                    <a href="{{route('browse-components')}}">BROWSE COMPONENTS</a>
-                </li>
-                <li>
-                    <a href="{{route('browse-brands')}}">BROWSE BRANDS</a>
-                </li>
-                <li>
-                    <a href="{{route('browse-categories')}}">BROWSE CATEGORIES</a>
-                </li>
-                <li>
-                    <a href="{{route('pc-builder-guide')}}">PC BUILDER GUIDE</a>
-                </li>
-                <li>
-                    <a href="{{route('terms.show')}}">TNC</a>
-                </li>
-                <li>
-                    <a href="{{route('policy.show')}}">PRIVACY</a>
-                </li>
-                <li>
-                    <a href="{{route('about-us')}}">ABOUT</a>
-                </li>
-            </ul>
-        </div>
-        <div class="text-white text-center font-semibold text-xl pt-14 my-1"><h1>We are proud to present our brand partners for you to pick and compare for your custom PC!</h1></div>
-        <div class="relative flex items-top justify-center min-h-screen  dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block z-20">
-                    @auth
-                    <a href="{{ route('forum') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Forum</a>
-                        <a href="{{ route('profile.show') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Profile</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+    <!-- Styles -->
+    @livewireStyles
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+</head>
 
-
-
-
-        <div class="max-w-4xl mx-auto bg-gray-800 text-white grid grid-cols-3 gap-5 place-content-evenly divide-x divide-slate-600">
-            @php $i=1 @endphp
-            @if ($brands->first())
+<body class="antialiased">
+    @include('components.navbar')
+    <div class="text-white text-center font-semibold text-xl pt-1 my-1 bg-slate-500">
+        <h1>We are proud to present our brand partners for you to pick and compare for your custom PC!</h1>
+    </div>
+    <div class="mx-auto text-center text-3xl font-semibold mb-3 mt-6">
+        ALL BRANDS
+    </div>
+    <div class="relative flex items-start justify-center min-h-screen py-4 max-w-7xl mx-auto">
+        <div class="w-full grid grid-cols-3 gap-5">
             @foreach ($brands as $brand)
-            <div class="border rounded-xl my-4 border-hidden">
-                <div class="font-semibold text-xl">Brand {{$i}}</div>
-                <div class="flex">
-                    Image: <img src="{{asset('storage'.$brand->image)}}">
-                </div>
+            <div class="border rounded-xl shadow-lg p-3">
                 <div>
-                    Brand: {{$brand->name}}
+                    <a href="{{ route('show-brand', $brand->id) }}">
+                        <img src="{{ asset('storage'.$brand->image) }}" class="mx-auto transition duration-150 transform hover:-translate-y-1 hover:shadow-2xl">
+                    </a>
                 </div>
-                <div>
-                    # of Parts: {{$brand->parts->count()}}
+                <div class="flex justify-center items-start mx-auto">
+                    <a href="{{ route('show-brand', $brand->id) }}">
+                        <div class="text-2xl font-semibold text-center transition duration-150 hover:shadow hover:border-b-2 hover:border-b-indigo-400">
+                            {{$brand->name}}
+                        </div>
+                    </a>
                 </div>
             </div>
-            @php $i++ @endphp
             @endforeach
-            @endif
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

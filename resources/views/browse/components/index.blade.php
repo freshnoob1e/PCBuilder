@@ -14,85 +14,56 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     </head>
-    <body class="antialiased bg-gray-500">
-        <div class="absolute top-0 h-14 w-full bg-white z-10 px-8 flex justify-center space-y-9">
-            <ul class="flex space-x-12 my-auto font-semibold text-xl justify-between">
-                <li>
-                    <a href="{{route('pc-builder')}}">PC BUILDER</a>
-                </li>
-                <li>
-                    <a href="{{route('browse-components')}}">BROWSE COMPONENTS</a>
-                </li>
-                <li>
-                    <a href="{{route('browse-brands')}}">BROWSE BRANDS</a>
-                </li>
-                <li>
-                    <a href="{{route('browse-categories')}}">BROWSE CATEGORIES</a>
-                </li>
-                <li>
-                    <a href="{{route('pc-builder-guide')}}">PC BUILDER GUIDE</a>
-                </li>
-                <li>
-                    <a href="{{route('terms.show')}}">TNC</a>
-                </li>
-                <li>
-                    <a href="{{route('policy.show')}}">PRIVACY</a>
-                </li>
-                <li>
-                    <a href="{{route('about-us')}}">ABOUT</a>
-                </li>
-            </ul>
+    <body class="antialiased">
+        @include('components.navbar')
+        <div class="text-white text-center font-semibold text-xl pt-1 my-1 bg-slate-500">
+            <h1>
+                These are the components that are essential for building your custom PC!
+                Here are all the parts that is essential for building your custom PC!
+            </h1>
         </div>
-        <div class="text-white text-center font-semibold text-xl pt-14 my-1"><h1>These are the components that are essential for building your custom PC! Here are all the parts that is essential for building your custom PC!</h1></div>
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block z-20">
-                    @auth
-                    <a href="{{ route('forum') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Forum</a>
-                        <a href="{{ route('profile.show') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Profile</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-        <div class="max-w-4xl mx-auto bg-gray-800 text-white grid grid-cols-2 gap-10 place-content-evenly pl-7 divide-x-2 pt-4">
-            @php $i=1 @endphp
-            @if ($parts->first())
-            @foreach ($parts as $part)
-            <div class=" my-4 ">
-                <div class="font-semibold text-2xl">Item {{$i}}</div>
-                <div class="flex">
-                    Image: <img src="{{ asset('storage'.$part->image) }}">
-                </div>
-                <div class="font-bold text-xl pb-4">
-                    Name: {{$part->name}}
-                </div>
-                <div class="pb-4">
-                    Description: {{$part->description}}
-                </div>
-                <div class="flex">
-                    Category:
-                    <div class="border m-2 p-3 rounded-xl border-hidden">
-                        <div>Name: {{$part->category->name}}</div>
-                        <div>Description: {{$part->category->description}}</div>
+        <div class="mx-auto text-center text-3xl font-semibold mb-3 mt-6">
+            ALL COMPONENTS
+        </div>
+        <div class="relative flex items-start justify-center min-h-screen py-4 max-w-7xl mx-auto">
+            <div class="w-full grid grid-cols-3 gap-5">
+                @foreach ($parts as $part)
+                <div class="border rounded-xl shadow-lg p-3">
+                    <div>
+                        <a href="{{ route('show-component', $part->id) }}">
+                            <img src="{{ asset('storage'.$part->image) }}" class="mx-auto transition duration-150 transform hover:-translate-y-1 hover:shadow-2xl">
+                        </a>
+                    </div>
+                    <div class="flex justify-center items-start mx-auto">
+                        <a href="{{ route('show-component', $part->id) }}">
+                            <div class="text-2xl font-semibold text-center transition duration-150 hover:shadow hover:border-b-2 hover:border-b-indigo-400">
+                                {{$part->name}}
+                            </div>
+                        </a>
+                    </div>
+                    <div class="flex justify-center items-start mx-auto">
+                        <a href="{{ route('show-brand', $part->brand->id) }}">
+                            <div class="text-2xl font-semibold text-center transition duration-150 hover:shadow hover:border-b-2 hover:border-b-indigo-400">
+                                {{$part->brand->name}}
+                            </div>
+                        </a>
+                    </div>
+                    <div class="flex flex-col justify-center items-start">
+                        <div class="text-center mx-auto flex mt-4">Average Rating</div>
+                        <div class="flex text-center mx-auto">
+                            @for ($x=1;$x<6;$x++)
+                            @if($part->avgRating < $x)
+                            <img src="{{ asset('storage/images/svg/star_outline.svg') }}" class="h-8 w-8">
+                            @else
+                            <img src="{{ asset('storage/images/svg/star_solid.svg') }}" class="h-8 w-8">
+                            @endif
+                            @endfor
+                        </div>
+                        <div class="text-center mx-auto flex">{{ $part->reviews->count() }} reviews</div>
                     </div>
                 </div>
-                <div class="flex">
-                    Brand:
-                    <div class="border m-2 p-2 rounded-xl">
-                        <div class="flex"><img src="{{asset('storage'.$part->brand->image)}}" class="w-24 h-24 object-cover"></div> <!-- Brand Img -->
-                        <div class="font-mono font-semibold">{{$part->brand->name}}</div> <!-- Brand Name -->
-                    </div>
-                </div>
+                @endforeach
             </div>
-            @php $i++ @endphp
-            @endforeach
-            @endif
         </div>
     </body>
 </html>

@@ -18,7 +18,7 @@
                         <span class="text-xl font-semibold">Categories</span>
                         <a href="{{route('admin-categories-create')}}" class="rounded-lg bg-indigo-500 font-semibold text-white px-3 py-1">Add</a>
                     </div>
-                    <div class="border rounded-lg mt-4">
+                    <div class="border rounded-lg mt-4 overflow-hidden">
                         <table class="w-full">
                             <thead class="border-b border-b-gray-400">
                                 <th>
@@ -46,7 +46,7 @@
                                 @if($i%2==0)
                                 <tr class="border-b border-gray-300">
                                 @else
-                                <tr class="border-b border-gray-300 bg-gray-50">
+                                <tr class="border-b border-gray-300 bg-gray-100">
                                 @endif
                                     <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
                                         <a href="{{ route('admin-categories-show', $cat->id) }}" class="underline">{{$cat->name}}</a>
