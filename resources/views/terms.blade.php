@@ -9,7 +9,7 @@
 
             <div class="w-full sm:max-w-2xl mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg prose">
                 <h1 class="text-center">TERMS AND CONDITIONS</h1>
-               <p class="antialiased text-xl text-justify">The following terms and conditions govern all use of the pcpartpicker.com website (the Website) and all content, services and products available at or through the website. The Website is owned and operated by PCPartPicker, LLC.
+               <p class="antialiased text-xl text-justify">The following terms and conditions govern all use of the pcpartpicker.com website (the Website) and all content, services and products available at or through the website. The Website is owned and operated by PCPartPicker Sdn Bhd.
                    (“PCPartPicker”). The Website is offered subject to your acceptance without modification of all of the terms and conditions contained herein and all other operating rules, policies (including, without limitation, PCPartPicker’s Privacy Policy)
                    and procedures that may be published from time to time on this Site by PCPartPicker (collectively, the “Agreement”).</p>
 
