@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PC Builder | Homepage</title>
+    <title>PCPartPicker | Homepage</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,14 +19,14 @@
 <body class="antialiased bg-gray-900">
     @include('components.navbar')
 
-    <hr class="my-10 border-none">
+    <hr class="my-6 border-none">
 
     <center>
-        <p class="text-white z-30 mt-10 text-center first-letter: text-6xl">Welcome to PC Builder!</p>
+        <p class="text-white z-30 mt-10 text-center first-letter: text-6xl">Welcome to PCPartPicker!</p>
             <p class="text-white z-30 text-center first-letter: text-3xl">Build your favourite customized PC today!</p>
 
             <hr class="my-10 border-none">
-                        <div class="slideshow px-0 w-1/2 mx-auto width:500 height:500">
+                        <div class="slideshow px-0 w-1/2 mx-auto translate-x-6 border-2 border-indigo-500">
 
                             <div class="mySlides ">
                                 <img src="{{asset('storage/images/Homepage/heroimage.jpg') }}"/>
@@ -43,7 +43,7 @@
                         </div>
     </center>
 
-    <hr class="my-16 border-none">
+    <hr class="my-14 border-none">
 
     <div class="mx-48 overflow-x-hidden">
         <center>

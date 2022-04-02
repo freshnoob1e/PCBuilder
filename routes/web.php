@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 // All
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('homepage');
 
 Route::get('/pcbuilder', function () {
     return view('pc-builder');

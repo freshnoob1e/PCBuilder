@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
 <div class="mb-10">
     <div class="absolute top-0 h-14 w-full bg-white z-10 px-8 flex justify-center border-b">
+        <a href="{{route('homepage')}}"><img src="{{asset('storage/images/Homepage/logo.jpg') }}" class="px-10 absolute top-0 h-14 left-0" /></a>
         <ul class="flex space-x-12 my-auto font-semibold text-xl justify-between">
             <li>
                 <a href="{{route('pc-builder')}}">PC BUILDER</a>

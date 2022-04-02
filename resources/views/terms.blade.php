@@ -1,13 +1,26 @@
-<x-guest-layout>
-    <title>TNC</title>
-    @include('components.navbar')
-    <div class="pt-4 bg-gray-100">
-        <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
-            <div>
-                <x-jet-authentication-card-logo />
-            </div>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
 
-            <div class="w-full sm:max-w-2xl mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg prose">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>PCPartPicker | TNC</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    @livewireStyles
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+</head>
+<body>
+    @include('components.navbar')
+    <div class="pt-4 bg-gray-900">
+        <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
+
+            <div class="w-full mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg prose">
                 <h1 class="text-center">TERMS AND CONDITIONS</h1>
                <p class="antialiased text-xl text-justify">The following terms and conditions govern all use of the pcpartpicker.com website (the Website) and all content, services and products available at or through the website. The Website is owned and operated by PCPartPicker Sdn Bhd.
                    (“PCPartPicker”). The Website is offered subject to your acceptance without modification of all of the terms and conditions contained herein and all other operating rules, policies (including, without limitation, PCPartPicker’s Privacy Policy)
@@ -16,7 +29,7 @@
                 <p class="antialiased text-xl text-justify">Please read this Agreement carefully before accessing or using the Website. By accessing or using any part of the web site, you agree to become bound by the terms and conditions of this agreement.
                 If you do not agree to all the terms and conditions of this agreement, then you may not access the Website or use any services. If these terms and conditions are considered an offer by PCPartPicker, acceptance is expressly limited to these terms.
                 The Website is available only to individuals who are at least 13 years old.</p>
-            </div>
+
             <span class="items-start text-left m-5 ml-10">
             <ol class="list-decimal ">
                 <li class="font-bold antialiased text-2xl text-left">Your Content</li>
@@ -133,4 +146,5 @@
             </span>
         </div>
     </div>
-</x-guest-layout>
+</body>
+</html>

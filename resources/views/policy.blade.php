@@ -1,18 +1,32 @@
-<x-guest-layout>
-    @include('components.navbar')
-    <div class="pt-4 bg-gray-100">
-        <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
-            <div>
-                <x-jet-authentication-card-logo />
-            </div>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
 
-            <div class="w-full sm:max-w-2xl mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg prose">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> PCPartPicker | Policy</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    @livewireStyles
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+</head>
+
+    @include('components.navbar')
+    <div class="pt-4 bg-gray-900">
+        <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
+
+
+            <div class="w-full mt-6 p-6 mx-auto bg-white shadow-md overflow-hidden sm:rounded-lg prose">
                 <h1 class="text-center">PRIVACY POLICY</h1>
                 <p class="antialiased text-xl text-justify">We are committed to safeguarding the privacy of our website visitors and service users. This policy applies where we are acting as a data controller with respect to the personal data of our website
                     visitors and service users; in other words, where we determine the purposes and means of the processing of that personal data. We use cookies on our website. Insofar as those cookies are not strictly necessary for the provision of our website
                     and services, we will ask you to consent to our use of cookies when you first visit our website. Our website incorporates opt-in email controls which affect how we will process your personal data. By using the controls, you can specify whether
                     you would like to receive direct email communications such as comment reply notifications or price drop notifications. You can access the controls via your account preferences. In this policy, "we", "us" and "our" refer to PCPartPicker.</p>
-            </div>
             <span class="items-start text-left m-5 ml-10">
             <ol class="list-decimal ">
                 <li class="font-bold antialiased text-2xl text-left m-2">Quick Human Readable Summary</li>
@@ -192,4 +206,4 @@
         </ol>
         </div>
     </div>
-</x-guest-layout>
+</html>
