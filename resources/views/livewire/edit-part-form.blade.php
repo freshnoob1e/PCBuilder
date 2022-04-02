@@ -3,7 +3,12 @@
     @csrf
     <div class="flex-col flex my-1 relative">
         <label for="partImage" class="font-lg font-semibold">Part Image</label>
-        <input type="file" id="partImage" name="partImage" wire:model="partImage">
+        <div class="flex">
+            <input type="file" id="partImage" name="partImage" wire:model="partImage">
+            <div wire:loading wire:target='partImage' class="flex">
+                Uploading image, please wait...
+            </div>
+        </div>
         @error('partImage')
         <div class="text-red-500">
             {{$message}}
@@ -31,6 +36,16 @@
         <input type="text" id="partDesc" name="partDesc" class="border-neutral-200 rounded-xl focus:ring-purple-500"
                 placeholder="The part description..." wire:model="partDesc">
         @error('partDesc')
+        <div class="text-red-500">
+            {{$message}}
+        </div>
+        @enderror
+    </div>
+    <div class="flex-col flex my-1">
+        <label for="partPrice" class="font-lg font-semibold">Price (RM)</label>
+        <input type="number" id="partPrice" name="partPrice" class="border-neutral-200 rounded-xl focus:ring-purple-500"
+        placeholder="Price of the part..." wire:model="partPrice">
+        @error('partPrice')
         <div class="text-red-500">
             {{$message}}
         </div>
@@ -84,7 +99,13 @@
     @endphp
     @foreach ($specs as $spec)
     <div class="flex-col flex my-1">
-        <label for="partSpec{{$i}}" class="font-lg font-semibold">{{ucfirst($spec->name)}}</label>
+        <label for="partSpec{{$i}}" class="font-lg font-semibold">
+            @if ($spec->datatype == 'number')
+            {{ucfirst($spec->name).' ('.ucfirst($spec->measurement).')'}}
+            @else
+            {{ucfirst($spec->name)}}
+            @endif
+        </label>
         @if($spec->datatype == 'string')
         <input type="text" id="partSpec{{$i}}" name="partSpec{{$i}}" class="border-neutral-200 rounded-xl focus:ring-purple-500"
                 placeholder="Enter {{$spec->name}}..." wire:model="partSpecs.{{$i-1}}.content">
@@ -113,7 +134,8 @@
 
     <div class="w-full mt-4">
         <button class="w-full my-auto bg-indigo-500 text-xl font-semibold text-white rounded-xl py-2
-                        hover:bg-indigo-400 transition duration-150 shadow-lg">
+                        hover:bg-indigo-400 transition duration-150 shadow-lg" wire:loading.attr="disabled"
+                        wire:loading.class="cursor-wait bg-indigo-800" wire:loading.class.remove='bg-indigo-500 hover:bg-indigo-400'>
             Save Changes
         </button>
     </div>

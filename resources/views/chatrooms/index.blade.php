@@ -24,33 +24,33 @@
                                 <th class="border w-[75%]">Last Message</th>
                             </thead>
                             <tbody>
-                                @if($chatrooms->first())
-                                @foreach ($chatrooms as $room)
+                                @if(!empty($chatrooms))
+                                @for ($i=0; $i < count($chatrooms); $i++)
                                 <tr>
                                     <td class="border text-center w-[25%]">
-                                    @foreach ($room->users as $user)
-                                    @if ($user->id != Auth::user()->id)
-                                        <a href="{{route('chat-show', $room->id)}}" class="underline font-semibold">
-                                            {{$user->name}}
+                                    @for ($userIndex=0;$userIndex< count($chatrooms[$i]['users']); $userIndex++)
+                                    @if ($chatrooms[$i]['users'][$userIndex]['uid'] != Auth::user()->id)
+                                        <a href="{{route('chat-show', $chatrooms[$i]['users'][$userIndex]['uid'])}}" class="underline font-semibold">
+                                            {{$chatrooms[$i]['users'][$userIndex]['name']}}
                                         </a>
                                     @endif
-                                    @endforeach
+                                    @endfor
                                     </td>
                                     <td class="border text-center overflow-hidden w-[75%]">
                                         <div>
                                             <span class="text-lg">
-                                                {{strlen($room->messages()->first()->text) > 64 ?
-                                                    substr($room->messages()->first()->text, 0, 64).'...' :
-                                                    $room->messages()->first()->text}}
+                                                {{strlen($chatrooms[$i]['messages'][0]['text']) > 64 ?
+                                                    substr($chatrooms[$i]['messages'][0]['text'], 0, 64).'...' :
+                                                    $chatrooms[$i]['messages'][0]['text']}}
                                             </span>
                                             <span class="underline">
-                                                <span class="text-sm font-semibold">{{$room->messages()->first()->user->name}}</span>
-                                                <span class="text-xs font-semibold text-neutral-600">{{$room->messages()->first()->created_at->diffForHumans()}}</span>
+                                                <span class="text-sm font-semibold">{{$chatrooms[$i]['messages'][0]['user']['name']}}</span>
+                                                <span class="text-xs font-semibold text-neutral-600">{{$chatrooms[$i]['messages'][0]['time_ago']}}</span>
                                             </span>
                                         </div>
                                     </td>
                                 </tr>
-                                @endforeach
+                                @endfor
                                 @else
                                 <tr>
                                     <td class="font-semibold text-xl text-center border" colspan="2">No chat yet...</td>

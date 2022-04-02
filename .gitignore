@@ -1,6 +1,5 @@
 /node_modules
 /public/hot
-/public/storage
 /vendor
 .env
 .env.backup
@@ -14,3 +13,4 @@ yarn-error.log
 /.vscode
 package-lock.json
 /public/css/app.css
+public/css/app.css~master

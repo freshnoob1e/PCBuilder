@@ -11,14 +11,17 @@ class Category extends Model
 
     protected $fillable = [
         'name',
-        'description'
+        'description',
+        'required',
     ];
 
-    public function parts() {
+    public function parts()
+    {
         return $this->hasMany(Part::class);
     }
 
-    public function specs() {
+    public function specs()
+    {
         return $this->hasMany(CategorySpec::class);
     }
 }

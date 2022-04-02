@@ -11,10 +11,11 @@ class Brand extends Model
 
     protected $fillable = [
         'name',
-        'image'
+        'image',
     ];
 
-    public function parts() {
+    public function parts()
+    {
         return $this->hasMany(Part::class);
     }
 }

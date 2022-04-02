@@ -89,14 +89,6 @@ class User extends Authenticatable
         return false;
     }
 
-    public function messages() {
-        return $this->hasMany(Message::class);
-    }
-
-    public function chatrooms() {
-        return $this->belongsToMany(Chatroom::class);
-    }
-
     public function roles() {
         return $this->belongsToMany(Role::class);
     }

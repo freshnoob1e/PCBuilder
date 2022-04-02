@@ -8,7 +8,8 @@
     <div class="py-12">
         <div class="max-w-5xl space-x-5 flex mx-auto items-start mb-6">
             <div class="w-10/12 flex flex-col space-y-6 mx-auto">
-                <a href="{{route('admin-dashboard')}}" class="underline">< Back to dashboard</a>
+                <a href="{{ route('admin-dashboard') }}" class="underline">
+                    < Back to dashboard</a>
             </div>
         </div>
         <div class="max-w-5xl space-x-5 flex mx-auto items-start">
@@ -16,11 +17,11 @@
                 <div class="bg-white border shadow rounded-xl p-3 overflow-hidden">
                     <div class="w-full flex justify-between">
                         <span class="text-xl font-semibold">Parts</span>
-                        <a href="{{route('admin-parts-create')}}"
+                        <a href="{{ route('admin-parts-create') }}"
                             class="rounded-lg bg-indigo-500 font-semibold text-white px-3 py-1">Add</a>
                     </div>
                     <div class="border rounded-lg mt-4 overflow-hidden">
-                        <table class="table-fixed">
+                        <table class="w-full">
                             <thead class="border-b border-b-gray-400 bg-slate-400">
                                 <th class="w-1/4">
                                     Part Image
@@ -45,77 +46,88 @@
                                 </th>
                             </thead>
                             <tbody>
-                                @if($parts->first())
-                                @php
-                                    $i = 0;
-                                @endphp
-                                @foreach ($parts as $part)
-                                @if($i%2==0)
-                                <tr class="border-b border-gray-300">
-                                @else
-                                <tr class="border-b border-gray-300 bg-gray-50">
-                                @endif
-                                    <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
-                                        <img src="{{asset('storage/'.$part->image)}}" class="w-48 h-48 object-cover">
-                                    </td>
-                                    <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
-                                        <a href="{{ route('admin-parts-show', $part->id) }}" class="underline">{{$part->name}}</a>
-                                    </td>
-                                    <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
-                                        {{$part->description}}
-                                    </td>
-                                    <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
-                                        {{$part->category->name}}
-                                    </td>
-                                    <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
-                                        {{$part->brand->name}}
-                                    </td>
-                                    <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
-                                        <ul>
-                                        @php
-                                            $i=0;
-                                        @endphp
-                                        @foreach ($part->spec as $spec)
-                                            @php
-                                            $i++
-                                            @endphp
-                                            <li>
-                                                {{-- {{$i.'. '}} --}}
-                                                @if ($spec->datatype == 'string' || $spec->datatype == 'number')
-                                                    {{ucfirst($spec->name)}}: {{$spec->content}}
-                                                @elseif ($spec->content)
-                                                    {{ucfirst($spec->name)}}: True
-                                                @else
-                                                    {{ucfirst($spec->name)}}: False
-                                                @endif
-                                            </li>
-                                        @endforeach
-                                        </ul>
-                                    </td>
-                                    <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
-                                        <div class="space-y-2 my-1">
-                                            <a href="{{route('admin-parts-edit', $part->id)}}" class="rounded-lg bg-indigo-500 font-semibold text-white px-3 py-1">Edit</a>
-                                            <form action="{{ route('admin-parts-destroy', $part->id) }}" method="POST">
-                                                @csrf
-                                                @method('delete')
-                                                <button href="{{route('admin-parts-edit', $part->id)}}" class="rounded-lg bg-rose-600 font-semibold text-white px-3 py-1"
+                                @if ($parts->first())
+                                    @php
+                                        $i = 0;
+                                    @endphp
+                                    @foreach ($parts as $part)
+                                        @if ($i % 2 == 0)
+                                        <tr class="border-b border-gray-300">
+                                        @else
+                                        <tr class="border-b border-gray-300 bg-gray-100">
+                                        @endif
+                                        <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
+                                            <img src="{{ asset('storage' . $part->image) }}"
+                                                class="w-48 h-48 object-cover">
+                                        </td>
+                                        <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
+                                            <a href="{{ route('admin-parts-show', $part->id) }}"
+                                                class="underline">{{ $part->name }}</a>
+                                        </td>
+                                        <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
+                                            {{ $part->description }}
+                                        </td>
+                                        <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
+                                            {{ $part->category->name }}
+                                        </td>
+                                        <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
+                                            {{ $part->brand->name }}
+                                        </td>
+                                        <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
+                                            <ul>
+                                                @php
+                                                    $i = 0;
+                                                @endphp
+                                                @foreach ($part->spec as $spec)
+                                                    @php
+                                                        $i++;
+                                                    @endphp
+                                                    <li>
+                                                        {{-- {{$i.'. '}} --}}
+                                                        @if ($spec->datatype == 'string' || !property_exists($spec, 'measurement'))
+                                                            {{ ucfirst($spec->name) }}: {{ $spec->content }}
+                                                        @elseif ($spec->datatype == 'number')
+                                                            {{ ucfirst($spec->name) }}: {{ $spec->content }}
+                                                            {{ $spec->measurement }}
+                                                        @elseif ($spec->content)
+                                                            {{ ucfirst($spec->name) }}: True
+                                                        @else
+                                                            {{ ucfirst($spec->name) }}: False
+                                                        @endif
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </td>
+                                        <td class="border-l border-r border-gray-300 px-2 py-1 text-center">
+                                            <div class="space-y-2 my-1 flex flex-col">
+                                                <a href="{{ route('admin-parts-manage-compat', $part->id) }}"
+                                                    class="rounded-lg bg-indigo-500 font-semibold text-white px-3 py-1">Manage
+                                                    Compatibility</a>
+                                                <a href="{{ route('admin-parts-edit', $part->id) }}"
+                                                    class="rounded-lg bg-indigo-500 font-semibold text-white px-3 py-1">Edit</a>
+                                                <form action="{{ route('admin-parts-destroy', $part->id) }}"
+                                                    method="POST" class="flex flex-col">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button href="{{ route('admin-parts-edit', $part->id) }}"
+                                                        class="rounded-lg bg-rose-600 font-semibold text-white px-3 py-1"
                                                         type="submit">
-                                                    Delete
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
-                                @php
-                                    $i++
-                                @endphp
-                                @endforeach
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                        </tr>
+                                        @php
+                                            $i++;
+                                        @endphp
+                                    @endforeach
                                 @else
-                                <tr>
-                                    <td colspan="7" class="text-center font-semibold text-xl">
-                                        No parts available...
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td colspan="7" class="text-center font-semibold text-xl">
+                                            No parts available...
+                                        </td>
+                                    </tr>
                                 @endif
                             </tbody>
                         </table>

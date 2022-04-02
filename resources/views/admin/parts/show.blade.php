@@ -31,7 +31,7 @@
                         </div>
                         <div class="flex-col flex my-1 relative">
                             <label for="partImage" class="font-lg font-semibold">Part Image</label>
-                            <img src="{{ asset('storage/'.$part->image) }}" class="w-48 h-48">
+                            <img src="{{ asset('storage'.$part->image) }}" class="w-48 h-48">
                         </div>
                         <div class="flex-col flex my-1">
                             <label for="partName" class="font-lg font-semibold">Part Name</label>
@@ -42,6 +42,11 @@
                             <label for="partDesc" class="font-lg font-semibold">Part Description</label>
                             <input type="text" id="partDesc" name="partDesc" class="border-neutral-200 rounded-xl focus:ring-purple-500"
                                     placeholder="The part description..." value="{{ $part->description }}" disabled>
+                        </div>
+                        <div class="flex-col flex my-1">
+                            <label for="partPrice" class="font-lg font-semibold">Part Price</label>
+                            <input type="text" id="partPrice" name="partPrice" class="border-neutral-200 rounded-xl focus:ring-purple-500"
+                                    placeholder="The part description..." value="{{ 'RM'.$part->price }}" disabled>
                         </div>
                         <div class="flex-col flex mt-1 mb-4">
                             <div class="flex w-full justify-between">
@@ -69,8 +74,14 @@
                         @endphp
                         @foreach ($specs as $spec)
                         <div class="flex-col flex my-1">
-                            <label for="partSpec{{$i}}" class="font-lg font-semibold">{{ucfirst($spec->name)}}</label>
-                            @if($spec->datatype == 'string')
+                            <label for="partSpec{{$i}}" class="font-lg font-semibold">
+                                @if ($spec->datatype == 'number' || !property_exists($spec, 'measurement'))
+                                {{ucfirst($spec->name).' ('.ucfirst($spec->measurement).')'}}
+                                @else
+                                {{ucfirst($spec->name)}}
+                                @endif
+                            </label>
+                            @if ($spec->datatype == 'string')
                             <input type="text" id="partSpec{{$i}}" name="partSpec{{$i}}" class="border-neutral-200 rounded-xl focus:ring-purple-500"
                                     placeholder="Enter {{$spec->name}}..." value="{{ $spec->content }}" disabled>
                             @elseif ($spec->datatype == 'number')

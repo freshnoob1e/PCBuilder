@@ -31,7 +31,7 @@
                         </div>
                         <div class="flex-col flex my-1">
                             <label for="image" class="font-lg font-semibold">Brand Image</label>
-                            <img src="{{ asset('storage/'.$brand->image) }}" class="object-cover mx-auto">
+                            <img src="{{ asset('storage'.$brand->image) }}" class="object-cover mx-auto">
                         </div>
                         <div class="flex-col flex my-1">
                             <label for="name" class="font-lg font-semibold">Brand Name</label>

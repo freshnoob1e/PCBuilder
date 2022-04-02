@@ -13,18 +13,16 @@ class PartReview extends Model
         'part_id',
         'user_id',
         'text',
-        'rating'
+        'rating',
     ];
 
-    public function part() {
+    public function part()
+    {
         return $this->belongsTo(Part::class);
     }
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class);
-    }
-
-    public function rating() {
-        return $this->hasOne(PartRating::class);
     }
 }

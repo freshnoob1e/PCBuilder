@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->string('datatype');
+            $table->string('measurement')->nullable();
+            $table->string('compare_logic')->nullable();
             $table->timestamps();
         });
     }
