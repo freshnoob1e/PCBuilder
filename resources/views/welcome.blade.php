@@ -16,7 +16,7 @@
 
 </head>
 
-<body class="antialiased dark:bg-gray-900">
+<body class="antialiased bg-gray-900">
     @include('components.navbar')
 
     <hr class="my-10 border-none">

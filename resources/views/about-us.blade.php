@@ -42,15 +42,15 @@
             Although we are founded in the early days, our team is still growing and aiming to achieve more in the
             future. We are a team equipped with highly motavated, well-trained and dedicated staffs.”
         </p>
+
         <br />
-        <h1 class="text-center text-5xl">Why us ?</h1>
-        <br />
-        <p>
-            SCS is one of the leading online e-tailers with presences in 3 countries; Australia, Malaysia and
-            Singapore.We offer a wide selection of top brand IT products with the most competitive prices in the local
-            market. In 3 years, we were awarded the Malaysia Top IT Product E-Commerce reseller in Lazada and Shopee and
-            achieved 5 stars rating from over 30,000 reviews.
-        </p>
+        <h1 class="text-center text-5xl">Contact us</h1>
+        <br/>
+    <p class="text-center">Having troubles or any questions? Feel free to contact us anytime, we are glad to assist you!</p>
+	<p class="text-center"> Whatsapp our sales and technical team at: +6019-3491 2323</p>
+	<p class="text-center"> Support Email: support@bruh.my</p>
+	<p class="text-center">Working Hour: 10:00 A.M. - 7:30 P.M. Everyday</p>
+
 
     </div>
 </body>
