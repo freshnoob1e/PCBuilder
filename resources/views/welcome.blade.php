@@ -53,7 +53,7 @@
                     <p>Choose your customized build!</p>
                     <p>Anywhere from GT to RTX Series!</p>
                     <br>
-                    <a href="{{route('browse-components')}}" class="outline-offset-1 rounded-lg border-solid border-4 border-indigo-500 border-x-gray-900">Shop Now</a>
+                    <a href="{{route('browse-components')}}" class="outline-offset-1 rounded-lg border-solid border-4 border-indigo-500 border-x-gray-900">Build Now</a>
                 </div>
 
                 <div class="w-1/2">

@@ -22,13 +22,13 @@
         <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
 
 
-            <div class="w-full mt-6 p-6 mx-auto bg-white shadow-md overflow-hidden sm:rounded-lg prose">
-                <h1 class="text-center">PRIVACY POLICY</h1>
+            <div class="w-full mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg max-w-6xl mx-auto">
+                <h1 class="text-center text-5xl font-bold p-4">PRIVACY POLICY</h1>
                 <p class="antialiased text-xl text-justify">We are committed to safeguarding the privacy of our website visitors and service users. This policy applies where we are acting as a data controller with respect to the personal data of our website
                     visitors and service users; in other words, where we determine the purposes and means of the processing of that personal data. We use cookies on our website. Insofar as those cookies are not strictly necessary for the provision of our website
                     and services, we will ask you to consent to our use of cookies when you first visit our website. Our website incorporates opt-in email controls which affect how we will process your personal data. By using the controls, you can specify whether
                     you would like to receive direct email communications such as comment reply notifications or price drop notifications. You can access the controls via your account preferences. In this policy, "we", "us" and "our" refer to PCPartPicker.</p>
-            <span class="items-start text-left m-5 ml-10">
+            <div class="items-start text-left m-5 ml-10">
             <ol class="list-decimal ">
                 <li class="font-bold antialiased text-2xl text-left m-2">Quick Human Readable Summary</li>
 
@@ -205,6 +205,7 @@
             <p class="text-xl text-justify">This website is owned and operated by PCPartPicker Sdn Bhd. We are a Malaysian Sendirian Berhad registered in the state of Pahang. Our principal place of business is at Kuantan, Pahang. You can contact us by email using
                 asdf@example.com.</p>
         </ol>
+            </div>
         </div>
     </div>
 </html>

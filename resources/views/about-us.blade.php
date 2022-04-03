@@ -19,10 +19,11 @@
 
 <body class="antialiased bg-slate-900">
     @include('components.navbar')
-    <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0 ">About Us
 
-    <div class="w-full mt-6 p-6 mx-auto bg-white shadow-md overflow-hidden sm:rounded-lg prose ">
-        <h1 class="text-center text-5xl">Our Story</h1>
+<div class="pt-4">
+        <div class="w-full mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg max-w-6xl mx-auto">
+            <div class="flex flex-col items-center pt-6 sm:pt-0 pb-10 text-6xl font-bold"> About Us </div>
+        <h1 class="text-center text-5xl pb-6">Our Story</h1>
 
         <p class="text-xl">PCPartPicker is a Malaysia IT company focused on providing quality services
             and solutions to satisfy customers needs. Founded in 22nd July 2001 in Kuantan, Pahang, PCPartPicker
@@ -31,7 +32,7 @@
             after sales service. PCPartPicker has sold a wide variety of Softwares and Hardwares to many
             companies and customers, fulfilling their needs for technological advancement.</p>
         <br />
-        <h1 class="text-center text-5xl">Our Goal</h1>
+        <h1 class="text-center text-5xl pb-6">Our Goal</h1>
 
         <p class="text-xl">
             “PCPartPicker‘s goal is to improve and enhance the competitive position of our clients by providing them what they
@@ -42,7 +43,7 @@
             future. We are a team equipped with highly motavated, well-trained and dedicated staffs.”
         </p>
         <br />
-        <h1 class="text-center text-5xl">Contact us</h1>
+        <h1 class="text-center text-5xl pb-6">Contact us</h1>
         <div class="text-center text-xl">
             <p>Having troubles or any questions? Feel free to contact us anytime, we are glad to assist you!</p>
 	        <p>Whatsapp our sales and technical team at: +6019-3491 2323</p>
@@ -51,7 +52,7 @@
         </div>
     </div>
 </div>
-
+</div>
 </body>
 
 </html>
