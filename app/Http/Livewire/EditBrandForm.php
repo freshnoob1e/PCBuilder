@@ -1,11 +1,12 @@
 <?php
+// AUTHOR: CHAN ZHENG JIE / POH YUAN HAO
 
 namespace App\Http\Livewire;
 
 use App\Models\Brand;
 use Illuminate\Support\Facades\Storage;
-use Livewire\Component;
 use Image;
+use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class EditBrandForm extends Component
@@ -16,39 +17,43 @@ class EditBrandForm extends Component
     public $brandName;
     public $brand;
 
-    public function rules(){
+    public function rules()
+    {
         return [
             'brandImage' => ['nullable', 'image', 'max:2048'],
-            'brandName' => ['required', 'string', 'max:128', 'unique:brands,name,'.$this->brand->id]
+            'brandName' => ['required', 'string', 'max:128', 'unique:brands,name,' . $this->brand->id],
         ];
     }
 
-    public function mount(){
+    public function mount()
+    {
         $this->brandName = $this->brand->name;
     }
 
-    public function updatedBrandImage(){
+    public function updatedBrandImage()
+    {
         $this->validateOnly('brandImage');
     }
 
-    public function save(){
+    public function save()
+    {
         $this->validate();
-        if($this->brandImage){
-            if(Storage::exists($this->brand->image)){
+        if ($this->brandImage) {
+            if (Storage::exists($this->brand->image)) {
                 Storage::delete($this->brand->image);
             }
             $image = Image::make($this->brandImage)->resize(256, 256)->encode('webp');
-            $fileName = time().'_'.$this->brandName.'.webp';
-            $destPath = '/images/brands/'.$fileName;
+            $fileName = time() . '_' . $this->brandName . '.webp';
+            $destPath = '/images/brands/' . $fileName;
             Storage::put($destPath, $image);
 
             $this->brand->update([
                 'name' => $this->brandName,
-                'image' => $destPath
+                'image' => $destPath,
             ]);
-        }else{
+        } else {
             $this->brand->update([
-                'name' => $this->brandName
+                'name' => $this->brandName,
             ]);
         }
 

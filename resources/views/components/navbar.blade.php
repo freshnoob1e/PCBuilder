@@ -1,3 +1,4 @@
+{{-- AUTHOR: CHAN ZHENG JIE --}}
 <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
 <div class="mb-10">
     <div class="absolute top-0 h-14 w-full bg-white z-10 px-8 flex justify-center border-b">

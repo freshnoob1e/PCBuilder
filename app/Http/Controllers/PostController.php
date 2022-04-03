@@ -1,4 +1,5 @@
 <?php
+// AUTHOR: THOMAS LIM CHI HOW
 
 namespace App\Http\Controllers;
 
@@ -9,14 +10,15 @@ use Illuminate\Support\Facades\Redirect;
 
 class PostController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $user_id = Auth::user()->id;
         $posts = Post::latest()->with(['user', 'user_likes'])->get();
 
         foreach ($posts as $post) {
             $post->liked = false;
             foreach ($post->user_likes as $likeUser) {
-                if($likeUser->id == $user_id){
+                if ($likeUser->id == $user_id) {
                     $post->liked = true;
                     break;
                 }
@@ -24,67 +26,71 @@ class PostController extends Controller
         }
 
         return view('forum', [
-            'posts' => $posts
+            'posts' => $posts,
         ]);
     }
 
-    public function store(Request $req){
+    public function store(Request $req)
+    {
         $req->validate([
-            'content' => ['required', 'string']
+            'content' => ['required', 'string'],
         ]);
         $user_id = auth()->user()->id;
         Post::create([
             'user_id' => $user_id,
             'content' => $req->content,
-            'likes' => 0
+            'likes' => 0,
         ]);
         return redirect()->route('forum');
     }
 
-    public function edit(Post $post){
+    public function edit(Post $post)
+    {
         $post = $post->load('user');
-        if(auth()->user()->id != $post->user->id){
+        if (auth()->user()->id != $post->user->id) {
             abort(401);
         }
         return view('posts.edit', [
-            'post' => $post
+            'post' => $post,
         ]);
     }
 
-    public function update(Post $post, Request $req){
+    public function update(Post $post, Request $req)
+    {
         $post = $post->load('user');
-        if(auth()->user()->id != $post->user->id){
+        if (auth()->user()->id != $post->user->id) {
             abort(401);
         }
         $req->validate([
-            'content' => ['required', 'string']
+            'content' => ['required', 'string'],
         ]);
         $post->update([
-            'content' => $req->content
+            'content' => $req->content,
         ]);
         return redirect()->route('post', $post->id);
     }
 
-    public function show(Post $post){
+    public function show(Post $post)
+    {
         $post = $post->load(['user', 'comments.user', 'user_likes']);
         $user = auth()->user();
         $isPostOwner = false;
-        if($user->id == $post->user->id){
+        if ($user->id == $post->user->id) {
             $isPostOwner = true;
         }
         $roles = $user->roles;
         $isAdmin = false;
         $isMod = false;
-        foreach($roles as $role){
-            if($role->name == 'Admin'){
+        foreach ($roles as $role) {
+            if ($role->name == 'Admin') {
                 $isAdmin = true;
-            } else if($role->name == 'Mod'){
+            } else if ($role->name == 'Mod') {
                 $isMod = true;
             }
         }
         $postLiked = false;
-        foreach($post->user_likes as $likeUser){
-            if($likeUser->id == $user->id){
+        foreach ($post->user_likes as $likeUser) {
+            if ($likeUser->id == $user->id) {
                 $postLiked = true;
                 break;
             }
@@ -94,15 +100,16 @@ class PostController extends Controller
             'isPostOwner' => $isPostOwner,
             'isAdmin' => $isAdmin,
             'isMod' => $isMod,
-            'postLiked' => $postLiked
+            'postLiked' => $postLiked,
         ]);
     }
 
-    public function destroy(Post $post){
+    public function destroy(Post $post)
+    {
         $post = $post->load('user');
         $user = auth()->user();
-        if(!$user->isAdmin && !$user->isMod){
-            if($user->id != $post->user->id){
+        if (!$user->isAdmin && !$user->isMod) {
+            if ($user->id != $post->user->id) {
                 abort(401);
             }
         }
@@ -110,7 +117,8 @@ class PostController extends Controller
         return redirect()->route('forum');
     }
 
-    public function like(Post $post){
+    public function like(Post $post)
+    {
         $user_id = Auth::user()->id;
         $post->user_likes()->toggle($user_id);
         return Redirect::back();

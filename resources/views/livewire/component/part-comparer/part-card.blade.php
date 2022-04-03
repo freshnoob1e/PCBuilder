@@ -1,3 +1,4 @@
+{{-- AUTHOR: LOH JIN YI --}}
 <div class="border rounded-lg p-5">
     @if(!is_null($part))
     <div class="mx-auto text-center text-xl font-semibold">

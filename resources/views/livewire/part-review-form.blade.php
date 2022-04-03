@@ -1,3 +1,4 @@
+{{-- AUTHOR: ONG CHOON TECK / POH YUAN HAO --}}
 <form class="border rounded-lg px-3 py-1" wire:submit.prevent='post'>
     <div class="flex items-start">
         @if(!is_null(Auth::user()->profile_photo_path))

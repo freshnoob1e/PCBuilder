@@ -1,3 +1,4 @@
+{{-- AUTHOR: CHAN ZHENG JIE / ONG CHOON TECK / POH YUAN HAO --}}
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
