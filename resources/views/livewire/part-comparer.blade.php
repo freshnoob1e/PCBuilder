@@ -1,3 +1,4 @@
+{{-- AUTHOR: LOH JIN YI --}}
 <div class="border rounded-xl mx-auto mt-24 p-5">
     <div class="text-2xl font-semibold">
         Comparing component

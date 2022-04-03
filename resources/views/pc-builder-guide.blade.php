@@ -1,3 +1,4 @@
+{{-- AUTHOR: ONG CHOON TECK --}}
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -15,8 +16,6 @@
 
     </head>
     <body class="antialiased bg-black	">
-        {{-- aaaaaaaaaaaaa --}}
-
         <div>
             <div class=" text-center mx-auto font-bold text-9xl text-slate-50">PC Builder Guide
         <img src="{{ asset('storage/images/guide/bg.jpg') }}" class = "z-1 w-full h-screen ">

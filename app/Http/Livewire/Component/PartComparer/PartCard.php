@@ -1,4 +1,5 @@
 <?php
+// AUTHOR: LOH JIN YI
 
 namespace App\Http\Livewire\Component\PartComparer;
 

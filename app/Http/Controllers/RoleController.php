@@ -1,4 +1,5 @@
 <?php
+// AUTHOR: ONG CHOON TECK
 
 namespace App\Http\Controllers;
 
@@ -8,14 +9,16 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $roles = Role::latest()->with('users')->get();
         return view('admin.roles.index', [
-            'roles' => $roles
+            'roles' => $roles,
         ]);
     }
 
-    public function destroy(User $user, Request $req){
+    public function destroy(User $user, Request $req)
+    {
         $user->roles()->detach($req->role_id);
         return redirect()->route('admin-users-edit', $user->id);
     }
