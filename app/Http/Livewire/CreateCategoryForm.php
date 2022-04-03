@@ -11,7 +11,7 @@ class CreateCategoryForm extends Component
     // Category data
     public $catName;
     public $catDesc;
-    public $catReq;
+    public $catReq = false;
     // Category specs
     public $catSpec;
 
