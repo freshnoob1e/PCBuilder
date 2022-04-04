@@ -1,7 +1,7 @@
 # BAIT3173 INTEGRATIVE PROGRAMMING ASSIGNMENT
 #### Author: Chan Zheng Jie, Thomas Lim Chi How, Poh Yuan Hao, Ong Choon Teck, Loh Jin Yi
 
-## 1.0 Overview
+## 1. Overview
 
 The system allows people to choose pc components for reference and to see the prices and total prices of pc with the components they picked. They can also compare different components in the same category such as graphics card and CPU.
 
@@ -18,12 +18,8 @@ The module that I am in charge of is Chatroom Microservice and Component Managem
 The ORM used is the Laravel Eloquent ORM.
 
 
-## Purpose
-
-There are three main purpose in this application:
-- Manage employees
-- Manage departments and jobs
-- Payroll
+## 2. Installation
+1. Install [Composer] (https://getcomposer.org/)
 
 ### Manage employees
 The application allow user to **Add**, **Edit**, and **Retrieve** employees intro/from the AWS RDS database.
