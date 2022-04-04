@@ -29,10 +29,10 @@ The ORM used is the Laravel Eloquent ORM.
 4. Clone this github repo to your device.
 5. Open a command line and change directory to the cloned directory.
 6. Run these commands:
-    - composer install
-    - npm install
-    - npm run dev
-    - php artisan storage:link
+    - **composer install**
+    - **npm install**
+    - **npm run dev**
+    - **php artisan storage:link**
 7. Open a file explorer and go to the cloned repo folder
 8. Make a copy of the .env-example and rename it as .env
 9. In the .env file, change these values:
@@ -42,7 +42,7 @@ The ORM used is the Laravel Eloquent ORM.
     - DB_USERNAME to your MySQL username
     - If your MySQL user has a password, change the value of DB_PASSWORD to your password
 10. Go back to your terminal and run this command:
-    - php artisan migrate:fresh --seed
+    - **php artisan migrate:fresh --seed**
 
 ## 3. Running the project
 
@@ -51,8 +51,8 @@ A great tool to run an Apache server and MySQL service on your computer is [XAMP
 After started your Apache/Nginx server and MySQL service, follow the below step to run the project.
 
 1. Open two terminal, change directory to the cloned repo directory on both terminal.
-2. In one of the terminal, run this command: php artisan serve
-3. In another terminal, run this command: npm run watch
+2. In one of the terminal, run this command: **php artisan serve**
+3. In another terminal, run this command: **npm run watch**
 
 After running the last command, your computer should open up a browser tab, it will show the project index.
 
