@@ -19,7 +19,7 @@ The ORM used is the Laravel Eloquent ORM.
 
 
 ## 2. Installation
-1. Install [Composer] (https://getcomposer.org/)
+1. Install [Composer](https://getcomposer.org/)
 
 ### Manage employees
 The application allow user to **Add**, **Edit**, and **Retrieve** employees intro/from the AWS RDS database.
