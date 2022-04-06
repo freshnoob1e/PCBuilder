@@ -12,22 +12,21 @@ class Post extends Model
     protected $fillable = [
         'user_id',
         'content',
-        'likes'
+        'likes',
     ];
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function comments() {
+    public function comments()
+    {
         return $this->hasMany(PostComment::class)->latest();
     }
 
-    public function reviews() {
-        return $this->hasMany(PostReview::class);
-    }
-
-    public function user_likes() {
+    public function user_likes()
+    {
         return $this->belongsToMany(User::class);
     }
 }
