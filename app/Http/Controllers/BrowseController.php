@@ -91,4 +91,79 @@ class BrowseController extends Controller
             'category' => $category,
         ]);
     }
+
+    public function get_all_components()
+    {
+        $parts = Part::latest()->with(['category', 'brand', 'reviews'])->get();
+        foreach ($parts as $part) {
+            if (!$part->reviews->first()) {
+                continue;
+            }
+            $ratings = [];
+            foreach ($part->reviews as $review) {
+                array_push($ratings, $review->rating);
+            }
+            $part->avgRating = round(collect($ratings)->avg());
+        }
+        return response()->json($parts);
+    }
+
+    public function get_all_brands()
+    {
+        $brands = Brand::latest()->get();
+        return response()->json($brands);
+    }
+
+    public function get_all_categories()
+    {
+        $categories = Category::latest()->with('parts')->get();
+        return response()->json($categories);
+    }
+
+    public function get_component(Part $part)
+    {
+        $part = $part->load(['category', 'reviews.user', 'brand', 'spec']);
+        $partSpec = json_decode($part->spec->properties);
+
+        return response()->json([
+            'part' => $part,
+            'partSpec' => $partSpec,
+        ]);
+    }
+
+    public function get_brand(Brand $brand)
+    {
+        $brandParts = $brand->parts()->with(['category', 'reviews'])->get();
+        foreach ($brandParts as $part) {
+            if (!$part->reviews->first()) {
+                continue;
+            }
+            $ratings = [];
+            foreach ($part->reviews as $review) {
+                array_push($ratings, $review->rating);
+            }
+            $part->avgRating = round(collect($ratings)->avg());
+        }
+
+        return response()->json([
+            'brand' => $brand,
+            'brandParts' => $brandParts,
+        ]);
+    }
+
+    public function get_category(Category $category)
+    {
+        $category = $category->load(['parts.brand', 'parts.reviews']);
+        foreach ($category->parts as $part) {
+            if (!$part->reviews->first()) {
+                continue;
+            }
+            $ratings = [];
+            foreach ($part->reviews as $review) {
+                array_push($ratings, $review->rating);
+            }
+            $part->avgRating = round(collect($ratings)->avg());
+        }
+        return response()->json($category);
+    }
 }
