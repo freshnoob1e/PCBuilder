@@ -26,4 +26,10 @@ Route::controller(BrowseController::class)->group(function () {
     Route::get('/component/{part}', 'get_component');
     Route::get('/brand/{brand}', 'get_brand');
     Route::get('/category/{category}', 'get_category');
+    Route::get('/components/json', 'get_all_components_json');
+    Route::get('/brands/json', 'get_all_brands_json');
+    Route::get('/categories/json', 'get_all_categories_json');
+    Route::get('/component/{part}/json', 'get_component_json');
+    Route::get('/brand/{brand}/json', 'get_brand_json');
+    Route::get('/category/{category}/json', 'get_category_json');
 });

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<brands>
+    <el>
+        <id>7</id>
+        <name>Asus</name>
+        <image>/images/brands/1648998794_Asus.webp</image>
+        <created_at>2022-04-03T15:13:14.000000Z</created_at>
+        <updated_at>2022-04-03T15:13:14.000000Z</updated_at>
+    </el>
+    <el>
+        <id>6</id>
+        <name>Western Digital</name>
+        <image>/images/brands/1648997965_Western Digital.webp</image>
+        <created_at>2022-04-03T14:59:25.000000Z</created_at>
+        <updated_at>2022-04-03T14:59:25.000000Z</updated_at>
+    </el>
+    <el>
+        <id>5</id>
+        <name>Cooler Master</name>
+        <image>/images/brands/1648997944_Cooler Master.webp</image>
+        <created_at>2022-04-03T14:59:04.000000Z</created_at>
+        <updated_at>2022-04-03T14:59:04.000000Z</updated_at>
+    </el>
+    <el>
+        <id>4</id>
+        <name>Kingston</name>
+        <image>/images/brands/1648997935_Kingston.webp</image>
+        <created_at>2022-04-03T14:58:55.000000Z</created_at>
+        <updated_at>2022-04-03T14:58:55.000000Z</updated_at>
+    </el>
+    <el>
+        <id>3</id>
+        <name>Intel</name>
+        <image>/images/brands/1648997924_Intel.webp</image>
+        <created_at>2022-04-03T14:58:44.000000Z</created_at>
+        <updated_at>2022-04-03T14:58:44.000000Z</updated_at>
+    </el>
+    <el>
+        <id>2</id>
+        <name>Advanced Micro Devices (AMD)</name>
+        <image>/images/brands/1648997913_Advanced Micro Devices (AMD).webp</image>
+        <created_at>2022-04-03T14:58:33.000000Z</created_at>
+        <updated_at>2022-04-03T14:58:33.000000Z</updated_at>
+    </el>
+    <el>
+        <id>1</id>
+        <name>Nvidia</name>
+        <image>/images/brands/1648997901_Nvidia.webp</image>
+        <created_at>2022-04-03T14:50:27.000000Z</created_at>
+        <updated_at>2022-04-03T14:58:21.000000Z</updated_at>
+    </el>
+</brands>

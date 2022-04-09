@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<component>
+    <part>
+        <id>3</id>
+        <brand_id>1</brand_id>
+        <category_id>2</category_id>
+        <name>RTX 3050</name>
+        <description>The entry level of RTX 30 series, the RTX 3050.</description>
+        <price>1200</price>
+        <image>/images/parts/1648998642_RTX 3050.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T15:10:42.000000Z</created_at>
+        <updated_at>2022-04-03T15:10:42.000000Z</updated_at>
+        <category>
+            <id>2</id>
+            <name>GPU</name>
+            <required>1</required>
+            <description>Graphics Processing Unit, the graphical processor of every PCs.</description>
+            <created_at>2022-04-03T15:01:11.000000Z</created_at>
+            <updated_at>2022-04-03T15:01:11.000000Z</updated_at>
+        </category>
+        <reviews/>
+        <brand>
+            <id>1</id>
+            <name>Nvidia</name>
+            <image>/images/brands/1648997901_Nvidia.webp</image>
+            <created_at>2022-04-03T14:50:27.000000Z</created_at>
+            <updated_at>2022-04-03T14:58:21.000000Z</updated_at>
+        </brand>
+        <spec>
+            <id>3</id>
+            <part_id>3</part_id>
+            <properties>[{"name":"Clock Speed","content":"1500","datatype":"number","measurement":"MHz","compare_logic":"&gt;"},{"name":"Mem Bus Width","content":"128","datatype":"number","measurement":"bit","compare_logic":"&gt;"},{"name":"GPU Memory","content":"8GB GDDR6","datatype":"string","measurement":"","compare_logic":"&gt;"},{"name":"LHR","content":true,"datatype":"bool","measurement":"","compare_logic":"&gt;"}]</properties>
+            <created_at>2022-04-03T15:10:42.000000Z</created_at>
+            <updated_at>2022-04-03T15:10:42.000000Z</updated_at>
+        </spec>
+    </part>
+    <partSpec>
+        <el>
+            <name>Clock Speed</name>
+            <content>1500</content>
+            <datatype>number</datatype>
+            <measurement>MHz</measurement>
+            <compare_logic>&gt;</compare_logic>
+        </el>
+        <el>
+            <name>Mem Bus Width</name>
+            <content>128</content>
+            <datatype>number</datatype>
+            <measurement>bit</measurement>
+            <compare_logic>&gt;</compare_logic>
+        </el>
+        <el>
+            <name>GPU Memory</name>
+            <content>8GB GDDR6</content>
+            <datatype>string</datatype>
+            <measurement/>
+            <compare_logic>&gt;</compare_logic>
+        </el>
+        <el>
+            <name>LHR</name>
+            <content>1</content>
+            <datatype>bool</datatype>
+            <measurement/>
+            <compare_logic>&gt;</compare_logic>
+        </el>
+    </partSpec>
+</component>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<category>
+    <id>2</id>
+    <name>GPU</name>
+    <required>1</required>
+    <description>Graphics Processing Unit, the graphical processor of every PCs.</description>
+    <created_at>2022-04-03T15:01:11.000000Z</created_at>
+    <updated_at>2022-04-03T15:01:11.000000Z</updated_at>
+</category>

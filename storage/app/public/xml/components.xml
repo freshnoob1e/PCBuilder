@@ -1,0 +1,703 @@
+<?xml version="1.0"?>
+<components>
+    <el>
+        <id>27</id>
+        <brand_id>6</brand_id>
+        <category_id>9</category_id>
+        <name>WD Black</name>
+        <description>WD_BLACK Gaming Hard Drives let you download the latest AAA titles while also keeping your ever-growing catalog of classics and favorites ready to play. Don't compromise on your game collection. Store more and game more with WD_BLACK.</description>
+        <price>499</price>
+        <image>/images/parts/1649003542_WD Black.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T16:32:22.000000Z</created_at>
+        <updated_at>2022-04-03T16:32:22.000000Z</updated_at>
+        <category>
+            <id>9</id>
+            <name>HDD</name>
+            <required>0</required>
+            <description>Hard Disks is a mechanical hard drive that stores all of the data of a PC.</description>
+            <created_at>2022-04-03T15:08:45.000000Z</created_at>
+            <updated_at>2022-04-03T15:08:45.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>6</id>
+            <name>Western Digital</name>
+            <image>/images/brands/1648997965_Western Digital.webp</image>
+            <created_at>2022-04-03T14:59:25.000000Z</created_at>
+            <updated_at>2022-04-03T14:59:25.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>26</id>
+        <brand_id>6</brand_id>
+        <category_id>9</category_id>
+        <name>WD Green</name>
+        <description>WD Green hard drives are designed for use in systems that require cool and quiet operation, as secondary drives in PCs, for external enclosures and other applications for which low noise and low heat are beneficial.</description>
+        <price>150</price>
+        <image>/images/parts/1649003500_WD Green.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T16:31:40.000000Z</created_at>
+        <updated_at>2022-04-03T16:31:40.000000Z</updated_at>
+        <category>
+            <id>9</id>
+            <name>HDD</name>
+            <required>0</required>
+            <description>Hard Disks is a mechanical hard drive that stores all of the data of a PC.</description>
+            <created_at>2022-04-03T15:08:45.000000Z</created_at>
+            <updated_at>2022-04-03T15:08:45.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>6</id>
+            <name>Western Digital</name>
+            <image>/images/brands/1648997965_Western Digital.webp</image>
+            <created_at>2022-04-03T14:59:25.000000Z</created_at>
+            <updated_at>2022-04-03T14:59:25.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>25</id>
+        <brand_id>4</brand_id>
+        <category_id>8</category_id>
+        <name>NV1 NVMe M.2 SSD</name>
+        <description>Kingston&#x2019;s NV1 NVMe&#x2122; PCIe SSD is a substantial storage solution that offers speeds 3 to 4 times faster than a SATA-based SSD, and 35 times faster than a traditional hard drive.</description>
+        <price>250</price>
+        <image>/images/parts/1649003455_NV1 NVMe M.2 SSD.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T16:30:55.000000Z</created_at>
+        <updated_at>2022-04-03T16:30:55.000000Z</updated_at>
+        <category>
+            <id>8</id>
+            <name>SSD</name>
+            <required>0</required>
+            <description>Solid State Drive stores all the data of a PC.</description>
+            <created_at>2022-04-03T15:07:54.000000Z</created_at>
+            <updated_at>2022-04-03T15:07:54.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>4</id>
+            <name>Kingston</name>
+            <image>/images/brands/1648997935_Kingston.webp</image>
+            <created_at>2022-04-03T14:58:55.000000Z</created_at>
+            <updated_at>2022-04-03T14:58:55.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>24</id>
+        <brand_id>4</brand_id>
+        <category_id>8</category_id>
+        <name>A400 SATA SSD</name>
+        <description>Kingston&#x2019;s A400 solid-state drive dramatically improves the responsiveness of your existing system with incredible boot, loading and transfer times compared to mechanical hard drives.</description>
+        <price>180</price>
+        <image>/images/parts/1649003353_A400 SATA SSD.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T16:29:13.000000Z</created_at>
+        <updated_at>2022-04-03T16:29:13.000000Z</updated_at>
+        <category>
+            <id>8</id>
+            <name>SSD</name>
+            <required>0</required>
+            <description>Solid State Drive stores all the data of a PC.</description>
+            <created_at>2022-04-03T15:07:54.000000Z</created_at>
+            <updated_at>2022-04-03T15:07:54.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>4</id>
+            <name>Kingston</name>
+            <image>/images/brands/1648997935_Kingston.webp</image>
+            <created_at>2022-04-03T14:58:55.000000Z</created_at>
+            <updated_at>2022-04-03T14:58:55.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>23</id>
+        <brand_id>4</brand_id>
+        <category_id>6</category_id>
+        <name>HyperX Fury DDR4</name>
+        <description>The HyperX Fury the RAM for gamers for competitive gaming.</description>
+        <price>200</price>
+        <image>/images/parts/1649003286_HyperX Fury DDR4.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T16:28:06.000000Z</created_at>
+        <updated_at>2022-04-03T16:28:06.000000Z</updated_at>
+        <category>
+            <id>6</id>
+            <name>RAM</name>
+            <required>1</required>
+            <description>Random Access Memory is the memory of a PC.</description>
+            <created_at>2022-04-03T15:05:37.000000Z</created_at>
+            <updated_at>2022-04-03T15:05:37.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>4</id>
+            <name>Kingston</name>
+            <image>/images/brands/1648997935_Kingston.webp</image>
+            <created_at>2022-04-03T14:58:55.000000Z</created_at>
+            <updated_at>2022-04-03T14:58:55.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>22</id>
+        <brand_id>4</brand_id>
+        <category_id>6</category_id>
+        <name>ValueRam </name>
+        <description>The most budget-friendly RAM for PC builders.</description>
+        <price>150</price>
+        <image>/images/parts/1649003214_ValueRam .webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T16:26:54.000000Z</created_at>
+        <updated_at>2022-04-03T16:26:54.000000Z</updated_at>
+        <category>
+            <id>6</id>
+            <name>RAM</name>
+            <required>1</required>
+            <description>Random Access Memory is the memory of a PC.</description>
+            <created_at>2022-04-03T15:05:37.000000Z</created_at>
+            <updated_at>2022-04-03T15:05:37.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>4</id>
+            <name>Kingston</name>
+            <image>/images/brands/1648997935_Kingston.webp</image>
+            <created_at>2022-04-03T14:58:55.000000Z</created_at>
+            <updated_at>2022-04-03T14:58:55.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>21</id>
+        <brand_id>5</brand_id>
+        <category_id>5</category_id>
+        <name>SickleFlow 200</name>
+        <description>SickleFlow 120 ARGB, a new series of the CoolerMaster Fan family, provides a specific air cooling solution ideal for CPU coolers and chassis in-take fans.</description>
+        <price>64</price>
+        <image>/images/parts/1649003145_SickleFlow 200.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T16:25:45.000000Z</created_at>
+        <updated_at>2022-04-03T16:25:45.000000Z</updated_at>
+        <category>
+            <id>5</id>
+            <name>Case Fan</name>
+            <required>1</required>
+            <description>Fans that attach to the casing that push or pull air in the case</description>
+            <created_at>2022-04-03T15:04:24.000000Z</created_at>
+            <updated_at>2022-04-03T15:04:24.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>5</id>
+            <name>Cooler Master</name>
+            <image>/images/brands/1648997944_Cooler Master.webp</image>
+            <created_at>2022-04-03T14:59:04.000000Z</created_at>
+            <updated_at>2022-04-03T14:59:04.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>20</id>
+        <brand_id>5</brand_id>
+        <category_id>5</category_id>
+        <name>MF SF120M</name>
+        <description>Cooler Master's Flux Series is the materialization of revolutionary cooling performance. With enhancements from the pump to the radiator and fans, the Flux Series delivers precisely tuned performance for superior heat dissipation and cooling capabilities.</description>
+        <price>79</price>
+        <image>/images/parts/1649003017_MF SF120M.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T16:23:37.000000Z</created_at>
+        <updated_at>2022-04-03T16:23:37.000000Z</updated_at>
+        <category>
+            <id>5</id>
+            <name>Case Fan</name>
+            <required>1</required>
+            <description>Fans that attach to the casing that push or pull air in the case</description>
+            <created_at>2022-04-03T15:04:24.000000Z</created_at>
+            <updated_at>2022-04-03T15:04:24.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>5</id>
+            <name>Cooler Master</name>
+            <image>/images/brands/1648997944_Cooler Master.webp</image>
+            <created_at>2022-04-03T14:59:04.000000Z</created_at>
+            <updated_at>2022-04-03T14:59:04.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>19</id>
+        <brand_id>5</brand_id>
+        <category_id>11</category_id>
+        <name>MasterAir MA612 Stealth CPU Air Cooler</name>
+        <description>6 heat pipes with precision fin distribution for enhanced cooling efficiency and exceptional heat removal.</description>
+        <price>246</price>
+        <image>/images/parts/1649002961_MasterAir MA612 Stealth CPU Air Cooler.webp</image>
+        <not_compatible_parts>[6]</not_compatible_parts>
+        <created_at>2022-04-03T16:22:41.000000Z</created_at>
+        <updated_at>2022-04-03T16:32:36.000000Z</updated_at>
+        <category>
+            <id>11</id>
+            <name>CPU Cooler</name>
+            <required>1</required>
+            <description>Cools off the CPU preventing from overheating.</description>
+            <created_at>2022-04-03T16:19:37.000000Z</created_at>
+            <updated_at>2022-04-03T16:19:37.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>5</id>
+            <name>Cooler Master</name>
+            <image>/images/brands/1648997944_Cooler Master.webp</image>
+            <created_at>2022-04-03T14:59:04.000000Z</created_at>
+            <updated_at>2022-04-03T14:59:04.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>18</id>
+        <brand_id>5</brand_id>
+        <category_id>11</category_id>
+        <name>MasterLiquid PL240 Flux AIO</name>
+        <description>Cooler Master's Flux Series is the materialization of revolutionary cooling performance. With enhancements from the pump to the radiator and fans, the Flux Series delivers precisely tuned performance for superior heat dissipation and cooling capabilities.</description>
+        <price>389</price>
+        <image>/images/parts/1649002853_MasterLiquid PL240 Flux AIO.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T16:20:53.000000Z</created_at>
+        <updated_at>2022-04-03T16:20:53.000000Z</updated_at>
+        <category>
+            <id>11</id>
+            <name>CPU Cooler</name>
+            <required>1</required>
+            <description>Cools off the CPU preventing from overheating.</description>
+            <created_at>2022-04-03T16:19:37.000000Z</created_at>
+            <updated_at>2022-04-03T16:19:37.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>5</id>
+            <name>Cooler Master</name>
+            <image>/images/brands/1648997944_Cooler Master.webp</image>
+            <created_at>2022-04-03T14:59:04.000000Z</created_at>
+            <updated_at>2022-04-03T14:59:04.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>17</id>
+        <brand_id>5</brand_id>
+        <category_id>10</category_id>
+        <name>V650 SFX Gold</name>
+        <description>The V SFX Gold is Cooler Master's debut entry into SFX power supply units. We have finally produced a PSU specifically made to meet the needs of mini-ITX system builders.</description>
+        <price>452</price>
+        <image>/images/parts/1649000876_V650 SFX Gold.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T15:47:56.000000Z</created_at>
+        <updated_at>2022-04-03T16:15:40.000000Z</updated_at>
+        <category>
+            <id>10</id>
+            <name>PSU</name>
+            <required>1</required>
+            <description>Power Supply Unit supplies electricity throughout the PC components.</description>
+            <created_at>2022-04-03T15:09:37.000000Z</created_at>
+            <updated_at>2022-04-03T15:09:37.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>5</id>
+            <name>Cooler Master</name>
+            <image>/images/brands/1648997944_Cooler Master.webp</image>
+            <created_at>2022-04-03T14:59:04.000000Z</created_at>
+            <updated_at>2022-04-03T14:59:04.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>16</id>
+        <brand_id>5</brand_id>
+        <category_id>10</category_id>
+        <name>MWE Gold 650</name>
+        <description>Behold the 80 Plus Gold rated, fully modular MWE Gold. This power supply unit delivers consistent 90% efficiency, low temperatures, and quiet operation.</description>
+        <price>389</price>
+        <image>/images/parts/1649000811_MWE Gold 650.webp</image>
+        <not_compatible_parts>[6]</not_compatible_parts>
+        <created_at>2022-04-03T15:46:51.000000Z</created_at>
+        <updated_at>2022-04-03T16:33:00.000000Z</updated_at>
+        <category>
+            <id>10</id>
+            <name>PSU</name>
+            <required>1</required>
+            <description>Power Supply Unit supplies electricity throughout the PC components.</description>
+            <created_at>2022-04-03T15:09:37.000000Z</created_at>
+            <updated_at>2022-04-03T15:09:37.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>5</id>
+            <name>Cooler Master</name>
+            <image>/images/brands/1648997944_Cooler Master.webp</image>
+            <created_at>2022-04-03T14:59:04.000000Z</created_at>
+            <updated_at>2022-04-03T14:59:04.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>15</id>
+        <brand_id>5</brand_id>
+        <category_id>10</category_id>
+        <name>MasterWatt Lite 600W</name>
+        <description>The MasterWatt Lite Series to be that simple.  All the essentials of a reliable engine so you don't have to think about it.</description>
+        <price>180</price>
+        <image>/images/parts/1649000718_MasterWatt Lite 600W.webp</image>
+        <not_compatible_parts>[6]</not_compatible_parts>
+        <created_at>2022-04-03T15:45:18.000000Z</created_at>
+        <updated_at>2022-04-03T16:33:06.000000Z</updated_at>
+        <category>
+            <id>10</id>
+            <name>PSU</name>
+            <required>1</required>
+            <description>Power Supply Unit supplies electricity throughout the PC components.</description>
+            <created_at>2022-04-03T15:09:37.000000Z</created_at>
+            <updated_at>2022-04-03T15:09:37.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>5</id>
+            <name>Cooler Master</name>
+            <image>/images/brands/1648997944_Cooler Master.webp</image>
+            <created_at>2022-04-03T14:59:04.000000Z</created_at>
+            <updated_at>2022-04-03T14:59:04.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>14</id>
+        <brand_id>3</brand_id>
+        <category_id>3</category_id>
+        <name>Intel i9-12900K</name>
+        <description>The Intel Core i9-12900K is the fastest gaming processor on the planet.</description>
+        <price>2599</price>
+        <image>/images/parts/1649000642_Intel i9-12900K.webp</image>
+        <not_compatible_parts>[7,8]</not_compatible_parts>
+        <created_at>2022-04-03T15:44:02.000000Z</created_at>
+        <updated_at>2022-04-03T16:33:24.000000Z</updated_at>
+        <category>
+            <id>3</id>
+            <name>CPU</name>
+            <required>1</required>
+            <description>Central Processing Unit, the heart of every PC.</description>
+            <created_at>2022-04-03T15:01:52.000000Z</created_at>
+            <updated_at>2022-04-03T15:01:52.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>3</id>
+            <name>Intel</name>
+            <image>/images/brands/1648997924_Intel.webp</image>
+            <created_at>2022-04-03T14:58:44.000000Z</created_at>
+            <updated_at>2022-04-03T14:58:44.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>13</id>
+        <brand_id>3</brand_id>
+        <category_id>3</category_id>
+        <name>Intel i5-12600</name>
+        <description>The Core i5-12600K: Intel's 12th Gen Ace in the Hole. Based off Intel's new "7 Process," the company's 12th Generation desktop CPUs.</description>
+        <price>849</price>
+        <image>/images/parts/1649000590_Intel i5-12600.webp</image>
+        <not_compatible_parts>[7,8]</not_compatible_parts>
+        <created_at>2022-04-03T15:43:10.000000Z</created_at>
+        <updated_at>2022-04-03T16:33:32.000000Z</updated_at>
+        <category>
+            <id>3</id>
+            <name>CPU</name>
+            <required>1</required>
+            <description>Central Processing Unit, the heart of every PC.</description>
+            <created_at>2022-04-03T15:01:52.000000Z</created_at>
+            <updated_at>2022-04-03T15:01:52.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>3</id>
+            <name>Intel</name>
+            <image>/images/brands/1648997924_Intel.webp</image>
+            <created_at>2022-04-03T14:58:44.000000Z</created_at>
+            <updated_at>2022-04-03T14:58:44.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>12</id>
+        <brand_id>2</brand_id>
+        <category_id>3</category_id>
+        <name>Ryzen 9 5900X</name>
+        <description>AMD Ryzen&#x2122; 9 5900X series desktop processors comes with 12 cores to power through gaming, streaming and more.</description>
+        <price>2700</price>
+        <image>/images/parts/1649000447_Ryzen 9 5900X.webp</image>
+        <not_compatible_parts>[9,10]</not_compatible_parts>
+        <created_at>2022-04-03T15:40:47.000000Z</created_at>
+        <updated_at>2022-04-03T16:33:39.000000Z</updated_at>
+        <category>
+            <id>3</id>
+            <name>CPU</name>
+            <required>1</required>
+            <description>Central Processing Unit, the heart of every PC.</description>
+            <created_at>2022-04-03T15:01:52.000000Z</created_at>
+            <updated_at>2022-04-03T15:01:52.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>2</id>
+            <name>Advanced Micro Devices (AMD)</name>
+            <image>/images/brands/1648997913_Advanced Micro Devices (AMD).webp</image>
+            <created_at>2022-04-03T14:58:33.000000Z</created_at>
+            <updated_at>2022-04-03T14:58:33.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>11</id>
+        <brand_id>2</brand_id>
+        <category_id>3</category_id>
+        <name>Ryzen 5 5600X</name>
+        <description>AMD Ryzen&#x2122; 5 5600X gaming desktop processors features 6 incredible cores for those who just want to game.</description>
+        <price>1199</price>
+        <image>/images/parts/1649000411_Ryzen 5 5600X.webp</image>
+        <not_compatible_parts>[9,10]</not_compatible_parts>
+        <created_at>2022-04-03T15:40:11.000000Z</created_at>
+        <updated_at>2022-04-03T16:33:59.000000Z</updated_at>
+        <category>
+            <id>3</id>
+            <name>CPU</name>
+            <required>1</required>
+            <description>Central Processing Unit, the heart of every PC.</description>
+            <created_at>2022-04-03T15:01:52.000000Z</created_at>
+            <updated_at>2022-04-03T15:01:52.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>2</id>
+            <name>Advanced Micro Devices (AMD)</name>
+            <image>/images/brands/1648997913_Advanced Micro Devices (AMD).webp</image>
+            <created_at>2022-04-03T14:58:33.000000Z</created_at>
+            <updated_at>2022-04-03T14:58:33.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>10</id>
+        <brand_id>7</brand_id>
+        <category_id>7</category_id>
+        <name>Asus ROG Strix Z690-I</name>
+        <description>The ROG Strix Z690-I Gaming WiFi packs premium-grade power delivery and triple-decker cooling into a compact mini-ITX form factor to unleash the full force of 12th Gen Intel&#xAE; Core&#x2122; processors.</description>
+        <price>980</price>
+        <image>/images/parts/1649000303_Asus ROG Strix Z690-I.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T15:38:23.000000Z</created_at>
+        <updated_at>2022-04-03T15:38:23.000000Z</updated_at>
+        <category>
+            <id>7</id>
+            <name>Motherboard</name>
+            <required>1</required>
+            <description>Motherboard provides connectivity between hardware components of the computer.</description>
+            <created_at>2022-04-03T15:06:40.000000Z</created_at>
+            <updated_at>2022-04-03T15:06:40.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>7</id>
+            <name>Asus</name>
+            <image>/images/brands/1648998794_Asus.webp</image>
+            <created_at>2022-04-03T15:13:14.000000Z</created_at>
+            <updated_at>2022-04-03T15:13:14.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>9</id>
+        <brand_id>7</brand_id>
+        <category_id>7</category_id>
+        <name>Asus H610M-K</name>
+        <description>ASUS Prime series motherboards are expertly engineered to unleash the full potential of 12th Generation Intel&#xAE; processors.</description>
+        <price>249</price>
+        <image>/images/parts/1649000159_Asus H610M-K.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T15:35:59.000000Z</created_at>
+        <updated_at>2022-04-03T15:35:59.000000Z</updated_at>
+        <category>
+            <id>7</id>
+            <name>Motherboard</name>
+            <required>1</required>
+            <description>Motherboard provides connectivity between hardware components of the computer.</description>
+            <created_at>2022-04-03T15:06:40.000000Z</created_at>
+            <updated_at>2022-04-03T15:06:40.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>7</id>
+            <name>Asus</name>
+            <image>/images/brands/1648998794_Asus.webp</image>
+            <created_at>2022-04-03T15:13:14.000000Z</created_at>
+            <updated_at>2022-04-03T15:13:14.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>8</id>
+        <brand_id>7</brand_id>
+        <category_id>7</category_id>
+        <name>Asus ROG Strix X570-E</name>
+        <description>The ROG Strix X570-E Gaming motherboard delivers the quintessential ROG experience with a compelling mix of features and undeniable style that provide the ideal foundation for building a powerful ATX gaming system</description>
+        <price>1100</price>
+        <image>/images/parts/1648998932_Asus ROG Strix X570-E.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T15:15:32.000000Z</created_at>
+        <updated_at>2022-04-03T15:15:32.000000Z</updated_at>
+        <category>
+            <id>7</id>
+            <name>Motherboard</name>
+            <required>1</required>
+            <description>Motherboard provides connectivity between hardware components of the computer.</description>
+            <created_at>2022-04-03T15:06:40.000000Z</created_at>
+            <updated_at>2022-04-03T15:06:40.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>7</id>
+            <name>Asus</name>
+            <image>/images/brands/1648998794_Asus.webp</image>
+            <created_at>2022-04-03T15:13:14.000000Z</created_at>
+            <updated_at>2022-04-03T15:13:14.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>7</id>
+        <brand_id>7</brand_id>
+        <category_id>7</category_id>
+        <name>Asus A320M-K</name>
+        <description>The ASUS Prime A320M-K is quite good in itself. It provides all the necessary settings which are indeed operational.</description>
+        <price>189</price>
+        <image>/images/parts/1648998830_Asus A320M-K.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T15:13:50.000000Z</created_at>
+        <updated_at>2022-04-03T15:13:50.000000Z</updated_at>
+        <category>
+            <id>7</id>
+            <name>Motherboard</name>
+            <required>1</required>
+            <description>Motherboard provides connectivity between hardware components of the computer.</description>
+            <created_at>2022-04-03T15:06:40.000000Z</created_at>
+            <updated_at>2022-04-03T15:06:40.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>7</id>
+            <name>Asus</name>
+            <image>/images/brands/1648998794_Asus.webp</image>
+            <created_at>2022-04-03T15:13:14.000000Z</created_at>
+            <updated_at>2022-04-03T15:13:14.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>6</id>
+        <brand_id>5</brand_id>
+        <category_id>4</category_id>
+        <name>NR200P</name>
+        <description>The NR200P boasts larger ITX chassis features while retaining a space-efficient form factor.</description>
+        <price>450</price>
+        <image>/images/parts/1648998752_NR200P.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T15:12:32.000000Z</created_at>
+        <updated_at>2022-04-03T15:12:32.000000Z</updated_at>
+        <category>
+            <id>4</id>
+            <name>Casing</name>
+            <required>1</required>
+            <description>The outer shell of a PC.</description>
+            <created_at>2022-04-03T15:03:26.000000Z</created_at>
+            <updated_at>2022-04-03T15:03:26.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>5</id>
+            <name>Cooler Master</name>
+            <image>/images/brands/1648997944_Cooler Master.webp</image>
+            <created_at>2022-04-03T14:59:04.000000Z</created_at>
+            <updated_at>2022-04-03T14:59:04.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>5</id>
+        <brand_id>5</brand_id>
+        <category_id>4</category_id>
+        <name>HAF 500 Mid Tower</name>
+        <description>Cooler Master&#x2019;s classic HAF series is making a return with HAF 500. Built for high airflow and peak performance, the HAF 500 boasts iconic 200mm large intake ARGB fans, ensuring unparalleled intake and cooling efficiency.</description>
+        <price>250</price>
+        <image>/images/parts/1648998727_HAF 500 Mid Tower.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T15:12:07.000000Z</created_at>
+        <updated_at>2022-04-03T15:12:07.000000Z</updated_at>
+        <category>
+            <id>4</id>
+            <name>Casing</name>
+            <required>1</required>
+            <description>The outer shell of a PC.</description>
+            <created_at>2022-04-03T15:03:26.000000Z</created_at>
+            <updated_at>2022-04-03T15:03:26.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>5</id>
+            <name>Cooler Master</name>
+            <image>/images/brands/1648997944_Cooler Master.webp</image>
+            <created_at>2022-04-03T14:59:04.000000Z</created_at>
+            <updated_at>2022-04-03T14:59:04.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>4</id>
+        <brand_id>1</brand_id>
+        <category_id>2</category_id>
+        <name>RTX 3090</name>
+        <description>The flagship level of RTX 30 series, the RTX 3090.</description>
+        <price>9500</price>
+        <image>/images/parts/1648998684_RTX 3090.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T15:11:24.000000Z</created_at>
+        <updated_at>2022-04-03T15:11:24.000000Z</updated_at>
+        <category>
+            <id>2</id>
+            <name>GPU</name>
+            <required>1</required>
+            <description>Graphics Processing Unit, the graphical processor of every PCs.</description>
+            <created_at>2022-04-03T15:01:11.000000Z</created_at>
+            <updated_at>2022-04-03T15:01:11.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>1</id>
+            <name>Nvidia</name>
+            <image>/images/brands/1648997901_Nvidia.webp</image>
+            <created_at>2022-04-03T14:50:27.000000Z</created_at>
+            <updated_at>2022-04-03T14:58:21.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+    <el>
+        <id>3</id>
+        <brand_id>1</brand_id>
+        <category_id>2</category_id>
+        <name>RTX 3050</name>
+        <description>The entry level of RTX 30 series, the RTX 3050.</description>
+        <price>1200</price>
+        <image>/images/parts/1648998642_RTX 3050.webp</image>
+        <not_compatible_parts>[]</not_compatible_parts>
+        <created_at>2022-04-03T15:10:42.000000Z</created_at>
+        <updated_at>2022-04-03T15:10:42.000000Z</updated_at>
+        <category>
+            <id>2</id>
+            <name>GPU</name>
+            <required>1</required>
+            <description>Graphics Processing Unit, the graphical processor of every PCs.</description>
+            <created_at>2022-04-03T15:01:11.000000Z</created_at>
+            <updated_at>2022-04-03T15:01:11.000000Z</updated_at>
+        </category>
+        <brand>
+            <id>1</id>
+            <name>Nvidia</name>
+            <image>/images/brands/1648997901_Nvidia.webp</image>
+            <created_at>2022-04-03T14:50:27.000000Z</created_at>
+            <updated_at>2022-04-03T14:58:21.000000Z</updated_at>
+        </brand>
+        <reviews/>
+    </el>
+</components>
