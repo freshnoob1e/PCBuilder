@@ -97,6 +97,7 @@ class BrowseController extends Controller
     {
         $parts = Part::latest()->with(['category', 'brand', 'reviews'])->get();
         foreach ($parts as $part) {
+            $parts->imagePath = asset('storage' . $part->image);
             if (!$part->reviews->first()) {
                 continue;
             }
@@ -112,6 +113,9 @@ class BrowseController extends Controller
     public function get_all_brands_json()
     {
         $brands = Brand::latest()->get();
+        foreach ($brands as $brand) {
+            $brand->imagePath = asset('storage' . $brand->image);
+        }
         return response()->json($brands);
     }
 
@@ -125,6 +129,7 @@ class BrowseController extends Controller
     {
         $part = $part->load(['category', 'reviews.user', 'brand', 'spec']);
         $partSpec = json_decode($part->spec->properties);
+        $part->imagePath = asset('storage' . $part->image);
 
         return response()->json([
             'part' => $part,
@@ -136,6 +141,7 @@ class BrowseController extends Controller
     {
         $brandParts = $brand->parts()->with(['category', 'reviews'])->get();
         foreach ($brandParts as $part) {
+            $part->imagePath = asset('storage' . $part->image);
             if (!$part->reviews->first()) {
                 continue;
             }
@@ -145,6 +151,7 @@ class BrowseController extends Controller
             }
             $part->avgRating = round(collect($ratings)->avg());
         }
+        $brand->imagePath = asset('storage' . $brand->image);
 
         return response()->json([
             'brand' => $brand,
@@ -156,6 +163,7 @@ class BrowseController extends Controller
     {
         $category = $category->load(['parts.brand', 'parts.reviews']);
         foreach ($category->parts as $part) {
+            $part->imagePath = asset('storage' . $part->image);
             if (!$part->reviews->first()) {
                 continue;
             }
